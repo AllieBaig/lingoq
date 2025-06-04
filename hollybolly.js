@@ -1,7 +1,6 @@
-
-// HollyBolly Game Module
-// Hollywood-Bollywood movie guessing game
-
+/**
+ * HollyBollyGame - Core game logic for Hollywood vs Bollywood quiz
+ */
 export class HollyBollyGame {
     constructor(gameData = []) {
         this.currentQuestion = null;
@@ -12,20 +11,26 @@ export class HollyBollyGame {
         this.questionsAnswered = 0;
         this.correctAnswers = 0;
         this.gameLanguage = 'en';
-        
-        // Game data will be loaded externally
         this.gameData = gameData;
         this.usedQuestions = new Set();
     }
-    
-    // Load game data from external source
+
+    /**
+     * Load game data into the game instance
+     * @param {Array} gameData - Array of question objects
+     * @returns {boolean} - True if data loaded successfully
+     */
     loadGameData(gameData) {
         this.gameData = gameData;
         this.usedQuestions.clear();
         return this.gameData.length > 0;
     }
-    
-    // Initialize game with difficulty level
+
+    /**
+     * Start a new game session
+     * @param {string} difficulty - Game difficulty: 'easy', 'medium', 'hard'
+     * @returns {Object|null} - First question object or null if no data
+     */
     startGame(difficulty = 'easy') {
         this.currentDifficulty = difficulty;
         this.score = 0;
@@ -33,83 +38,61 @@ export class HollyBollyGame {
         this.questionsAnswered = 0;
         this.correctAnswers = 0;
         this.usedQuestions.clear();
-        
-        console.log(`Starting HollyBolly game on ${difficulty} difficulty`);
         return this.getNewQuestion();
     }
-    
-    // Get a new random question
+
+    /**
+     * Get a new random question that hasn't been used yet
+     * @returns {Object|null} - Formatted question object or null
+     */
     getNewQuestion() {
-        if (this.gameData.length === 0) {
-            console.error('No game data loaded');
-            return null;
-        }
+        if (this.gameData.length === 0) return null;
         
-        // Filter out used questions
         const availableQuestions = this.gameData.filter(q => !this.usedQuestions.has(q.id));
         
+        // Reset used questions if all have been used
         if (availableQuestions.length === 0) {
-            // All questions used, reset the pool
             this.usedQuestions.clear();
             return this.getNewQuestion();
         }
         
-        // Select random question
         const randomIndex = Math.floor(Math.random() * availableQuestions.length);
         this.currentQuestion = availableQuestions[randomIndex];
         this.usedQuestions.add(this.currentQuestion.id);
         
         return this.formatQuestion();
     }
-    
-    // Format question based on difficulty and language
+
+    /**
+     * Format the current question for display based on difficulty
+     * @returns {Object|null} - Formatted question with shuffled answers
+     */
     formatQuestion() {
         if (!this.currentQuestion) return null;
         
         const question = this.currentQuestion;
-        let answers = [];
-        let correctAnswer = '';
-        
-        // Handle both old format (with language objects) and new format (direct arrays)
-        if (question.answers && Array.isArray(question.answers)) {
-            // New format - direct array
-            answers = [...question.answers];
-            correctAnswer = question.correctAnswer || answers[0];
-        } else if (question.answers && question.answers[this.gameLanguage]) {
-            // Old format - language objects
-            answers = [...question.answers[this.gameLanguage]];
-            correctAnswer = answers[0];
-        } else if (question.answers && question.answers.en) {
-            // Fallback to English
-            answers = [...question.answers.en];
-            correctAnswer = answers[0];
-        } else {
-            console.error('Invalid question format');
-            return null;
-        }
-        
-        // Shuffle and limit answers based on difficulty
-        let questionAnswers = [...answers];
-        const maxChoices = this.getDifficultyChoices();
+        let answers = [...question.answers];
+        const correctAnswer = question.correctAnswer || answers[0];
         
         // Shuffle answers
-        for (let i = questionAnswers.length - 1; i > 0; i--) {
+        for (let i = answers.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
-            [questionAnswers[i], questionAnswers[j]] = [questionAnswers[j], questionAnswers[i]];
+            [answers[i], answers[j]] = [answers[j], answers[i]];
         }
         
-        // Limit to difficulty level
-        questionAnswers = questionAnswers.slice(0, maxChoices);
+        // Limit answers based on difficulty
+        const maxChoices = this.getDifficultyChoices();
+        answers = answers.slice(0, maxChoices);
         
         // Ensure correct answer is included
-        if (!questionAnswers.includes(correctAnswer)) {
-            questionAnswers[Math.floor(Math.random() * questionAnswers.length)] = correctAnswer;
+        if (!answers.includes(correctAnswer)) {
+            answers[Math.floor(Math.random() * answers.length)] = correctAnswer;
         }
         
         return {
             id: question.id,
             question: question.question,
-            answers: questionAnswers,
+            answers: answers,
             correctAnswer: correctAnswer,
             place: question.place,
             animal: question.animal,
@@ -119,8 +102,11 @@ export class HollyBollyGame {
             difficulty: this.currentDifficulty
         };
     }
-    
-    // Get number of choices based on difficulty
+
+    /**
+     * Get number of answer choices based on difficulty
+     * @returns {number} - Number of choices to show
+     */
     getDifficultyChoices() {
         switch (this.currentDifficulty) {
             case 'easy': return 2;
@@ -129,8 +115,12 @@ export class HollyBollyGame {
             default: return 2;
         }
     }
-    
-    // Submit answer and get result
+
+    /**
+     * Submit an answer and calculate results
+     * @param {string} selectedAnswer - The answer selected by the player
+     * @returns {Object|null} - Result object with scoring and feedback
+     */
     submitAnswer(selectedAnswer) {
         if (!this.currentQuestion) return null;
         
@@ -148,7 +138,7 @@ export class HollyBollyGame {
             this.streak = 0;
         }
         
-        const result = {
+        return {
             correct: isCorrect,
             correctAnswer: question.correctAnswer,
             selectedAnswer: selectedAnswer,
@@ -159,11 +149,12 @@ export class HollyBollyGame {
             hollywood: question.hollywood,
             bollywood: question.bollywood
         };
-        
-        return result;
     }
-    
-    // Get points based on difficulty
+
+    /**
+     * Get points awarded based on difficulty
+     * @returns {number} - Points for correct answer
+     */
     getDifficultyPoints() {
         switch (this.currentDifficulty) {
             case 'easy': return 10;
@@ -172,8 +163,11 @@ export class HollyBollyGame {
             default: return 10;
         }
     }
-    
-    // Get reward based on streak
+
+    /**
+     * Get reward information based on current streak
+     * @returns {Object|null} - Reward object or null if no reward
+     */
     getReward() {
         if (this.streak === 1) {
             return {
@@ -193,14 +187,17 @@ export class HollyBollyGame {
             return {
                 type: 'heroes',
                 title: 'Heroes Net Worth',
-                hollywood: 'N/A', // Hollywood heroes data not included in this dataset
+                hollywood: 'N/A',
                 bollywood: this.currentQuestion.bollywood.heroNetWorth
             };
         }
         return null;
     }
-    
-    // Get explanation about the movie connection
+
+    /**
+     * Get explanation about the movie connection
+     * @returns {Object} - Explanation object with connection details
+     */
     getExplanation() {
         const q = this.currentQuestion;
         return {
@@ -210,17 +207,11 @@ export class HollyBollyGame {
             connection: `${q.bollywood.title} draws inspiration from ${q.hollywood.title}, featuring key elements: ${q.place}, ${q.animal !== 'None' ? q.animal : 'symbolic elements'}, and ${q.thing}.`
         };
     }
-    
-    // Set game language
-    setLanguage(language) {
-        if (['en', 'fr', 'de'].includes(language)) {
-            this.gameLanguage = language;
-            return true;
-        }
-        return false;
-    }
-    
-    // Get game statistics
+
+    /**
+     * Get current game statistics
+     * @returns {Object} - Stats object with all game metrics
+     */
     getStats() {
         return {
             score: this.score,
@@ -232,8 +223,10 @@ export class HollyBollyGame {
             difficulty: this.currentDifficulty
         };
     }
-    
-    // Reset game
+
+    /**
+     * Reset all game state to initial values
+     */
     resetGame() {
         this.currentQuestion = null;
         this.score = 0;
@@ -242,15 +235,5 @@ export class HollyBollyGame {
         this.questionsAnswered = 0;
         this.correctAnswers = 0;
         this.usedQuestions.clear();
-    }
-    
-    // Check if game data is loaded
-    isDataLoaded() {
-        return this.gameData && this.gameData.length > 0;
-    }
-    
-    // Get total number of questions available
-    getTotalQuestions() {
-        return this.gameData ? this.gameData.length : 0;
     }
 }
