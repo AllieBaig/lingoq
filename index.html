@@ -1,242 +1,68 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LingoQuest - Word Game</title>
-    
-    <!-- PWA Meta Tags -->
-    <meta name="description" content="LingoQuest - Senior-friendly word game with multiple languages">
-    <meta name="theme-color" content="#2196F3">
-    <link rel="manifest" href="manifest.json">
-    <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
-    <link rel="apple-touch-icon" href="icon-192.png">
-    
-    <!-- External CSS -->
+    <title>HollyBolly Game - Hollywood vs Bollywood</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body data-theme="light">
-    <div class="app-container">
-        <!-- Header -->
-        <header class="header">
-            <div class="logo">LingoQuest</div>
-            <div class="header-controls">
-                <div class="dropdown">
-                    <select class="dropdown-select" id="languageSelect">
-                        <option value="en">English</option>
-                        <option value="fr">Français</option>
-                        <option value="de">Deutsch</option>
-                    </select>
-                </div>
-                <button class="btn btn-secondary" id="settingsBtn">Settings</button>
+<body>
+    <div class="game-container">
+        <div class="game-header">
+            <h1 class="game-title">🎬 HollyBolly 🎭</h1>
+            <p class="game-subtitle">Hollywood vs Bollywood Movie Quiz</p>
+        </div>
+
+        <div class="stats-bar">
+            <div class="stat-item">
+                <div class="stat-value" id="score">0</div>
+                <div class="stat-label">Score</div>
             </div>
-        </header>
-
-        <!-- Main Content -->
-        <main class="main-content">
-            <!-- Home Page -->
-            <div id="homePage" class="page">
-                <div style="text-align: center; margin-bottom: 30px;">
-                    <h1 style="font-size: var(--font-size-xl); margin-bottom: 15px;">Welcome to LingoQuest!</h1>
-                    <p style="font-size: var(--font-size-large); color: var(--text-secondary);">
-                        Challenge your mind with our word games
-                    </p>
-                </div>
-
-                <div class="game-modes">
-                    <div class="game-mode-card" id="hollyBollyMode">
-                        <div class="game-mode-title">HollyBolly</div>
-                        <div class="game-mode-description">
-                            Guess Bollywood movies inspired by Hollywood films using iconic Places, Animals, and Things!
-                        </div>
-                        <button class="btn btn-primary btn-large">Play Now</button>
-                    </div>
-                </div>
+            <div class="stat-item">
+                <div class="stat-value" id="streak">0</div>
+                <div class="stat-label">Streak</div>
             </div>
+            <div class="stat-item">
+                <div class="stat-value" id="accuracy">0%</div>
+                <div class="stat-label">Accuracy</div>
+            </div>
+        </div>
 
-            <!-- HollyBolly Game Page -->
-            <div id="hollyBollyPage" class="page hidden">
-                <div style="text-align: center; margin-bottom: 30px;">
-                    <h1 style="font-size: var(--font-size-xl); margin-bottom: 15px;">HollyBolly Challenge</h1>
-                    <p style="font-size: var(--font-size-large); color: var(--text-secondary);">
-                        Guess the Bollywood movie inspired by Hollywood films!
-                    </p>
+        <div class="difficulty-selector">
+            <button class="difficulty-btn active" data-difficulty="easy">Easy (2 choices)</button>
+            <button class="difficulty-btn" data-difficulty="medium">Medium (3 choices)</button>
+            <button class="difficulty-btn" data-difficulty="hard">Hard (4 choices)</button>
+        </div>
+
+        <div id="loading" class="loading">
+            Loading game data...
+        </div>
+
+        <div id="game-content" class="hidden">
+            <div class="question-container">
+                <div class="question-text" id="question-text">
+                    Click "Start Game" to begin your HollyBolly adventure!
                 </div>
-
-                <!-- Difficulty Selection -->
-                <div id="difficultySelection" class="difficulty-container">
-                    <h2 style="text-align: center; margin-bottom: 30px; color: var(--primary-color);">Choose Difficulty</h2>
-                    
-                    <div class="difficulty-grid">
-                        <div class="difficulty-card" data-difficulty="easy">
-                            <div class="difficulty-icon">🌟</div>
-                            <div class="difficulty-title">Easy</div>
-                            <div class="difficulty-description">2 answer choices</div>
-                            <button class="btn btn-primary btn-large">Start Easy</button>
-                        </div>
-                        
-                        <div class="difficulty-card" data-difficulty="medium">
-                            <div class="difficulty-icon">⚡</div>
-                            <div class="difficulty-title">Medium</div>
-                            <div class="difficulty-description">3 answer choices</div>
-                            <button class="btn btn-primary btn-large">Start Medium</button>
-                        </div>
-                        
-                        <div class="difficulty-card" data-difficulty="hard">
-                            <div class="difficulty-icon">🔥</div>
-                            <div class="difficulty-title">Hard</div>
-                            <div class="difficulty-description">4 answer choices</div>
-                            <button class="btn btn-primary btn-large">Start Hard</button>
-                        </div>
-                    </div>
-                    
-                    <div style="text-align: center; margin-top: 30px;">
-                        <button class="btn btn-secondary" id="backFromDifficultyBtn">Back to Home</button>
-                    </div>
+                <div class="answers-grid" id="answers-grid">
+                    <!-- Answers will be populated here -->
                 </div>
             </div>
 
-            <!-- Settings Page -->
-                <h2 style="font-size: var(--font-size-xl); margin-bottom: 30px; text-align: center;">Settings</h2>
-                
-                <div style="display: grid; gap: 30px; max-width: 600px; margin: 0 auto;">
-                    <div>
-                        <label style="display: block; margin-bottom: 10px; font-weight: 600;">Theme</label>
-                        <select class="dropdown-select" id="themeSelect" style="width: 100%;">
-                            <option value="light">Light</option>
-                            <option value="dark">Dark</option>
-                            <option value="contrast">High Contrast</option>
-                        </select>
-                    </div>
-                    
-                    <div>
-                        <label style="display: block; margin-bottom: 10px; font-weight: 600;">Font Size</label>
-                        <input type="range" id="fontSizeSlider" min="16" max="28" value="18" 
-                               style="width: 100%; height: 8px; border-radius: 5px;">
-                        <div style="display: flex; justify-content: space-between; margin-top: 5px; color: var(--text-secondary);">
-                            <span>Small</span>
-                            <span>Large</span>
-                        </div>
-                    </div>
-                    
-                    <div>
-                        <label style="display: block; margin-bottom: 10px; font-weight: 600;">Game Language</label>
-                        <select class="dropdown-select" id="gameLanguageSelect" style="width: 100%;">
-                            <option value="en">English</option>
-                            <option value="fr">Français</option>
-                            <option value="de">Deutsch</option>
-                        </select>
-                    </div>
-                    
-                    <button class="btn btn-primary" id="backToHomeBtn">Back to Home</button>
-                </div>
+            <div id="result-container" class="result-container hidden">
+                <div id="result-text"></div>
+                <div id="reward-info" class="reward-info hidden"></div>
+                <div id="explanation"></div>
             </div>
-        </main>
 
-        <!-- Footer -->
-        <footer class="footer">
-            <p>&copy; 2025 LingoQuest. Designed for seniors with love.</p>
-        </footer>
+            <div class="control-buttons">
+                <button class="control-btn" id="start-btn">Start Game</button>
+                <button class="control-btn secondary hidden" id="next-btn">Next Question</button>
+                <button class="control-btn secondary" id="reset-btn">Reset Game</button>
+            </div>
+        </div>
     </div>
 
-    <!-- PWA Manifest JSON (inline for demo) -->
-    <script>
-        // Create manifest.json content
-        const manifest = {
-            "name": "LingoQuest - Word Game",
-            "short_name": "LingoQuest",
-            "description": "Senior-friendly multilingual word game",
-            "start_url": "/",
-            "display": "standalone",
-            "background_color": "#FFFFFF",
-            "theme_color": "#2196F3",
-            "icons": [
-                {
-                    "src": "icon-192.png",
-                    "sizes": "192x192",
-                    "type": "image/png"
-                },
-                {
-                    "src": "icon-512.png", 
-                    "sizes": "512x512",
-                    "type": "image/png"
-                }
-            ]
-        };
-        
-        // Create manifest blob and URL
-        const manifestBlob = new Blob([JSON.stringify(manifest)], {type: 'application/json'});
-        const manifestURL = URL.createObjectURL(manifestBlob);
-        document.querySelector('link[rel="manifest"]').href = manifestURL;
-    </script>
-
-    <!-- Basic JavaScript for page navigation -->
-    <script type="module">
-        // Basic page navigation
-        const pages = {
-            home: document.getElementById('homePage'),
-            settings: document.getElementById('settingsPage'),
-            hollyBolly: document.getElementById('hollyBollyPage')
-        };
-
-        const settingsBtn = document.getElementById('settingsBtn');
-        const backToHomeBtn = document.getElementById('backToHomeBtn');
-        const backFromDifficultyBtn = document.getElementById('backFromDifficultyBtn');
-        const hollyBollyModeCard = document.getElementById('hollyBollyMode');
-
-        function showPage(pageName) {
-            Object.values(pages).forEach(page => page.classList.add('hidden'));
-            pages[pageName].classList.remove('hidden');
-        }
-
-        // Navigation event listeners
-        settingsBtn.addEventListener('click', () => showPage('settings'));
-        backToHomeBtn.addEventListener('click', () => showPage('home'));
-        backFromDifficultyBtn.addEventListener('click', () => showPage('home'));
-        hollyBollyModeCard.addEventListener('click', () => showPage('hollyBolly'));
-
-        // Difficulty selection
-        const difficultyCards = document.querySelectorAll('.difficulty-card');
-        difficultyCards.forEach(card => {
-            const button = card.querySelector('button');
-            button.addEventListener('click', (e) => {
-                e.stopPropagation();
-                const difficulty = card.getAttribute('data-difficulty');
-                console.log(`Starting HollyBolly game with ${difficulty} difficulty`);
-                // Next: Navigate to game question page
-            });
-        });
-
-        // Theme switching
-        const themeSelect = document.getElementById('themeSelect');
-        themeSelect.addEventListener('change', (e) => {
-            document.body.setAttribute('data-theme', e.target.value);
-            localStorage.setItem('theme', e.target.value);
-        });
-
-        // Font size adjustment
-        const fontSizeSlider = document.getElementById('fontSizeSlider');
-        fontSizeSlider.addEventListener('input', (e) => {
-            const fontSize = e.target.value;
-            document.documentElement.style.setProperty('--font-size-base', fontSize + 'px');
-            document.documentElement.style.setProperty('--font-size-large', (parseInt(fontSize) + 6) + 'px');
-            document.documentElement.style.setProperty('--font-size-xl', (parseInt(fontSize) + 14) + 'px');
-            localStorage.setItem('fontSize', fontSize);
-        });
-
-        // Load saved settings
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        const savedFontSize = localStorage.getItem('fontSize') || '18';
-        
-        document.body.setAttribute('data-theme', savedTheme);
-        themeSelect.value = savedTheme;
-        fontSizeSlider.value = savedFontSize;
-        
-        // Apply saved font size
-        document.documentElement.style.setProperty('--font-size-base', savedFontSize + 'px');
-        document.documentElement.style.setProperty('--font-size-large', (parseInt(savedFontSize) + 6) + 'px');
-        document.documentElement.style.setProperty('--font-size-xl', (parseInt(savedFontSize) + 14) + 'px');
-    </script>
+    <script type="module" src="js/main.js"></script>
 </body>
 </html>
+
