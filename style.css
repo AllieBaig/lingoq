@@ -1,0 +1,299 @@
+
+/* LingoQuest PWA Styles */
+
+/* CSS Variables for Dynamic Theming */
+:root {
+    --primary-color: #2196F3;
+    --secondary-color: #FFC107;
+    --background-color: #FFFFFF;
+    --surface-color: #F5F5F5;
+    --text-color: #333333;
+    --text-secondary: #666666;
+    --button-radius: 12px;
+    --shadow: 0 4px 12px rgba(0,0,0,0.1);
+    --font-size-base: 18px;
+    --font-size-large: 24px;
+    --font-size-xl: 32px;
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+    --primary-color: #64B5F6;
+    --secondary-color: #FFD54F;
+    --background-color: #121212;
+    --surface-color: #1E1E1E;
+    --text-color: #FFFFFF;
+    --text-secondary: #CCCCCC;
+}
+
+/* High Contrast Theme */
+[data-theme="contrast"] {
+    --primary-color: #000000;
+    --secondary-color: #FFFF00;
+    --background-color: #FFFFFF;
+    --surface-color: #F0F0F0;
+    --text-color: #000000;
+    --text-secondary: #000000;
+}
+
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    font-size: var(--font-size-base);
+    transition: all 0.3s ease;
+}
+
+/* Main Container Layout */
+.app-container {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 2px solid var(--surface-color);
+}
+
+.logo {
+    font-size: var(--font-size-xl);
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.header-controls {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+/* Buttons */
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: var(--button-radius);
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow);
+    min-height: 48px;
+    min-width: 120px;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+.btn-secondary {
+    background-color: var(--surface-color);
+    color: var(--text-color);
+}
+
+.btn-large {
+    font-size: var(--font-size-large);
+    padding: 16px 32px;
+    min-height: 64px;
+    min-width: 200px;
+}
+
+/* Dropdown Styles */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-select {
+    padding: 12px 16px;
+    border: 2px solid var(--surface-color);
+    border-radius: var(--button-radius);
+    background-color: var(--surface-color);
+    color: var(--text-color);
+    font-size: var(--font-size-base);
+    cursor: pointer;
+    min-width: 120px;
+}
+
+/* Main Content Area */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    padding: 40px 0;
+    gap: 30px;
+}
+
+/* Game Mode Selection */
+.game-modes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.game-mode-card {
+    background-color: var(--surface-color);
+    border-radius: var(--button-radius);
+    padding: 30px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.game-mode-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.game-mode-title {
+    font-size: var(--font-size-large);
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.game-mode-description {
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+}
+
+/* Difficulty Selection Styles */
+.difficulty-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.difficulty-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-bottom: 20px;
+}
+
+.difficulty-card {
+    background-color: var(--surface-color);
+    border-radius: var(--button-radius);
+    padding: 40px 30px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 3px solid transparent;
+}
+
+.difficulty-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    border-color: var(--primary-color);
+}
+
+.difficulty-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.difficulty-title {
+    font-size: var(--font-size-large);
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.difficulty-description {
+    color: var(--text-secondary);
+    margin-bottom: 25px;
+    font-size: var(--font-size-base);
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 20px 0;
+    border-top: 2px solid var(--surface-color);
+    color: var(--text-secondary);
+}
+
+/* Utility Classes */
+.hidden {
+    display: none;
+}
+
+/* Loading Spinner */
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid var(--surface-color);
+    border-top: 4px solid var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .app-container {
+        padding: 0 12px;
+    }
+    
+    .header {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+    }
+    
+    .header-controls {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .btn {
+        min-width: 140px;
+    }
+}
+
+@media (max-width: 480px) {
+    .difficulty-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .game-modes {
+        grid-template-columns: 1fr;
+    }
+    
+    .difficulty-card {
+        padding: 30px 20px;
+    }
+}
