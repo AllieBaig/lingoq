@@ -188,3 +188,99 @@
 
 
 
+            <!-- Settings Screen -->
+            <section id="settings-screen" class="screen">
+                <div class="screen-content">
+                    <div class="settings-header">
+                        <button id="close-settings" class="btn btn-icon" aria-label="Close Settings">
+                            <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z"/>
+                            </svg>
+                        </button>
+                        <h2 class="screen-title" data-i18n="settings.title">Settings</h2>
+                    </div>
+
+                    <div class="settings-content">
+                        <div class="setting-group">
+                            <h3 data-i18n="settings.appearance">Appearance</h3>
+                            
+                            <div class="setting-item">
+                                <label for="theme-select" data-i18n="settings.theme">Theme:</label>
+                                <select id="theme-select" class="select-input">
+                                    <option value="light" data-i18n="themes.light">Light</option>
+                                    <option value="dark" data-i18n="themes.dark">Dark</option>
+                                    <option value="auto" data-i18n="themes.auto">Auto (System)</option>
+                                    <option value="high-contrast" data-i18n="themes.highContrast">High Contrast</option>
+                                </select>
+                            </div>
+
+                            <div class="setting-item">
+                                <label for="font-size-select" data-i18n="settings.fontSize">Font Size:</label>
+                                <select id="font-size-select" class="select-input">
+                                    <option value="small" data-i18n="fontSize.small">Small</option>
+                                    <option value="medium" data-i18n="fontSize.medium">Medium</option>
+                                    <option value="large" data-i18n="fontSize.large">Large</option>
+                                    <option value="extra-large" data-i18n="fontSize.extraLarge">Extra Large</option>
+                                </select>
+                            </div>
+
+                            <div class="setting-item">
+                                <label for="font-family-select" data-i18n="settings.fontFamily">Font Family:</label>
+                                <select id="font-family-select" class="select-input">
+                                    <option value="system" data-i18n="fonts.system">System Default</option>
+                                    <option value="serif" data-i18n="fonts.serif">Serif</option>
+                                    <option value="sans-serif" data-i18n="fonts.sansSerif">Sans Serif</option>
+                                    <option value="monospace" data-i18n="fonts.monospace">Monospace</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="setting-group">
+                            <h3 data-i18n="settings.language">Language</h3>
+                            
+                            <div class="setting-item">
+                                <label for="language-select" data-i18n="settings.selectLanguage">Select Language:</label>
+                                <select id="language-select" class="select-input">
+                                    <option value="en">English</option>
+                                    <option value="fr">Français</option>
+                                    <option value="de">Deutsch</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="setting-group">
+                            <h3 data-i18n="settings.game">Game Settings</h3>
+                            
+                            <div class="setting-item">
+                                <label for="sound-toggle" class="toggle-label">
+                                    <input type="checkbox" id="sound-toggle" class="toggle-input">
+                                    <span class="toggle-slider"></span>
+                                    <span data-i18n="settings.sound">Sound Effects</span>
+                                </label>
+                            </div>
+
+                            <div class="setting-item">
+                                <label for="vibration-toggle" class="toggle-label">
+                                    <input type="checkbox" id="vibration-toggle" class="toggle-input">
+                                    <span class="toggle-slider"></span>
+                                    <span data-i18n="settings.vibration">Vibration</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="setting-group">
+                            <h3 data-i18n="settings.about">About</h3>
+                            
+                            <div class="setting-item">
+                                <button id="reset-data" class="btn btn-outline btn-danger">
+                                    <span data-i18n="buttons.resetData">Reset All Data</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+
+
