@@ -1,0 +1,102 @@
+
+
+
+<!-- Home Screen -->
+<section id="home-screen" class="screen active">
+    <div class="screen-content">
+        <div class="welcome-section">
+            <h2 class="screen-title" data-i18n="home.welcome">Welcome to LingoQuest</h2>
+            <p class="screen-subtitle" data-i18n="home.subtitle">Choose your adventure!</p>
+        </div>
+        
+        <!-- Game Mode Selector -->
+        <div class="game-mode-selector">
+            <div class="mode-tab active" data-game-mode="classic">
+                <span data-i18n="gameModes.classic">Classic Mode</span>
+            </div>
+            <div class="mode-tab" data-game-mode="hollybolly">
+                <span data-i18n="gameModes.hollybolly">HollyBolly Mode</span>
+            </div>
+        </div>
+
+        <!-- Classic Game Modes -->
+        <div id="classic-modes" class="game-modes active">
+            <div class="mode-card" data-mode="easy" data-game-type="classic">
+                <h3 data-i18n="modes.easy.title">Easy Mode</h3>
+                <p data-i18n="modes.easy.description">2 choices per question</p>
+                <button class="btn btn-primary btn-large" data-action="start-game" data-mode="easy" data-game-type="classic">
+                    <span data-i18n="buttons.start">Start Game</span>
+                </button>
+            </div>
+            
+            <div class="mode-card" data-mode="medium" data-game-type="classic">
+                <h3 data-i18n="modes.medium.title">Medium Mode</h3>
+                <p data-i18n="modes.medium.description">3 choices per question</p>
+                <button class="btn btn-primary btn-large" data-action="start-game" data-mode="medium" data-game-type="classic">
+                    <span data-i18n="buttons.start">Start Game</span>
+                </button>
+            </div>
+            
+            <div class="mode-card" data-mode="hard" data-game-type="classic">
+                <h3 data-i18n="modes.hard.title">Hard Mode</h3>
+                <p data-i18n="modes.hard.description">4 choices per question</p>
+                <button class="btn btn-primary btn-large" data-action="start-game" data-mode="hard" data-game-type="classic">
+                    <span data-i18n="buttons.start">Start Game</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- HollyBolly Game Modes -->
+        <div id="hollybolly-modes" class="game-modes">
+            <div class="hollybolly-intro">
+                <h3 data-i18n="hollybolly.title">🎬 HollyBolly Challenge</h3>
+                <p data-i18n="hollybolly.description">Guess Hollywood movies from Bollywood-inspired clues!</p>
+                <div class="reward-preview">
+                    <div class="reward-item">
+                        <span class="reward-icon">💰</span>
+                        <span data-i18n="hollybolly.rewards.boxOffice">1 Correct: Box Office Earnings</span>
+                    </div>
+                    <div class="reward-item">
+                        <span class="reward-icon">🎭</span>
+                        <span data-i18n="hollybolly.rewards.director">2 in a Row: Director's Net Worth</span>
+                    </div>
+                    <div class="reward-item">
+                        <span class="reward-icon">⭐</span>
+                        <span data-i18n="hollybolly.rewards.hero">3 in a Row: Star's Net Worth</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mode-card hollybolly-card" data-mode="easy" data-game-type="hollybolly">
+                <h3 data-i18n="modes.easy.title">Easy Mode</h3>
+                <p data-i18n="hollybolly.easy.description">2 movie choices + rewards</p>
+                <button class="btn btn-primary btn-large" data-action="start-game" data-mode="easy" data-game-type="hollybolly">
+                    <span data-i18n="buttons.startHollyBolly">Start HollyBolly</span>
+                </button>
+            </div>
+            
+            <div class="mode-card hollybolly-card" data-mode="medium" data-game-type="hollybolly">
+                <h3 data-i18n="modes.medium.title">Medium Mode</h3>
+                <p data-i18n="hollybolly.medium.description">3 movie choices + rewards</p>
+                <button class="btn btn-primary btn-large" data-action="start-game" data-mode="medium" data-game-type="hollybolly">
+                    <span data-i18n="buttons.startHollyBolly">Start HollyBolly</span>
+                </button>
+            </div>
+            
+            <div class="mode-card hollybolly-card" data-mode="hard" data-game-type="hollybolly">
+                <h3 data-i18n="modes.hard.title">Hard Mode</h3>
+                <p data-i18n="hollybolly.hard.description">4 movie choices + rewards</p>
+                <button class="btn btn-primary btn-large" data-action="start-game" data-mode="hard" data-game-type="hollybolly">
+                    <span data-i18n="buttons.startHollyBolly">Start HollyBolly</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="home-actions">
+            <button id="how-to-play-btn" class="btn btn-secondary btn-large">
+                <span data-i18n="buttons.howToPlay">How to Play</span>
+            </button>
+        </div>
+    </div>
+</section>
+
