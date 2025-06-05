@@ -284,3 +284,63 @@
 
 
 
+            <!-- Instructions Screen -->
+            <section id="instructions-screen" class="screen">
+                <div class="screen-content">
+                    <div class="instructions-header">
+                        <button id="close-instructions" class="btn btn-icon" aria-label="Close Instructions">
+                            <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z"/>
+                            </svg>
+                        </button>
+                        <h2 class="screen-title" data-i18n="instructions.title">How to Play</h2>
+                    </div>
+
+                    <div class="instructions-content">
+                        <div class="instruction-section">
+                            <h3 data-i18n="instructions.objective">Game Objective</h3>
+                            <p data-i18n="instructions.objectiveText">Choose the correct word for each category that starts with the given letter.</p>
+                        </div>
+
+                        <div class="instruction-section">
+                            <h3 data-i18n="instructions.categories">Categories</h3>
+                            <ul class="instruction-list">
+                                <li><strong data-i18n="categories.name">Name:</strong> <span data-i18n="instructions.nameDesc">A person's first name</span></li>
+                                <li><strong data-i18n="categories.place">Place:</strong> <span data-i18n="instructions.placeDesc">A city, country, or location</span></li>
+                                <li><strong data-i18n="categories.animal">Animal:</strong> <span data-i18n="instructions.animalDesc">Any animal or creature</span></li>
+                                <li><strong data-i18n="categories.thing">Thing:</strong> <span data-i18n="instructions.thingDesc">An object or item</span></li>
+                            </ul>
+                        </div>
+
+                        <div class="instruction-section">
+                            <h3 data-i18n="instructions.modes">Game Modes</h3>
+                            <ul class="instruction-list">
+                                <li><strong data-i18n="modes.easy.title">Easy:</strong> <span data-i18n="instructions.easyDesc">Choose from 2 options</span></li>
+                                <li><strong data-i18n="modes.medium.title">Medium:</strong> <span data-i18n="instructions.mediumDesc">Choose from 3 options</span></li>
+                                <li><strong data-i18n="modes.hard.title">Hard:</strong> <span data-i18n="instructions.hardDesc">Choose from 4 options</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Loading Overlay -->
+        <div id="loading-overlay" class="loading-overlay">
+            <div class="loading-spinner">
+                <div class="spinner"></div>
+                <p class="loading-text" data-i18n="loading.text">Loading...</p>
+            </div>
+        </div>
+
+        <!-- Toast Notifications -->
+        <div id="toast-container" class="toast-container">
+            <!-- Toast messages will be inserted here -->
+        </div>
+    </div>
+
+    <!-- JavaScript Modules -->
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
+
