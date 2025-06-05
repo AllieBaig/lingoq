@@ -1,0 +1,245 @@
+
+
+/**
+ * File: css/main.css
+ * LingoQuest - Main CSS Entry Point with Module Imports
+ * Central CSS file that imports all modular CSS components
+ * Dependencies: All CSS modules in /modules directory
+ * Features: Modular imports, overflow fixes, ES6-style CSS architecture
+ * Components: Import statements for all CSS modules under 150 lines each
+ * MIT License - https://github.com/AllieBaig/LingoQuest
+ * Created: 2025-06-05 15:18:33 UTC
+ */
+
+/* ===== CSS MODULE IMPORTS ===== */
+/* Foundation Styles */
+@import 'modules/reset.css';
+
+/* Layout System */
+@import 'modules/layout.css';
+
+/* UI Components */
+@import 'modules/components.css';
+
+/* Game Specific */
+@import 'modules/game.css';
+
+/* Utility Classes */
+@import 'modules/utilities.css';
+
+/* Responsive Design */
+@import 'modules/responsive.css';
+
+/* Accessibility Features */
+@import 'modules/accessibility.css';
+
+/* Animations & Transitions */
+@import 'modules/animations.css';
+
+/* ===== CRITICAL GLOBAL OVERRIDES ===== */
+/* These overrides ensure no module can cause infinite scroll */
+html {
+  overflow-x: hidden !important;
+  max-width: 100% !important;
+}
+
+body {
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+}
+
+/* ===== GLOBAL OVERFLOW PREVENTION ===== */
+* {
+  box-sizing: border-box !important;
+  max-width: 100% !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+/* Prevent any container from causing horizontal scroll */
+.app-container,
+.main-container,
+.content-wrapper,
+.game-container,
+.card,
+.button,
+.input-field,
+.select-field,
+.mcq-option,
+.row,
+[class*="col-"],
+.table-layout,
+.table-cell,
+.sidebar,
+.main-content {
+  overflow-x: hidden !important;
+  max-width: 100% !important;
+}
+
+/* ===== GLOBAL CSS VARIABLES ===== */
+:root {
+  /* Base Colors */
+  --primary-color: #1976d2;
+  --secondary-color: #424242;
+  --accent-color: #2196f3;
+  --background-color: #ffffff;
+  --surface-color: #f5f5f5;
+  --card-background: #ffffff;
+  
+  /* Text Colors */
+  --text-primary: #212121;
+  --text-secondary: #757575;
+  --text-accent: #1976d2;
+  --text-muted: #9e9e9e;
+  
+  /* UI Colors */
+  --border-color: #e0e0e0;
+  --input-background: #ffffff;
+  --hover-background: #f8f9fa;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  
+  /* Layout */
+  --border-radius: 8px;
+  --container-max-width: 1200px;
+  --sidebar-width: 250px;
+  
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  
+  /* Typography */
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  
+  /* Z-index Scale */
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal-backdrop: 1040;
+  --z-modal: 1050;
+  --z-popover: 1060;
+  --z-tooltip: 1070;
+}
+
+/* ===== GLOBAL FONT LOADING ===== */
+/* System font stack for performance */
+body {
+  font-family: 
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    'Helvetica Neue',
+    Arial,
+    'Noto Sans',
+    sans-serif,
+    'Apple Color Emoji',
+    'Segoe UI Emoji',
+    'Segoe UI Symbol',
+    'Noto Color Emoji';
+}
+
+/* ===== GLOBAL FOCUS MANAGEMENT ===== */
+/* Ensure consistent focus styles across all modules */
+*:focus {
+  outline: 2px solid var(--primary-color) !important;
+  outline-offset: 2px !important;
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+  /* Hide interactive elements when printing */
+  .no-print,
+  button,
+  .button,
+  nav,
+  .sidebar {
+    display: none !important;
+  }
+  
+  /* Optimize for print */
+  * {
+    background: transparent !important;
+    color: black !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  
+  body {
+    font-size: 12pt;
+    line-height: 1.3;
+  }
+  
+  h1, h2, h3 {
+    page-break-after: avoid;
+  }
+  
+  img {
+    max-width: 100% !important;
+  }
+}
+
+/* ===== FALLBACK STYLES ===== */
+/* Fallback for browsers that don't support CSS custom properties */
+.no-css-variables {
+  --primary-color: #1976d2;
+  --background-color: #ffffff;
+  --text-primary: #212121;
+  --border-color: #e0e0e0;
+}
+
+/* ===== MODULE LOAD ERROR FALLBACK ===== */
+/* Basic styles in case @import fails */
+.fallback-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+  overflow-x: hidden;
+}
+
+.fallback-button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  max-width: 100%;
+}
+
+.fallback-card {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* ===== CRITICAL FINAL SAFETY NET ===== */
+/* Last resort overflow prevention */
+html, body, #app, #root, .app {
+  overflow-x: hidden !important;
+  max-width: 100% !important;
+}
+
+/* Emergency overflow fix for any missed elements */
+.overflow-emergency {
+  overflow-x: hidden !important;
+  max-width: 100% !important;
+  word-wrap: break-word !important;
+}
+
