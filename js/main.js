@@ -133,7 +133,7 @@ class LingoQuestApp {
     async registerServiceWorker() {
         if ('serviceWorker' in navigator) {
             try {
-                const registration = await navigator.serviceWorker.register('/sw.js');
+                const registration = await navigator.serviceWorker.register('./sw.js');
                 console.log('SW registered: ', registration);
             } catch (registrationError) {
                 console.log('SW registration failed: ', registrationError);
