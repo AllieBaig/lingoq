@@ -1,0 +1,371 @@
+
+
+/**
+ * File: css/modules/game.css
+ * LingoQuest - Game-Specific Components Module
+ * Game layouts, MCQ options, scoring, and interactive game elements
+ * Dependencies: reset.css, layout.css, components.css
+ * Features: Game containers, MCQ styling, score displays, game states
+ * Components: Game screens, question layouts, answer options, progress bars
+ * MIT License - https://github.com/AllieBaig/LingoQuest
+ * Created: 2025-06-05 15:28:15 UTC
+ */
+
+/* ===== GAME CONTAINER LAYOUT ===== */
+.game-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+  width: 100%;
+  overflow-x: hidden;
+  background: var(--background-color, #ffffff);
+}
+
+.game-wrapper {
+  position: relative;
+  min-height: 70vh;
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+.game-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background: var(--surface-color, #f5f5f5);
+  border-radius: var(--border-radius, 8px);
+  overflow-x: hidden;
+}
+
+.game-title {
+  font-size: 2rem;
+  margin: 0 0 0.5rem 0;
+  color: var(--text-accent, #1976d2);
+  font-weight: 700;
+  word-wrap: break-word;
+}
+
+.game-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-secondary, #757575);
+  margin: 0;
+  word-wrap: break-word;
+}
+
+/* ===== GAME CONTENT AREA ===== */
+.game-content {
+  padding: 1.5rem;
+  background: var(--card-background, #ffffff);
+  border-radius: 12px;
+  box-shadow: 0 4px 6px var(--shadow-color, rgba(0, 0, 0, 0.1));
+  margin-bottom: 1rem;
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+.game-question {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.question-text {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary, #212121);
+  margin: 0 0 1rem 0;
+  word-wrap: break-word;
+  line-height: 1.4;
+}
+
+.question-category {
+  display: inline-block;
+  background: var(--primary-color, #1976d2);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+/* ===== MCQ OPTIONS ===== */
+.mcq-options {
+  margin: 1.5rem 0;
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+.mcq-option {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+  border: 2px solid var(--border-color, #e0e0e0);
+  border-radius: var(--border-radius, 8px);
+  background: var(--input-background, #ffffff);
+  color: var(--text-primary, #212121);
+  text-align: left;
+  cursor: pointer;
+  transition: all var(--transition-base, 0.3s ease);
+  font-size: 1rem;
+  font-weight: 500;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  overflow-x: hidden;
+  text-decoration: none;
+  position: relative;
+  min-height: 60px;
+}
+
+.mcq-option:hover {
+  border-color: var(--primary-color, #1976d2);
+  background: var(--hover-background, #f8f9fa);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px var(--shadow-color, rgba(0, 0, 0, 0.1));
+}
+
+.mcq-option:focus {
+  outline: 3px solid var(--primary-color, #1976d2);
+  outline-offset: 2px;
+}
+
+.mcq-option:last-child {
+  margin-bottom: 0;
+}
+
+.mcq-option.selected {
+  border-color: var(--accent-color, #2196f3);
+  background: rgba(33, 150, 243, 0.1);
+  color: var(--primary-color, #1976d2);
+}
+
+.mcq-option.correct {
+  border-color: #28a745;
+  background: rgba(40, 167, 69, 0.1);
+  color: #155724;
+}
+
+.mcq-option.incorrect {
+  border-color: #dc3545;
+  background: rgba(220, 53, 69, 0.1);
+  color: #721c24;
+}
+
+.mcq-option.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* MCQ Option Labels */
+.mcq-label {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--border-color, #e0e0e0);
+  border-radius: 50%;
+  background: var(--input-background, #ffffff);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-align: center;
+  line-height: 20px;
+}
+
+.mcq-text {
+  margin-left: 3rem;
+  word-wrap: break-word;
+}
+
+/* ===== GAME SCORING ===== */
+.game-score {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: var(--surface-color, #f5f5f5);
+  border-radius: var(--border-radius, 8px);
+  overflow-x: hidden;
+}
+
+.score-display {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent-color, #2196f3);
+  margin: 0 0 0.5rem 0;
+}
+
+.score-label {
+  font-size: 1rem;
+  color: var(--text-secondary, #757575);
+  margin: 0;
+}
+
+.game-stats {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.stat-item {
+  display: inline-block;
+  margin: 0 1rem;
+  text-align: center;
+}
+
+.stat-value {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--primary-color, #1976d2);
+}
+
+.stat-label {
+  display: block;
+  font-size: 0.875rem;
+  color: var(--text-secondary, #757575);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ===== PROGRESS INDICATORS ===== */
+.game-progress {
+  margin-bottom: 2rem;
+  overflow-x: hidden;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: var(--border-color, #e0e0e0);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--primary-color, #1976d2);
+  border-radius: 4px;
+  transition: width var(--transition-base, 0.3s ease);
+}
+
+.progress-text {
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--text-secondary, #757575);
+}
+
+/* ===== GAME ACTIONS ===== */
+.game-actions {
+  text-align: center;
+  margin-top: 2rem;
+  overflow-x: hidden;
+}
+
+.game-button {
+  margin: 0 0.5rem;
+  min-width: 120px;
+  padding: 0.875rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.next-button {
+  background: var(--primary-color, #1976d2);
+  color: white;
+  border: 2px solid var(--primary-color, #1976d2);
+}
+
+.next-button:hover {
+  background: var(--primary-color-hover, #1565c0);
+  transform: translateY(-1px);
+}
+
+.skip-button {
+  background: transparent;
+  color: var(--text-secondary, #757575);
+  border: 2px solid var(--border-color, #e0e0e0);
+}
+
+.skip-button:hover {
+  border-color: var(--text-secondary, #757575);
+}
+
+/* ===== GAME STATES ===== */
+.game-loading {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.game-complete {
+  text-align: center;
+  padding: 2rem;
+  background: var(--surface-color, #f5f5f5);
+  border-radius: var(--border-radius, 8px);
+}
+
+.completion-message {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary, #212121);
+  margin-bottom: 1rem;
+}
+
+.final-score {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--accent-color, #2196f3);
+  margin: 1rem 0;
+}
+
+/* ===== HOLLYBOLY SPECIFIC ===== */
+.reward-display {
+  background: linear-gradient(135deg, #ffd700, #ffed4a);
+  color: #333;
+  padding: 1rem;
+  border-radius: var(--border-radius, 8px);
+  margin: 1rem 0;
+  text-align: center;
+  border: 2px solid #ffd700;
+}
+
+.reward-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.reward-amount {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.streak-counter {
+  display: inline-block;
+  background: var(--accent-color, #2196f3);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+/* ===== GAME OVERFLOW FIXES ===== */
+.game-container,
+.game-wrapper,
+.game-header,
+.game-content,
+.mcq-options,
+.mcq-option,
+.game-score,
+.game-progress,
+.game-actions,
+.reward-display {
+  overflow-x: hidden !important;
+  max-width: 100% !important;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
