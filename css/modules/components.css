@@ -1,0 +1,313 @@
+
+
+/**
+ * File: css/modules/components.css
+ * LingoQuest - UI Components Module
+ * Cards, buttons, form elements, and interactive components
+ * Dependencies: reset.css, layout.css
+ * Features: Button styles, card layouts, form inputs, component states
+ * Components: Cards, buttons, inputs, selects, labels, badges
+ * MIT License - https://github.com/AllieBaig/LingoQuest
+ * Created: 2025-06-05 15:22:47 UTC
+ */
+
+/* ===== CARD COMPONENTS ===== */
+.card {
+  background: var(--card-background, #ffffff);
+  border: 1px solid var(--border-color, #e0e0e0);
+  border-radius: var(--border-radius, 8px);
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 4px var(--shadow-color, rgba(0, 0, 0, 0.1));
+  max-width: 100%;
+  word-wrap: break-word;
+  overflow-x: hidden;
+  transition: all var(--transition-base, 0.3s ease);
+}
+
+.card:hover {
+  box-shadow: 0 4px 8px var(--shadow-color, rgba(0, 0, 0, 0.15));
+  transform: translateY(-2px);
+}
+
+.card-header {
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color, #e0e0e0);
+}
+
+.card-title {
+  margin: 0 0 0.5rem 0;
+  font-size: var(--font-size-xl, 1.25rem);
+  font-weight: 600;
+  color: var(--text-primary, #212121);
+}
+
+.card-body {
+  padding: 0;
+}
+
+.card-footer {
+  padding-top: 1rem;
+  margin-top: 1rem;
+  border-top: 1px solid var(--border-color, #e0e0e0);
+  text-align: right;
+}
+
+/* ===== BUTTON COMPONENTS ===== */
+.button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid transparent;
+  border-radius: var(--border-radius, 8px);
+  font-size: var(--font-size-base, 1rem);
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--transition-base, 0.3s ease);
+  max-width: 100%;
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: middle;
+  user-select: none;
+}
+
+.button:focus {
+  outline: 2px solid var(--primary-color, #1976d2);
+  outline-offset: 2px;
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Button Variants */
+.button-primary {
+  background: var(--primary-color, #1976d2);
+  border-color: var(--primary-color, #1976d2);
+  color: white;
+}
+
+.button-primary:hover {
+  background: var(--primary-color-hover, #1565c0);
+  border-color: var(--primary-color-hover, #1565c0);
+  transform: translateY(-1px);
+}
+
+.button-secondary {
+  background: transparent;
+  border-color: var(--primary-color, #1976d2);
+  color: var(--primary-color, #1976d2);
+}
+
+.button-secondary:hover {
+  background: var(--primary-color, #1976d2);
+  color: white;
+}
+
+.button-outline {
+  background: transparent;
+  border-color: var(--border-color, #e0e0e0);
+  color: var(--text-primary, #212121);
+}
+
+.button-outline:hover {
+  background: var(--hover-background, #f8f9fa);
+  border-color: var(--primary-color, #1976d2);
+}
+
+/* Button Sizes */
+.button-small {
+  padding: 0.5rem 1rem;
+  font-size: var(--font-size-sm, 0.875rem);
+}
+
+.button-large {
+  padding: 1rem 2rem;
+  font-size: var(--font-size-lg, 1.125rem);
+}
+
+.button-block {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* ===== FORM COMPONENTS ===== */
+.form-group {
+  margin-bottom: 1rem;
+  max-width: 100%;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--text-primary, #212121);
+  font-size: var(--font-size-base, 1rem);
+}
+
+.form-label.required::after {
+  content: ' *';
+  color: #dc3545;
+}
+
+.input-field {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  padding: 0.75rem;
+  border: 2px solid var(--border-color, #e0e0e0);
+  border-radius: var(--border-radius, 8px);
+  font-size: var(--font-size-base, 1rem);
+  background: var(--input-background, #ffffff);
+  color: var(--text-primary, #212121);
+  transition: all var(--transition-base, 0.3s ease);
+  box-sizing: border-box;
+}
+
+.input-field:focus {
+  border-color: var(--primary-color, #1976d2);
+  box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.1);
+  outline: none;
+}
+
+.input-field:invalid {
+  border-color: #dc3545;
+}
+
+.input-field::placeholder {
+  color: var(--text-muted, #9e9e9e);
+}
+
+.select-field {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  padding: 0.75rem;
+  border: 2px solid var(--border-color, #e0e0e0);
+  border-radius: var(--border-radius, 8px);
+  font-size: var(--font-size-base, 1rem);
+  background: var(--input-background, #ffffff);
+  color: var(--text-primary, #212121);
+  transition: all var(--transition-base, 0.3s ease);
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.select-field:focus {
+  border-color: var(--primary-color, #1976d2);
+  box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.1);
+  outline: none;
+}
+
+.textarea-field {
+  resize: vertical;
+  min-height: 100px;
+  max-height: 300px;
+}
+
+/* ===== CHECKBOX AND RADIO ===== */
+.checkbox-wrapper,
+.radio-wrapper {
+  display: block;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+}
+
+.checkbox-wrapper input,
+.radio-wrapper input {
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+
+/* ===== BADGE COMPONENTS ===== */
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  font-size: var(--font-size-sm, 0.875rem);
+  font-weight: 500;
+  border-radius: 4px;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+}
+
+.badge-primary {
+  background: var(--primary-color, #1976d2);
+  color: white;
+}
+
+.badge-secondary {
+  background: var(--secondary-color, #424242);
+  color: white;
+}
+
+.badge-success {
+  background: #28a745;
+  color: white;
+}
+
+.badge-warning {
+  background: #ffc107;
+  color: #212529;
+}
+
+.badge-danger {
+  background: #dc3545;
+  color: white;
+}
+
+/* ===== ALERT COMPONENTS ===== */
+.alert {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: var(--border-radius, 8px);
+  max-width: 100%;
+  word-wrap: break-word;
+}
+
+.alert-success {
+  background: #d4edda;
+  border-color: #c3e6cb;
+  color: #155724;
+}
+
+.alert-warning {
+  background: #fff3cd;
+  border-color: #ffeaa7;
+  color: #856404;
+}
+
+.alert-danger {
+  background: #f8d7da;
+  border-color: #f5c6cb;
+  color: #721c24;
+}
+
+.alert-info {
+  background: #d1ecf1;
+  border-color: #bee5eb;
+  color: #0c5460;
+}
+
+/* ===== COMPONENT OVERFLOW FIXES ===== */
+.card,
+.button,
+.input-field,
+.select-field,
+.textarea-field,
+.badge,
+.alert,
+.form-group {
+  overflow-x: hidden !important;
+  max-width: 100% !important;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
