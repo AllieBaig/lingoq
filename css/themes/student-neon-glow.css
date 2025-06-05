@@ -1,0 +1,176 @@
+/**
+ * LingoQuest - Neon Glow Student Theme
+ * Cyberpunk-inspired theme with glowing neon effects and dark backgrounds
+ * Dependencies: CSS custom properties support
+ * Features: Neon text effects, gradient animations, cyberpunk aesthetics
+ * Components: Buttons, cards, inputs with glow effects
+ * MIT License - https://github.com/AllieBaig/LingoQuest
+ * Created: 2025-06-05
+ */
+
+/* Neon Glow Theme - Cyberpunk Style */
+[data-theme="neon-glow"] {
+  /* Color Palette */
+  --primary-color: #00ffff;
+  --secondary-color: #ff0080;
+  --accent-color: #39ff14;
+  --background-color: #0a0a0a;
+  --surface-color: #1a1a2e;
+  --card-background: #16213e;
+  
+  /* Text Colors */
+  --text-primary: #ffffff;
+  --text-secondary: #b8b8ff;
+  --text-accent: #00ffff;
+  --text-muted: #888899;
+  
+  /* Interactive Elements */
+  --button-primary-bg: linear-gradient(45deg, #00ffff, #ff0080);
+  --button-primary-hover: linear-gradient(45deg, #39ff14, #00ffff);
+  --button-secondary-bg: transparent;
+  --button-secondary-border: 2px solid #00ffff;
+  
+  /* Effects */
+  --glow-primary: 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 80px #00ffff;
+  --glow-secondary: 0 0 20px #ff0080, 0 0 40px #ff0080;
+  --glow-accent: 0 0 15px #39ff14, 0 0 30px #39ff14;
+  
+  /* Borders and Shadows */
+  --border-radius: 12px;
+  --card-shadow: 0 8px 32px rgba(0, 255, 255, 0.3);
+  --input-border: 2px solid #00ffff;
+  --input-focus-glow: var(--glow-primary);
+}
+
+/* Background Effects */
+[data-theme="neon-glow"] body {
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 0, 128, 0.1) 0%, transparent 50%),
+    linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+  background-attachment: fixed;
+}
+
+/* Animated Background Grid */
+[data-theme="neon-glow"] body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: grid-move 20s linear infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Button Styles */
+[data-theme="neon-glow"] .btn-primary {
+  background: var(--button-primary-bg);
+  border: none;
+  color: var(--text-primary);
+  text-shadow: 0 0 10px currentColor;
+  box-shadow: var(--glow-primary);
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+[data-theme="neon-glow"] .btn-primary:hover {
+  background: var(--button-primary-hover);
+  box-shadow: var(--glow-accent);
+  transform: translateY(-2px);
+}
+
+[data-theme="neon-glow"] .btn-secondary {
+  background: var(--button-secondary-bg);
+  border: var(--button-secondary-border);
+  color: var(--accent-color);
+  text-shadow: 0 0 10px currentColor;
+  box-shadow: inset 0 0 20px rgba(0, 255, 255, 0.1);
+}
+
+/* Card Elements */
+[data-theme="neon-glow"] .card {
+  background: var(--card-background);
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  box-shadow: var(--card-shadow);
+  backdrop-filter: blur(10px);
+}
+
+[data-theme="neon-glow"] .card:hover {
+  border-color: var(--primary-color);
+  box-shadow: var(--glow-primary);
+  transform: translateY(-5px);
+}
+
+/* Text Glow Effects */
+[data-theme="neon-glow"] h1,
+[data-theme="neon-glow"] h2,
+[data-theme="neon-glow"] .title {
+  color: var(--text-accent);
+  text-shadow: var(--glow-primary);
+  font-weight: bold;
+}
+
+/* Input Fields */
+[data-theme="neon-glow"] input,
+[data-theme="neon-glow"] select {
+  background: rgba(22, 33, 62, 0.8);
+  border: var(--input-border);
+  color: var(--text-primary);
+  backdrop-filter: blur(5px);
+}
+
+[data-theme="neon-glow"] input:focus,
+[data-theme="neon-glow"] select:focus {
+  box-shadow: var(--input-focus-glow);
+  border-color: var(--accent-color);
+}
+
+/* Animations */
+@keyframes grid-move {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(50px, 50px); }
+}
+
+@keyframes neon-pulse {
+  0%, 100% { text-shadow: var(--glow-primary); }
+  50% { text-shadow: var(--glow-accent); }
+}
+
+/* Game Specific Elements */
+[data-theme="neon-glow"] .game-score {
+  color: var(--accent-color);
+  text-shadow: var(--glow-accent);
+  animation: neon-pulse 2s ease-in-out infinite;
+}
+
+[data-theme="neon-glow"] .mcq-option {
+  border: 1px solid rgba(0, 255, 255, 0.5);
+  background: rgba(22, 33, 62, 0.6);
+  transition: all 0.3s ease;
+}
+
+[data-theme="neon-glow"] .mcq-option:hover {
+  border-color: var(--primary-color);
+  box-shadow: var(--glow-primary);
+  background: rgba(0, 255, 255, 0.1);
+}
+
+[data-theme="neon-glow"] .mcq-option.correct {
+  border-color: var(--accent-color);
+  box-shadow: var(--glow-accent);
+  background: rgba(57, 255, 20, 0.2);
+}
+
+[data-theme="neon-glow"] .mcq-option.incorrect {
+  border-color: var(--secondary-color);
+  box-shadow: var(--glow-secondary);
+  background: rgba(255, 0, 128, 0.2);
+}
