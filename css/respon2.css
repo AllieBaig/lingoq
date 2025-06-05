@@ -1,0 +1,569 @@
+
+
+
+
+/**
+ * File: css/responsive.css
+ * LingoQuest - Mobile-First Responsive Design with Overflow Fixes
+ * Responsive breakpoints and mobile optimizations with infinite scroll prevention
+ * Dependencies: main.css, themes.css
+ * Features: Mobile-first design, tablet/desktop layouts, overflow controls
+ * Components: Responsive grids, mobile navigation, touch-friendly UI
+ * MIT License - https://github.com/AllieBaig/LingoQuest
+ * Created: 2025-06-05 14:55:47 UTC
+ */
+
+/* ===== CRITICAL OVERFLOW PREVENTION BASE ===== */
+html {
+  overflow-x: hidden !important;
+  max-width: 100% !important;
+}
+
+body {
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+  min-width: 320px; /* Minimum supported width */
+}
+
+* {
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+/* ===== MOBILE FIRST (320px+) ===== */
+/* Base styles are mobile-first */
+.container {
+  width: 100%;
+  max-width: 100%;
+  padding: 0 1rem;
+  margin: 0 auto;
+  overflow-x: hidden;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -0.5rem;
+  overflow-x: hidden;
+}
+
+.col {
+  flex: 1;
+  padding: 0 0.5rem;
+  min-width: 0; /* Prevent flex overflow */
+  max-width: 100%;
+}
+
+/* Mobile navigation */
+.mobile-nav {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: var(--surface-color, #f5f5f5);
+  z-index: 1000;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid var(--border-color, #e0e0e0);
+  overflow-x: hidden;
+}
+
+.desktop-nav {
+  display: none;
+}
+
+/* Mobile-first grid system */
+.grid-mobile {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+/* Mobile buttons - larger touch targets */
+.btn-mobile {
+  min-height: 48px;
+  min-width: 48px;
+  padding: 0.875rem 1.5rem;
+  font-size: 1.1rem;
+  touch-action: manipulation;
+  max-width: 100%;
+}
+
+/* Mobile form elements */
+.input-mobile {
+  min-height: 48px;
+  padding: 0.875rem;
+  font-size: 16px; /* Prevent zoom on iOS */
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Mobile game layout */
+.game-mobile {
+  padding: 0.5rem;
+  margin: 0;
+  max-width: 100%;
+}
+
+.mcq-mobile {
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  min-height: 60px;
+  font-size: 1rem;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* ===== SMALL MOBILE (up to 480px) ===== */
+@media screen and (max-width: 480px) {
+  body {
+    font-size: 14px;
+    overflow-x: hidden !important;
+  }
+  
+  .container {
+    padding: 0 0.75rem;
+    max-width: 100%;
+  }
+  
+  .main-container {
+    padding: 0.5rem;
+    overflow-x: hidden;
+  }
+  
+  .card {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 6px;
+    max-width: 100%;
+    word-wrap: break-word;
+  }
+  
+  .button {
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .flex-container {
+    flex-direction: column !important;
+    gap: 0.75rem;
+    overflow-x: hidden;
+  }
+  
+  .grid-container {
+    grid-template-columns: 1fr !important;
+    gap: 0.75rem;
+    overflow-x: hidden;
+  }
+  
+  /* Small mobile game layout */
+  .game-container {
+    padding: 0.5rem;
+    margin: 0;
+    max-width: 100%;
+  }
+  
+  .mcq-options {
+    gap: 0.75rem;
+    grid-template-columns: 1fr;
+  }
+  
+  .mcq-option {
+    padding: 0.875rem;
+    font-size: 0.9rem;
+    min-height: 56px;
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  /* Typography adjustments */
+  h1 { font-size: 1.5rem; }
+  h2 { font-size: 1.25rem; }
+  h3 { font-size: 1.1rem; }
+  
+  /* Hide complex elements on very small screens */
+  .hide-small {
+    display: none !important;
+  }
+}
+
+/* ===== LARGE MOBILE / SMALL TABLET (481px - 767px) ===== */
+@media screen and (min-width: 481px) and (max-width: 767px) {
+  body {
+    font-size: 15px;
+    overflow-x: hidden;
+  }
+  
+  .container {
+    padding: 0 1rem;
+    max-width: 100%;
+  }
+  
+  .grid-2-mobile {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    overflow-x: hidden;
+  }
+  
+  .flex-mobile-2 {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .flex-mobile-2 > * {
+    flex: 1;
+    min-width: calc(50% - 0.5rem);
+    max-width: calc(50% - 0.5rem);
+  }
+  
+  .mcq-options {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  .button {
+    padding: 0.875rem 1.5rem;
+    font-size: 1rem;
+    width: auto;
+    min-width: 120px;
+    max-width: 100%;
+  }
+}
+
+/* ===== TABLET (768px - 1023px) ===== */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  body {
+    font-size: 16px;
+    overflow-x: hidden;
+  }
+  
+  .container {
+    max-width: 750px;
+    padding: 0 1.5rem;
+  }
+  
+  .mobile-nav {
+    display: none;
+  }
+  
+  .desktop-nav {
+    display: block;
+    overflow-x: hidden;
+  }
+  
+  .row {
+    margin: 0 -1rem;
+  }
+  
+  .col {
+    padding: 0 1rem;
+  }
+  
+  /* Tablet grid systems */
+  .grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    overflow-x: hidden;
+  }
+  
+  .grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    overflow-x: hidden;
+  }
+  
+  .flex-tablet {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+  
+  /* Tablet layout with sidebar */
+  .layout-sidebar {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 2rem;
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+  
+  .sidebar {
+    position: sticky;
+    top: 1rem;
+    height: fit-content;
+    max-height: calc(100vh - 2rem);
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  
+  /* Tablet game layout */
+  .game-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 1.5rem;
+  }
+  
+  .mcq-options {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .mcq-option {
+    padding: 1.25rem;
+    font-size: 1rem;
+    min-height: 64px;
+  }
+  
+  /* Show tablet-specific elements */
+  .show-tablet {
+    display: block !important;
+  }
+  
+  .hide-tablet {
+    display: none !important;
+  }
+}
+
+/* ===== DESKTOP (1024px+) ===== */
+@media screen and (min-width: 1024px) {
+  body {
+    font-size: 16px;
+    overflow-x: hidden;
+  }
+  
+  .container {
+    max-width: 1200px;
+    padding: 0 2rem;
+  }
+  
+  .row {
+    margin: 0 -1.5rem;
+  }
+  
+  .col {
+    padding: 0 1.5rem;
+  }
+  
+  /* Desktop grid systems */
+  .grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    overflow-x: hidden;
+  }
+  
+  .grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    overflow-x: hidden;
+  }
+  
+  .grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    overflow-x: hidden;
+  }
+  
+  /* Desktop layout with sidebar */
+  .layout-sidebar {
+    grid-template-columns: 300px 1fr;
+    gap: 3rem;
+  }
+  
+  .sidebar {
+    position: sticky;
+    top: 2rem;
+    max-height: calc(100vh - 4rem);
+  }
+  
+  /* Desktop game layout */
+  .game-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  .mcq-options {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+  
+  .mcq-option {
+    padding: 1.5rem;
+    font-size: 1.1rem;
+    min-height: 72px;
+  }
+  
+  /* Desktop hover effects */
+  .button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px var(--shadow-color, rgba(0, 0, 0, 0.1));
+  }
+  
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px var(--shadow-color, rgba(0, 0, 0, 0.1));
+  }
+  
+  /* Show desktop-specific elements */
+  .show-desktop {
+    display: block !important;
+  }
+  
+  .hide-desktop {
+    display: none !important;
+  }
+}
+
+/* ===== LARGE DESKTOP (1200px+) ===== */
+@media screen and (min-width: 1200px) {
+  .container {
+    max-width: 1400px;
+    padding: 0 2.5rem;
+  }
+  
+  .layout-sidebar {
+    grid-template-columns: 350px 1fr;
+    gap: 4rem;
+  }
+  
+  .grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2.5rem;
+  }
+  
+  .grid-5 {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2.5rem;
+    overflow-x: hidden;
+  }
+}
+
+/* ===== ULTRA WIDE (1400px+) ===== */
+@media screen and (min-width: 1400px) {
+  .container {
+    max-width: 1600px;
+  }
+  
+  .grid-6 {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 3rem;
+    overflow-x: hidden;
+  }
+}
+
+/* ===== RESPONSIVE UTILITIES ===== */
+/* Responsive visibility classes */
+.show-mobile {
+  display: block !important;
+}
+
+@media screen and (min-width: 768px) {
+  .show-mobile {
+    display: none !important;
+  }
+  
+  .hide-mobile {
+    display: block !important;
+  }
+}
+
+/* Responsive text alignment */
+.text-center-mobile {
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  .text-center-mobile {
+    text-align: left;
+  }
+}
+
+/* Responsive spacing */
+.margin-mobile {
+  margin: 0.5rem 0;
+}
+
+@media screen and (min-width: 768px) {
+  .margin-mobile {
+    margin: 1rem 0;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .margin-mobile {
+    margin: 1.5rem 0;
+  }
+}
+
+/* ===== CRITICAL FINAL OVERFLOW FIXES ===== */
+@media screen and (max-width: 1920px) {
+  html, body {
+    overflow-x: hidden !important;
+    max-width: 100% !important;
+  }
+  
+  .container,
+  .row,
+  .col,
+  .grid-container,
+  .flex-container {
+    overflow-x: hidden !important;
+    max-width: 100% !important;
+  }
+  
+  * {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+}
+
+/* ===== ACCESSIBILITY RESPONSIVE FEATURES ===== */
+@media (max-width: 768px) and (prefers-reduced-motion: reduce) {
+  .button:hover,
+  .card:hover {
+    transform: none !important;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .button {
+    min-height: 48px;
+    min-width: 48px;
+  }
+  
+  .mcq-option {
+    min-height: 60px;
+  }
+  
+  .input-field,
+  .select-field {
+    font-size: 16px; /* Prevent zoom on iOS */
+  }
+}
+
+/* Print responsive */
+@media print {
+  .mobile-nav,
+  .sidebar,
+  .hide-print {
+    display: none !important;
+  }
+  
+  .container {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+  
+  .grid-container {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+
+
