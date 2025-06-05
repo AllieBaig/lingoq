@@ -1,0 +1,528 @@
+
+/* Themes CSS - Dynamic Theme System for LingoQuest */
+
+/* Light Theme (Default) */
+[data-theme="light"] {
+  /* Primary Colors */
+  --primary-color: #4a90e2;
+  --primary-hover: #357abd;
+  --primary-active: #2968a3;
+  --primary-light: #e3f2fd;
+  --primary-dark: #1565c0;
+  
+  /* Secondary Colors */
+  --secondary-color: #f39c12;
+  --secondary-hover: #e67e22;
+  --secondary-active: #d35400;
+  --secondary-light: #fff3e0;
+  --secondary-dark: #ef6c00;
+  
+  /* Status Colors */
+  --success-color: #27ae60;
+  --success-hover: #229954;
+  --success-light: #e8f5e8;
+  --error-color: #e74c3c;
+  --error-hover: #c0392b;
+  --error-light: #fdf2f2;
+  --warning-color: #f1c40f;
+  --warning-hover: #f39c12;
+  --warning-light: #fffbf0;
+  --info-color: #3498db;
+  --info-hover: #2980b9;
+  --info-light: #ebf3fd;
+  
+  /* Background Colors */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --bg-tertiary: #e9ecef;
+  --bg-quaternary: #dee2e6;
+  --bg-overlay: rgba(0, 0, 0, 0.1);
+  --bg-modal: rgba(0, 0, 0, 0.5);
+  
+  /* Text Colors */
+  --text-primary: #2c3e50;
+  --text-secondary: #7f8c8d;
+  --text-tertiary: #95a5a6;
+  --text-muted: #bdc3c7;
+  --text-inverse: #ffffff;
+  --text-link: #4a90e2;
+  --text-link-hover: #357abd;
+  
+  /* Border Colors */
+  --border-color: #dee2e6;
+  --border-light: #f1f3f4;
+  --border-medium: #d1d5db;
+  --border-dark: #9ca3af;
+  
+  /* Shadow Colors */
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --shadow-color-light: rgba(0, 0, 0, 0.05);
+  --shadow-color-medium: rgba(0, 0, 0, 0.15);
+  --shadow-color-dark: rgba(0, 0, 0, 0.25);
+  
+  /* Game Specific Colors */
+  --game-correct: #27ae60;
+  --game-incorrect: #e74c3c;
+  --game-neutral: #95a5a6;
+  --game-streak: #f39c12;
+  --hollybolly-primary: #e91e63;
+  --hollybolly-secondary: #ff9800;
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+  /* Primary Colors */
+  --primary-color: #5ba0f2;
+  --primary-hover: #4a90e2;
+  --primary-active: #357abd;
+  --primary-light: #1e3a5f;
+  --primary-dark: #7bb3f7;
+  
+  /* Secondary Colors */
+  --secondary-color: #ffb347;
+  --secondary-hover: #f39c12;
+  --secondary-active: #e67e22;
+  --secondary-light: #3d2914;
+  --secondary-dark: #ffc875;
+  
+  /* Status Colors */
+  --success-color: #4ade80;
+  --success-hover: #22c55e;
+  --success-light: #14532d;
+  --error-color: #f87171;
+  --error-hover: #ef4444;
+  --error-light: #7f1d1d;
+  --warning-color: #fbbf24;
+  --warning-hover: #f59e0b;
+  --warning-light: #451a03;
+  --info-color: #60a5fa;
+  --info-hover: #3b82f6;
+  --info-light: #1e3a8a;
+  
+  /* Background Colors */
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #2d2d2d;
+  --bg-tertiary: #404040;
+  --bg-quaternary: #525252;
+  --bg-overlay: rgba(255, 255, 255, 0.1);
+  --bg-modal: rgba(0, 0, 0, 0.8);
+  
+  /* Text Colors */
+  --text-primary: #f8f9fa;
+  --text-secondary: #d1d5db;
+  --text-tertiary: #9ca3af;
+  --text-muted: #6b7280;
+  --text-inverse: #1a1a1a;
+  --text-link: #5ba0f2;
+  --text-link-hover: #7bb3f7;
+  
+  /* Border Colors */
+  --border-color: #404040;
+  --border-light: #2d2d2d;
+  --border-medium: #525252;
+  --border-dark: #737373;
+  
+  /* Shadow Colors */
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --shadow-color-light: rgba(0, 0, 0, 0.2);
+  --shadow-color-medium: rgba(0, 0, 0, 0.4);
+  --shadow-color-dark: rgba(0, 0, 0, 0.6);
+  
+  /* Game Specific Colors */
+  --game-correct: #4ade80;
+  --game-incorrect: #f87171;
+  --game-neutral: #9ca3af;
+  --game-streak: #fbbf24;
+  --hollybolly-primary: #f06292;
+  --hollybolly-secondary: #ffb74d;
+}
+
+/* High Contrast Theme - Accessibility */
+[data-theme="high-contrast"] {
+  /* Primary Colors */
+  --primary-color: #0066cc;
+  --primary-hover: #0052a3;
+  --primary-active: #003d7a;
+  --primary-light: #e6f2ff;
+  --primary-dark: #001f3f;
+  
+  /* Secondary Colors */
+  --secondary-color: #ff6600;
+  --secondary-hover: #e55a00;
+  --secondary-active: #cc4d00;
+  --secondary-light: #fff0e6;
+  --secondary-dark: #b33300;
+  
+  /* Status Colors */
+  --success-color: #009900;
+  --success-hover: #008000;
+  --success-light: #e6ffe6;
+  --error-color: #cc0000;
+  --error-hover: #b30000;
+  --error-light: #ffe6e6;
+  --warning-color: #ffaa00;
+  --warning-hover: #e69900;
+  --warning-light: #fff8e6;
+  --info-color: #0099cc;
+  --info-hover: #0088b3;
+  --info-light: #e6f7ff;
+  
+  /* Background Colors */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f0f0f0;
+  --bg-tertiary: #e0e0e0;
+  --bg-quaternary: #d0d0d0;
+  --bg-overlay: rgba(0, 0, 0, 0.2);
+  --bg-modal: rgba(0, 0, 0, 0.8);
+  
+  /* Text Colors */
+  --text-primary: #000000;
+  --text-secondary: #333333;
+  --text-tertiary: #666666;
+  --text-muted: #999999;
+  --text-inverse: #ffffff;
+  --text-link: #0066cc;
+  --text-link-hover: #0052a3;
+  
+  /* Border Colors */
+  --border-color: #000000;
+  --border-light: #666666;
+  --border-medium: #333333;
+  --border-dark: #000000;
+  
+  /* Shadow Colors */
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --shadow-color-light: rgba(0, 0, 0, 0.2);
+  --shadow-color-medium: rgba(0, 0, 0, 0.4);
+  --shadow-color-dark: rgba(0, 0, 0, 0.5);
+  
+  /* Game Specific Colors */
+  --game-correct: #009900;
+  --game-incorrect: #cc0000;
+  --game-neutral: #666666;
+  --game-streak: #ffaa00;
+  --hollybolly-primary: #cc0066;
+  --hollybolly-secondary: #ff9900;
+}
+
+/* Sepia Theme - Easy on Eyes */
+[data-theme="sepia"] {
+  /* Primary Colors */
+  --primary-color: #8b4513;
+  --primary-hover: #a0522d;
+  --primary-active: #654321;
+  --primary-light: #f5e6d3;
+  --primary-dark: #5d2f0a;
+  
+  /* Secondary Colors */
+  --secondary-color: #cd853f;
+  --secondary-hover: #daa520;
+  --secondary-active: #b8860b;
+  --secondary-light: #faf0e6;
+  --secondary-dark: #9a6914;
+  
+  /* Status Colors */
+  --success-color: #556b2f;
+  --success-hover: #6b8e23;
+  --success-light: #f0f8e8;
+  --error-color: #a0522d;
+  --error-hover: #8b4513;
+  --error-light: #f5e6d3;
+  --warning-color: #daa520;
+  --warning-hover: #b8860b;
+  --warning-light: #faf5e6;
+  --info-color: #4682b4;
+  --info-hover: #5f9ea0;
+  --info-light: #e6f3f7;
+  
+  /* Background Colors */
+  --bg-primary: #fdf6e3;
+  --bg-secondary: #f5e6d3;
+  --bg-tertiary: #ede0c8;
+  --bg-quaternary: #e5d3bd;
+  --bg-overlay: rgba(139, 69, 19, 0.1);
+  --bg-modal: rgba(101, 67, 33, 0.7);
+  
+  /* Text Colors */
+  --text-primary: #5d4037;
+  --text-secondary: #795548;
+  --text-tertiary: #8d6e63;
+  --text-muted: #a1887f;
+  --text-inverse: #fdf6e3;
+  --text-link: #8b4513;
+  --text-link-hover: #a0522d;
+  
+  /* Border Colors */
+  --border-color: #d7c0a0;
+  --border-light: #e5d3bd;
+  --border-medium: #c9a876;
+  --border-dark: #a0846c;
+  
+  /* Shadow Colors */
+  --shadow-color: rgba(139, 69, 19, 0.2);
+  --shadow-color-light: rgba(139, 69, 19, 0.1);
+  --shadow-color-medium: rgba(139, 69, 19, 0.25);
+  --shadow-color-dark: rgba(139, 69, 19, 0.35);
+  
+  /* Game Specific Colors */
+  --game-correct: #556b2f;
+  --game-incorrect: #a0522d;
+  --game-neutral: #8d6e63;
+  --game-streak: #daa520;
+  --hollybolly-primary: #b8860b;
+  --hollybolly-secondary: #cd853f;
+}
+
+/* Blue Light Filter Theme - Reduced Eye Strain */
+[data-theme="blue-light"] {
+  /* Primary Colors */
+  --primary-color: #ff6b35;
+  --primary-hover: #e55a2b;
+  --primary-active: #cc4921;
+  --primary-light: #fff3f0;
+  --primary-dark: #b33817;
+  
+  /* Secondary Colors */
+  --secondary-color: #ffa726;
+  --secondary-hover: #ff9800;
+  --secondary-active: #f57c00;
+  --secondary-light: #fff8e1;
+  --secondary-dark: #ef6c00;
+  
+  /* Status Colors */
+  --success-color: #66bb6a;
+  --success-hover: #4caf50;
+  --success-light: #f1f8e9;
+  --error-color: #ef5350;
+  --error-hover: #f44336;
+  --error-light: #ffebee;
+  --warning-color: #ffca28;
+  --warning-hover: #ffc107;
+  --warning-light: #fffde7;
+  --info-color: #26a69a;
+  --info-hover: #00897b;
+  --info-light: #e0f2f1;
+  
+  /* Background Colors */
+  --bg-primary: #fff8f5;
+  --bg-secondary: #ffeee6;
+  --bg-tertiary: #ffe4d6;
+  --bg-quaternary: #ffdac6;
+  --bg-overlay: rgba(255, 107, 53, 0.1);
+  --bg-modal: rgba(204, 73, 33, 0.7);
+  
+  /* Text Colors */
+  --text-primary: #4e342e;
+  --text-secondary: #6d4c41;
+  --text-tertiary: #8d6e63;
+  --text-muted: #a1887f;
+  --text-inverse: #fff8f5;
+  --text-link: #ff6b35;
+  --text-link-hover: #e55a2b;
+  
+  /* Border Colors */
+  --border-color: #ffccbc;
+  --border-light: #ffe0d6;
+  --border-medium: #ffab91;
+  --border-dark: #ff8a65;
+  
+  /* Shadow Colors */
+  --shadow-color: rgba(255, 107, 53, 0.2);
+  --shadow-color-light: rgba(255, 107, 53, 0.1);
+  --shadow-color-medium: rgba(255, 107, 53, 0.25);
+  --shadow-color-dark: rgba(255, 107, 53, 0.35);
+  
+  /* Game Specific Colors */
+  --game-correct: #66bb6a;
+  --game-incorrect: #ef5350;
+  --game-neutral: #8d6e63;
+  --game-streak: #ffca28;
+  --hollybolly-primary: #e91e63;
+  --hollybolly-secondary: #ffa726;
+}
+
+/* Auto Theme - Follows System Preference */
+[data-theme="auto"] {
+  /* Light theme variables by default */
+  --primary-color: #4a90e2;
+  --bg-primary: #ffffff;
+  --text-primary: #2c3e50;
+  /* ... other light theme variables ... */
+}
+
+@media (prefers-color-scheme: dark) {
+  [data-theme="auto"] {
+    /* Dark theme variables when system is dark */
+    --primary-color: #5ba0f2;
+    --bg-primary: #1a1a1a;
+    --text-primary: #f8f9fa;
+    /* ... other dark theme variables ... */
+  }
+}
+
+/* Theme Transitions */
+* {
+  transition: 
+    background-color var(--transition-normal),
+    color var(--transition-normal),
+    border-color var(--transition-normal),
+    box-shadow var(--transition-normal);
+}
+
+/* Theme-specific Component Overrides */
+
+/* HollyBolly Mode Theme Enhancements */
+[data-game-type="hollybolly"] {
+  --primary-color: var(--hollybolly-primary);
+  --secondary-color: var(--hollybolly-secondary);
+}
+
+[data-game-type="hollybolly"] .hollybolly-card {
+  background: linear-gradient(135deg, 
+    var(--hollybolly-primary) 0%, 
+    var(--hollybolly-secondary) 100%);
+  color: var(--text-inverse);
+}
+
+[data-game-type="hollybolly"] .hollybolly-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 8px 25px var(--shadow-color-medium);
+}
+
+/* Reward Modal Theme Enhancements */
+.reward-modal {
+  background: var(--bg-modal);
+}
+
+.reward-content {
+  background: var(--bg-primary);
+  border: 2px solid var(--hollybolly-primary);
+  box-shadow: 0 20px 40px var(--shadow-color-dark);
+}
+
+/* Progress Bar Theme Enhancements */
+.progress-bar {
+  background: var(--bg-tertiary);
+}
+
+.progress-fill {
+  background: linear-gradient(90deg, 
+    var(--primary-color) 0%, 
+    var(--secondary-color) 100%);
+}
+
+/* Choice Options Theme Enhancements */
+.choice-option {
+  background: var(--bg-secondary);
+  border: 2px solid var(--border-color);
+  transition: all var(--transition-fast);
+}
+
+.choice-option:hover {
+  border-color: var(--primary-color);
+  background: var(--primary-light);
+  transform: translateY(-1px);
+}
+
+.choice-option.selected {
+  border-color: var(--primary-color);
+  background: var(--primary-color);
+  color: var(--text-inverse);
+}
+
+.choice-option.correct {
+  border-color: var(--game-correct);
+  background: var(--success-light);
+  animation: correctAnswer 0.6s ease;
+}
+
+.choice-option.incorrect {
+  border-color: var(--game-incorrect);
+  background: var(--error-light);
+  animation: incorrectAnswer 0.6s ease;
+}
+
+/* Theme-specific Animations */
+@keyframes correctAnswer {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); background: var(--game-correct); color: var(--text-inverse); }
+  100% { transform: scale(1); }
+}
+
+@keyframes incorrectAnswer {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}
+
+/* Accessibility Theme Enhancements */
+[data-theme="high-contrast"] * {
+  text-shadow: none !important;
+  box-shadow: 0 2px 4px var(--shadow-color) !important;
+}
+
+[data-theme="high-contrast"] .btn {
+  border-width: 3px !important;
+  font-weight: 700 !important;
+}
+
+[data-theme="high-contrast"] .choice-option {
+  border-width: 3px !important;
+}
+
+/* Reduced Motion Theme Support */
+@media (prefers-reduced-motion: reduce) {
+  [data-theme] * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+  
+  .choice-option:hover {
+    transform: none !important;
+  }
+  
+  .hollybolly-card:hover {
+    transform: none !important;
+  }
+}
+
+/* Print Theme */
+@media print {
+  [data-theme] {
+    --bg-primary: white !important;
+    --bg-secondary: white !important;
+    --text-primary: black !important;
+    --text-secondary: black !important;
+    --border-color: black !important;
+  }
+}
+
+/* Theme Loading Animation */
+.theme-loading {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.theme-loaded {
+  opacity: 1;
+}
+
+/* Color Blind Friendly Patterns */
+[data-accessibility="color-blind"] .choice-option.correct::before {
+  content: "✓";
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+[data-accessibility="color-blind"] .choice-option.incorrect::before {
+  content: "✗";
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-weight: bold;
+  font-size: 1.2em;
+}
