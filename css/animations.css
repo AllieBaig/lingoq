@@ -1,0 +1,872 @@
+
+/* Animations CSS - Smooth Animations and Transitions for LingoQuest */
+
+/* Animation Variables */
+:root {
+  --animation-duration-fast: 0.15s;
+  --animation-duration-normal: 0.3s;
+  --animation-duration-slow: 0.5s;
+  --animation-duration-slower: 0.8s;
+  
+  --easing-ease: ease;
+  --easing-ease-in: ease-in;
+  --easing-ease-out: ease-out;
+  --easing-ease-in-out: ease-in-out;
+  --easing-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --easing-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Reduced Motion Preferences */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --animation-duration-fast: 0.01ms;
+    --animation-duration-normal: 0.01ms;
+    --animation-duration-slow: 0.01ms;
+    --animation-duration-slower: 0.01ms;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Page Load Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+  70% {
+    transform: scale(0.95);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Screen Transition Animations */
+.screen {
+  animation: fadeInUp var(--animation-duration-normal) var(--easing-ease-out);
+}
+
+.screen.slide-left {
+  animation: slideInLeft var(--animation-duration-normal) var(--easing-ease-out);
+}
+
+.screen.slide-right {
+  animation: slideInRight var(--animation-duration-normal) var(--easing-ease-out);
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Header Animations */
+.app-header {
+  animation: slideInDown var(--animation-duration-normal) var(--easing-ease-out);
+}
+
+.app-title {
+  animation: fadeInLeft var(--animation-duration-slow) var(--easing-ease-out) 0.1s both;
+}
+
+.header-controls {
+  animation: fadeInRight var(--animation-duration-slow) var(--easing-ease-out) 0.2s both;
+}
+
+/* Home Screen Animations */
+.welcome-section {
+  animation: fadeInUp var(--animation-duration-slow) var(--easing-ease-out);
+}
+
+.game-mode-selector {
+  animation: fadeInUp var(--animation-duration-slow) var(--easing-ease-out) 0.1s both;
+}
+
+.mode-tab {
+  transition: all var(--animation-duration-fast) var(--easing-ease);
+}
+
+.mode-tab.active {
+  animation: bounceIn var(--animation-duration-normal) var(--easing-bounce);
+}
+
+.game-modes {
+  animation: fadeInUp var(--animation-duration-slow) var(--easing-ease-out) 0.2s both;
+}
+
+.mode-card {
+  animation: fadeInUp var(--animation-duration-slow) var(--easing-ease-out) calc(var(--card-index, 0) * 0.1s + 0.3s) both;
+  transition: all var(--animation-duration-normal) var(--easing-ease);
+}
+
+.mode-card:nth-child(1) { --card-index: 0; }
+.mode-card:nth-child(2) { --card-index: 1; }
+.mode-card:nth-child(3) { --card-index: 2; }
+
+.mode-card:hover {
+  animation: cardHover var(--animation-duration-fast) var(--easing-ease);
+}
+
+@keyframes cardHover {
+  0% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-4px) scale(1.02); }
+  100% { transform: translateY(-2px) scale(1.01); }
+}
+
+.home-actions {
+  animation: fadeInUp var(--animation-duration-slow) var(--easing-ease-out) 0.4s both;
+}
+
+/* HollyBolly Intro Animations */
+.hollybolly-intro {
+  animation: slideInUp var(--animation-duration-slow) var(--easing-ease-out);
+}
+
+.reward-preview {
+  animation: fadeInUp var(--animation-duration-slow) var(--easing-ease-out) 0.2s both;
+}
+
+.reward-item {
+  animation: fadeInLeft var(--animation-duration-normal) var(--easing-ease-out) calc(var(--reward-index, 0) * 0.1s + 0.3s) both;
+  transition: all var(--animation-duration-fast) var(--easing-ease);
+}
+
+.reward-item:nth-child(1) { --reward-index: 0; }
+.reward-item:nth-child(2) { --reward-index: 1; }
+.reward-item:nth-child(3) { --reward-index: 2; }
+
+.reward-item:hover {
+  transform: translateX(5px);
+}
+
+.reward-icon {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+/* Game Screen Animations */
+.game-header {
+  animation: slideInDown var(--animation-duration-normal) var(--easing-ease-out);
+}
+
+.game-info > * {
+  animation: fadeInUp var(--animation-duration-normal) var(--easing-ease-out) calc(var(--info-index, 0) * 0.1s) both;
+}
+
+.current-category { --info-index: 0; }
+.current-letter { --info-index: 1; }
+.game-progress { --info-index: 2; }
+
+.progress-bar {
+  animation: slideInLeft var(--animation-duration-slow) var(--easing-ease-out) 0.3s both;
+}
+
+.progress-fill {
+  transition: width var(--animation-duration-slow) var(--easing-ease-out);
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  animation: progressShine 2s infinite;
+}
+
+@keyframes progressShine {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* HollyBolly Clue Animations */
+.hollybolly-clue {
+  animation: slideInUp var(--animation-duration-slow) var(--easing-bounce) 0.2s both;
+}
+
+.movie-clue-card {
+  animation: zoomIn var(--animation-duration-normal) var(--easing-ease-out) 0.3s both;
+}
+
+.clue-item {
+  animation: fadeInLeft var(--animation-duration-normal) var(--easing-ease-out) calc(var(--clue-index, 0) * 0.1s + 0.4s) both;
+  transition: all var(--animation-duration-fast) var(--easing-ease);
+}
+
+.clue-item:nth-child(1) { --clue-index: 0; }
+.clue-item:nth-child(2) { --clue-index: 1; }
+.clue-item:nth-child(3) { --clue-index: 2; }
+
+.clue-item:hover {
+  transform: scale(1.02);
+  box-shadow: var(--shadow-md);
+}
+
+.clue-icon {
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 53%, 80%, 100% { transform: translateY(0); }
+  40%, 43% { transform: translateY(-8px); }
+  70% { transform: translateY(-4px); }
+  90% { transform: translateY(-2px); }
+}
+
+/* Question and Choices Animations */
+.question-container {
+  animation: fadeInUp var(--animation-duration-slow) var(--easing-ease-out) 0.4s both;
+}
+
+.question-card {
+  animation: zoomIn var(--animation-duration-normal) var(--easing-bounce) 0.5s both;
+}
+
+.question-text {
+  animation: fadeInDown var(--animation-duration-normal) var(--easing-ease-out) 0.6s both;
+}
+
+.choices-container {
+  animation: fadeInUp var(--animation-duration-slow) var(--easing-ease-out) 0.7s both;
+}
+
+.choice-option {
+  animation: slideInUp var(--animation-duration-normal) var(--easing-ease-out) calc(var(--choice-index, 0) * 0.1s + 0.8s) both;
+  transition: all var(--animation-duration-fast) var(--easing-ease);
+}
+
+.choice-option:nth-child(1) { --choice-index: 0; }
+.choice-option:nth-child(2) { --choice-index: 1; }
+.choice-option:nth-child(3) { --choice-index: 2; }
+.choice-option:nth-child(4) { --choice-index: 3; }
+
+.choice-option:hover {
+  animation: choiceHover var(--animation-duration-fast) var(--easing-ease);
+}
+
+@keyframes choiceHover {
+  0% { transform: translateY(0) scale(1); }
+  100% { transform: translateY(-2px) scale(1.01); }
+}
+
+.choice-option.selected {
+  animation: choiceSelect var(--animation-duration-normal) var(--easing-bounce);
+}
+
+@keyframes choiceSelect {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1.02); }
+}
+
+/* Answer Feedback Animations */
+.choice-option.correct {
+  animation: correctAnswer var(--animation-duration-slow) var(--easing-bounce);
+}
+
+@keyframes correctAnswer {
+  0% { 
+    transform: scale(1);
+    background: var(--bg-secondary);
+  }
+  25% { 
+    transform: scale(1.05);
+    background: var(--success-color);
+    color: var(--text-inverse);
+  }
+  50% { 
+    transform: scale(1.1) rotate(2deg);
+  }
+  75% { 
+    transform: scale(1.05) rotate(-1deg);
+  }
+  100% { 
+    transform: scale(1.02);
+    background: var(--success-light);
+    color: var(--success-color);
+  }
+}
+
+.choice-option.incorrect {
+  animation: incorrectAnswer var(--animation-duration-slow) var(--easing-ease-in-out);
+}
+
+@keyframes incorrectAnswer {
+  0%, 100% { 
+    transform: translateX(0);
+    background: var(--bg-secondary);
+  }
+  10% { 
+    transform: translateX(-10px);
+    background: var(--error-color);
+    color: var(--text-inverse);
+  }
+  20% { 
+    transform: translateX(10px);
+  }
+  30% { 
+    transform: translateX(-8px);
+  }
+  40% { 
+    transform: translateX(8px);
+  }
+  50% { 
+    transform: translateX(-4px);
+  }
+  60% { 
+    transform: translateX(4px);
+  }
+  70% { 
+    transform: translateX(-2px);
+  }
+  80% { 
+    transform: translateX(2px);
+  }
+  90% { 
+    transform: translateX(0);
+    background: var(--error-light);
+    color: var(--error-color);
+  }
+}
+
+/* Streak Counter Animations */
+.streak-counter {
+  animation: slideInRight var(--animation-duration-normal) var(--easing-bounce) 0.5s both;
+}
+
+.streak-number {
+  transition: all var(--animation-duration-normal) var(--easing-bounce);
+}
+
+.streak-updated .streak-number {
+  animation: streakUpdate var(--animation-duration-slow) var(--easing-bounce);
+}
+
+@keyframes streakUpdate {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.5) rotate(10deg); color: var(--hollybolly-secondary); }
+  100% { transform: scale(1); }
+}
+
+.streak-icon {
+  animation: flicker 1.5s infinite alternate;
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.1); }
+}
+
+/* Reward Modal Animations */
+.reward-modal {
+  animation: modalFadeIn var(--animation-duration-normal) var(--easing-ease-out);
+}
+
+.reward-modal.show .reward-content {
+  animation: rewardReveal var(--animation-duration-slower) var(--easing-bounce);
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    backdrop-filter: blur(0px);
+  }
+  to {
+    opacity: 1;
+    backdrop-filter: blur(4px);
+  }
+}
+
+@keyframes rewardReveal {
+  0% {
+    transform: scale(0.5) rotate(-10deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1) rotate(5deg);
+    opacity: 0.8;
+  }
+  75% {
+    transform: scale(0.95) rotate(-2deg);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+.reward-header {
+  animation: slideInDown var(--animation-duration-normal) var(--easing-ease-out) 0.2s both;
+}
+
+.reward-body {
+  animation: fadeInUp var(--animation-duration-normal) var(--easing-ease-out) 0.4s both;
+}
+
+.earnings-comparison,
+.networth-comparison {
+  animation: slideInUp var(--animation-duration-normal) var(--easing-ease-out) 0.6s both;
+}
+
+.earning-item,
+.person-item {
+  animation: fadeInLeft var(--animation-duration-normal) var(--easing-ease-out) calc(var(--item-index, 0) * 0.2s + 0.8s) both;
+  transition: all var(--animation-duration-fast) var(--easing-ease);
+}
+
+.earning-item:nth-child(1),
+.person-item:nth-child(1) { --item-index: 0; }
+
+.earning-item:nth-child(3),
+.person-item:nth-child(3) { --item-index: 1; }
+
+.vs-divider {
+  animation: zoomIn var(--animation-duration-normal) var(--easing-bounce) 1s both;
+}
+
+/* Results Screen Animations */
+.results-header {
+  animation: fadeInDown var(--animation-duration-slow) var(--easing-ease-out);
+}
+
+.score-circle {
+  animation: scoreReveal var(--animation-duration-slower) var(--easing-bounce) 0.3s both;
+}
+
+@keyframes scoreReveal {
+  0% {
+    transform: scale(0) rotate(-180deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2) rotate(-90deg);
+    opacity: 0.7;
+  }
+  75% {
+    transform: scale(0.9) rotate(-30deg);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+.score-number {
+  animation: countUp var(--animation-duration-slower) var(--easing-ease-out) 0.8s both;
+}
+
+@keyframes countUp {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.results-summary {
+  animation: fadeInUp var(--animation-duration-slow) var(--easing-ease-out) 0.5s both;
+}
+
+.stat-item {
+  animation: slideInLeft var(--animation-duration-normal) var(--easing-ease-out) calc(var(--stat-index, 0) * 0.1s + 0.7s) both;
+}
+
+.stat-item:nth-child(1) { --stat-index: 0; }
+.stat-item:nth-child(2) { --stat-index: 1; }
+.stat-item:nth-child(3) { --stat-index: 2; }
+.stat-item:nth-child(4) { --stat-index: 3; }
+
+.results-actions {
+  animation: fadeInUp var(--animation-duration-slow) var(--easing-ease-out) 1s both;
+}
+
+/* Settings Screen Animations */
+.settings-header {
+  animation: slideInDown var(--animation-duration-normal) var(--easing-ease-out);
+}
+
+.settings-content {
+  animation: fadeInUp var(--animation-duration-slow) var(--easing-ease-out) 0.2s both;
+}
+
+.setting-group {
+  animation: fadeInLeft var(--animation-duration-normal) var(--easing-ease-out) calc(var(--group-index, 0) * 0.1s + 0.3s) both;
+}
+
+.setting-group:nth-child(1) { --group-index: 0; }
+.setting-group:nth-child(2) { --group-index: 1; }
+.setting-group:nth-child(3) { --group-index: 2; }
+.setting-group:nth-child(4) { --group-index: 3; }
+.setting-group:nth-child(5) { --group-index: 4; }
+
+.setting-item {
+  transition: all var(--animation-duration-fast) var(--easing-ease);
+}
+
+.setting-item:hover {
+  transform: translateX(5px);
+  background: var(--bg-tertiary);
+  border-radius: var(--border-radius);
+}
+
+/* Button Animations */
+.btn {
+  transition: all var(--animation-duration-fast) var(--easing-ease);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width var(--animation-duration-slow), height var(--animation-duration-slow);
+}
+
+.btn:active::before {
+  width: 300px;
+  height: 300px;
+}
+
+.btn:hover:not(:disabled) {
+  animation: buttonHover var(--animation-duration-fast) var(--easing-ease);
+}
+
+@keyframes buttonHover {
+  0% { transform: translateY(0) scale(1); }
+  100% { transform: translateY(-2px) scale(1.02); }
+}
+
+.btn:focus {
+  animation: buttonFocus var(--animation-duration-normal) var(--easing-ease);
+}
+
+@keyframes buttonFocus {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* Toast Animations */
+.toast {
+  animation: toastSlideIn var(--animation-duration-normal) var(--easing-bounce);
+}
+
+@keyframes toastSlideIn {
+  from {
+    transform: translateX(100%) scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+  }
+}
+
+.toast.removing {
+  animation: toastSlideOut var(--animation-duration-normal) var(--easing-ease-in);
+}
+
+@keyframes toastSlideOut {
+  from {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%) scale(0.8);
+    opacity: 0;
+  }
+}
+
+/* Loading Animations */
+.loading-overlay {
+  animation: fadeIn var(--animation-duration-normal) var(--easing-ease-out);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.loading-content {
+  animation: fadeInUp var(--animation-duration-slow) var(--easing-ease-out) 0.2s both;
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.loading-title {
+  animation: fadeInUp var(--animation-duration-normal) var(--easing-ease-out) 0.4s both;
+}
+
+.loading-text {
+  animation: fadeInUp var(--animation-duration-normal) var(--easing-ease-out) 0.6s both;
+}
+
+.loading-tip {
+  animation: fadeInOut 3s infinite;
+}
+
+@keyframes fadeInOut {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
+/* Special Effect Animations */
+.confetti {
+  animation: confettiFall 3s ease-out infinite;
+}
+
+@keyframes confettiFall {
+  0% {
+    transform: translateY(-100vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.sparkle {
+  animation: sparkle 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes sparkle {
+  0% {
+    transform: scale(1) rotate(0deg);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.2) rotate(180deg);
+    opacity: 1;
+  }
+}
+
+/* Focus and Accessibility Animations */
+.focus-ring {
+  animation: focusRing 0.3s ease-out;
+}
+
+@keyframes focusRing {
+  0% {
+    box-shadow: 0 0 0 0 var(--primary-color);
+  }
+  100% {
+    box-shadow: 0 0 0 3px var(--primary-color);
+  }
+}
+
+/* Game State Transition Animations */
+.game-transition-enter {
+  animation: gameTransitionEnter var(--animation-duration-slow) var(--easing-ease-out);
+}
+
+.game-transition-exit {
+  animation: gameTransitionExit var(--animation-duration-normal) var(--easing-ease-in);
+}
+
+@keyframes gameTransitionEnter {
+  from {
+    transform: scale(0.9) rotateY(-10deg);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1) rotateY(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes gameTransitionExit {
+  from {
+    transform: scale(1) rotateY(0deg);
+    opacity: 1;
+  }
+  to {
+    transform: scale(0.9) rotateY(10deg);
+    opacity: 0;
+  }
+}
+
+/* Performance Optimizations */
+.gpu-accelerated {
+  transform: translateZ(0);
+  will-change: transform, opacity;
+}
+
+/* Animation Classes for JavaScript Control */
+.animate-in {
+  animation: fadeInUp var(--animation-duration-normal) var(--easing-ease-out);
+}
+
+.animate-out {
+  animation: fadeOut var(--animation-duration-normal) var(--easing-ease-in);
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+.bounce-in {
+  animation: bounceIn var(--animation-duration-slow) var(--easing-bounce);
+}
+
+.slide-up {
+  animation: slideInUp var(--animation-duration-normal) var(--easing-ease-out);
+}
+
+.zoom-in {
+  animation: zoomIn var(--animation-duration-normal) var(--easing-ease-out);
+}
+
+.shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+.wiggle {
+  animation: wiggle 0.8s ease-in-out;
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-3deg); }
+  75% { transform: rotate(3deg); }
+}
