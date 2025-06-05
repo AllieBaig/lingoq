@@ -1,0 +1,126 @@
+
+
+/**
+ * File: css/modules/utilities.css
+ * LingoQuest - Utility Classes Module
+ * Helper classes for spacing, visibility, positioning, and common patterns
+ * Dependencies: reset.css
+ * Features: Spacing utilities, display controls, text utilities, positioning
+ * Components: Margin/padding classes, visibility toggles, text alignment
+ * MIT License - https://github.com/AllieBaig/LingoQuest
+ * Created: 2025-06-05 15:32:28 UTC
+ */
+
+/* ===== SPACING UTILITIES ===== */
+/* Margin utilities */
+.m-0 { margin: 0 !important; }
+.m-1 { margin: var(--spacing-xs, 0.25rem) !important; }
+.m-2 { margin: var(--spacing-sm, 0.5rem) !important; }
+.m-3 { margin: var(--spacing-md, 1rem) !important; }
+.m-4 { margin: var(--spacing-lg, 1.5rem) !important; }
+.m-5 { margin: var(--spacing-xl, 2rem) !important; }
+
+/* Margin top */
+.mt-0 { margin-top: 0 !important; }
+.mt-1 { margin-top: var(--spacing-xs, 0.25rem) !important; }
+.mt-2 { margin-top: var(--spacing-sm, 0.5rem) !important; }
+.mt-3 { margin-top: var(--spacing-md, 1rem) !important; }
+.mt-4 { margin-top: var(--spacing-lg, 1.5rem) !important; }
+.mt-5 { margin-top: var(--spacing-xl, 2rem) !important; }
+
+/* Margin bottom */
+.mb-0 { margin-bottom: 0 !important; }
+.mb-1 { margin-bottom: var(--spacing-xs, 0.25rem) !important; }
+.mb-2 { margin-bottom: var(--spacing-sm, 0.5rem) !important; }
+.mb-3 { margin-bottom: var(--spacing-md, 1rem) !important; }
+.mb-4 { margin-bottom: var(--spacing-lg, 1.5rem) !important; }
+.mb-5 { margin-bottom: var(--spacing-xl, 2rem) !important; }
+
+/* Margin left/right */
+.ml-0 { margin-left: 0 !important; }
+.ml-auto { margin-left: auto !important; }
+.mr-0 { margin-right: 0 !important; }
+.mr-auto { margin-right: auto !important; }
+.mx-auto { margin-left: auto !important; margin-right: auto !important; }
+
+/* Padding utilities */
+.p-0 { padding: 0 !important; }
+.p-1 { padding: var(--spacing-xs, 0.25rem) !important; }
+.p-2 { padding: var(--spacing-sm, 0.5rem) !important; }
+.p-3 { padding: var(--spacing-md, 1rem) !important; }
+.p-4 { padding: var(--spacing-lg, 1.5rem) !important; }
+.p-5 { padding: var(--spacing-xl, 2rem) !important; }
+
+/* Padding top/bottom */
+.pt-0 { padding-top: 0 !important; }
+.pt-3 { padding-top: var(--spacing-md, 1rem) !important; }
+.pb-0 { padding-bottom: 0 !important; }
+.pb-3 { padding-bottom: var(--spacing-md, 1rem) !important; }
+
+/* ===== DISPLAY UTILITIES ===== */
+.d-none { display: none !important; }
+.d-block { display: block !important; }
+.d-inline { display: inline !important; }
+.d-inline-block { display: inline-block !important; }
+.d-table { display: table !important; }
+.d-table-cell { display: table-cell !important; }
+
+/* Visibility utilities */
+.visible { visibility: visible !important; }
+.invisible { visibility: hidden !important; }
+.hidden { display: none !important; }
+
+/* ===== TEXT UTILITIES ===== */
+.text-left { text-align: left !important; }
+.text-center { text-align: center !important; }
+.text-right { text-align: right !important; }
+.text-justify { text-align: justify !important; }
+
+/* Text transform */
+.text-lowercase { text-transform: lowercase !important; }
+.text-uppercase { text-transform: uppercase !important; }
+.text-capitalize { text-transform: capitalize !important; }
+
+/* Font weight */
+.font-weight-normal { font-weight: 400 !important; }
+.font-weight-bold { font-weight: 600 !important; }
+.font-weight-bolder { font-weight: 700 !important; }
+
+/* Font size */
+.text-small { font-size: var(--font-size-sm, 0.875rem) !important; }
+.text-base { font-size: var(--font-size-base, 1rem) !important; }
+.text-large { font-size: var(--font-size-lg, 1.125rem) !important; }
+.text-xl { font-size: var(--font-size-xl, 1.25rem) !important; }
+
+/* Text colors */
+.text-primary { color: var(--text-primary, #212121) !important; }
+.text-secondary { color: var(--text-secondary, #757575) !important; }
+.text-accent { color: var(--text-accent, #1976d2) !important; }
+.text-muted { color: var(--text-muted, #9e9e9e) !important; }
+.text-success { color: #28a745 !important; }
+.text-warning { color: #ffc107 !important; }
+.text-danger { color: #dc3545 !important; }
+.text-white { color: #ffffff !important; }
+
+/* Text decoration */
+.text-decoration-none { text-decoration: none !important; }
+.text-underline { text-decoration: underline !important; }
+
+/* ===== POSITIONING UTILITIES ===== */
+.position-static { position: static !important; }
+.position-relative { position: relative !important; }
+.position-absolute { position: absolute !important; }
+.position-fixed { position: fixed !important; }
+.position-sticky { position: sticky !important; }
+
+/* ===== FLOAT UTILITIES ===== */
+.float-left { float: left !important; }
+.float-right { float: right !important; }
+.float-none { float: none !important; }
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* ===== WIDTH AND HEIGHT UTILITIES ===== */
