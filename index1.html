@@ -86,3 +86,61 @@
                     </div>
                 </div>
             </section>
+
+
+
+            <!-- Game Screen -->
+            <section id="game-screen" class="screen">
+                <div class="screen-content">
+                    <div class="game-header">
+                        <div class="game-info">
+                            <div class="current-category">
+                                <span class="category-label" data-i18n="game.category">Category:</span>
+                                <span id="current-category" class="category-name">Name</span>
+                            </div>
+                            <div class="current-letter">
+                                <span class="letter-label" data-i18n="game.letter">Letter:</span>
+                                <span id="current-letter" class="letter-display">A</span>
+                            </div>
+                            <div class="game-progress">
+                                <span class="progress-text">
+                                    <span id="current-question">1</span> / <span id="total-questions">20</span>
+                                </span>
+                                <div class="progress-bar">
+                                    <div id="progress-fill" class="progress-fill" style="width: 5%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="question-container">
+                        <div class="question-card">
+                            <h3 id="question-text" class="question-text">
+                                Choose a NAME that starts with "A"
+                            </h3>
+                            
+                            <div id="choices-container" class="choices-container">
+                                <!-- MCQ choices will be populated here -->
+                            </div>
+                            
+                            <div class="question-actions">
+                                <button id="confirm-answer" class="btn btn-primary btn-large" disabled>
+                                    <span data-i18n="buttons.confirm">Confirm Answer</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="game-controls">
+                        <button id="pause-game" class="btn btn-outline">
+                            <span data-i18n="buttons.pause">Pause</span>
+                        </button>
+                        <button id="quit-game" class="btn btn-outline btn-danger">
+                            <span data-i18n="buttons.quit">Quit Game</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+
+
