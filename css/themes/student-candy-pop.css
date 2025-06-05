@@ -1,0 +1,395 @@
+/**
+ * File: css/themes/student-candy-pop.css
+ * LingoQuest - Candy Pop Student Theme
+ * Sweet candy-inspired theme with bright colors, bubblegum effects, and playful animations
+ * Dependencies: CSS custom properties support
+ * Features: Candy gradients, bubble animations, sugar rush effects, sweet transitions
+ * Components: Gummy buttons, lollipop cards, candy wrapper animations
+ * MIT License - https://github.com/AllieBaig/LingoQuest
+ * Created: 2025-06-05 14:35:42 UTC
+ */
+
+/* Candy Pop Theme - Sweet & Colorful */
+[data-theme="candy-pop"] {
+  /* Color Palette - Candy Store Colors */
+  --primary-color: #e91e63;
+  --secondary-color: #ff5722;
+  --accent-color: #ffc107;
+  --background-color: #fce4ec;
+  --surface-color: #f8bbd9;
+  --card-background: #ffffff;
+  
+  /* Text Colors */
+  --text-primary: #880e4f;
+  --text-secondary: #ad1457;
+  --text-accent: #c2185b;
+  --text-muted: #e91e63;
+  
+  /* Interactive Elements */
+  --button-primary-bg: linear-gradient(135deg, #e91e63 0%, #ff5722 50%, #ffc107 100%);
+  --button-primary-hover: linear-gradient(135deg, #f06292 0%, #ff7043 50%, #ffca28 100%);
+  --button-secondary-bg: transparent;
+  --button-secondary-border: 3px solid #e91e63;
+  
+  /* Candy Effects */
+  --candy-glow: 0 0 20px rgba(233, 30, 99, 0.6);
+  --bubblegum-shadow: 0 8px 25px rgba(255, 87, 34, 0.4);
+  --sugar-sparkle: 0 0 15px rgba(255, 193, 7, 0.8);
+  --lollipop-shine: inset 0 0 20px rgba(255, 255, 255, 0.3);
+  
+  /* Borders and Shadows */
+  --border-radius: 25px;
+  --card-shadow: var(--bubblegum-shadow);
+  --input-border: 3px solid #f06292;
+  --bounce-duration: 0.6s;
+}
+
+/* Background - Candy Store */
+[data-theme="candy-pop"] body {
+  background: 
+    radial-gradient(circle at 15% 25%, rgba(233, 30, 99, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 85% 75%, rgba(255, 87, 34, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 50% 10%, rgba(255, 193, 7, 0.1) 0%, transparent 50%),
+    linear-gradient(135deg, #fce4ec 0%, #f8bbd9 50%, #f48fb1 100%);
+  background-attachment: fixed;
+  position: relative;
+}
+
+/* Floating Candy Elements */
+[data-theme="candy-pop"] body::before {
+  content: '🍭 🍬 🧁 🍰 🎂';
+  position: fixed;
+  top: -50px;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  font-size: 2rem;
+  color: rgba(233, 30, 99, 0.7);
+  animation: candy-float 20s linear infinite;
+  pointer-events: none;
+  z-index: -1;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+[data-theme="candy-pop"] body::after {
+  content: '🌈 ✨ 💖 🦄 🌟';
+  position: fixed;
+  top: -50px;
+  right: 0;
+  width: 100%;
+  height: 100vh;
+  font-size: 1.5rem;
+  color: rgba(255, 193, 7, 0.6);
+  animation: sparkle-drift 25s linear infinite reverse;
+  pointer-events: none;
+  z-index: -1;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* Button Styles - Gummy Candy */
+[data-theme="candy-pop"] .btn-primary {
+  background: var(--button-primary-bg);
+  border: none;
+  color: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--bubblegum-shadow);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  position: relative;
+  overflow: hidden;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+[data-theme="candy-pop"] .btn-primary::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.5) 50%, transparent 70%);
+  transform: rotate(45deg);
+  transition: all 0.6s ease;
+  opacity: 0;
+}
+
+[data-theme="candy-pop"] .btn-primary:hover {
+  background: var(--button-primary-hover);
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 15px 35px rgba(233, 30, 99, 0.5);
+  animation: candy-bounce var(--bounce-duration) ease-in-out;
+}
+
+[data-theme="candy-pop"] .btn-primary:hover::before {
+  opacity: 1;
+  animation: candy-shine 0.8s ease-out;
+}
+
+[data-theme="candy-pop"] .btn-secondary {
+  background: var(--button-secondary-bg);
+  border: var(--button-secondary-border);
+  color: var(--primary-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--lollipop-shine);
+  transition: all 0.3s ease;
+}
+
+/* Card Elements - Candy Wrapper Style */
+[data-theme="candy-pop"] .card {
+  background: var(--card-background);
+  border: 2px solid rgba(233, 30, 99, 0.2);
+  border-radius: var(--border-radius);
+  box-shadow: var(--card-shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+[data-theme="candy-pop"] .card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.4), 
+    transparent
+  );
+  transition: left 0.7s ease;
+}
+
+[data-theme="candy-pop"] .card::after {
+  content: '✨';
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.2rem;
+  animation: twinkle 2s ease-in-out infinite;
+}
+
+[data-theme="candy-pop"] .card:hover {
+  transform: translateY(-8px) rotate(1deg);
+  box-shadow: 0 20px 40px rgba(233, 30, 99, 0.3);
+  border-color: var(--accent-color);
+}
+
+[data-theme="candy-pop"] .card:hover::before {
+  left: 100%;
+}
+
+/* Typography - Sweet Text */
+[data-theme="candy-pop"] h1,
+[data-theme="candy-pop"] h2,
+[data-theme="candy-pop"] .title {
+  color: var(--text-accent);
+  text-shadow: 2px 2px 4px rgba(233, 30, 99, 0.3);
+  position: relative;
+}
+
+[data-theme="candy-pop"] .game-title {
+  background: linear-gradient(45deg, #e91e63, #ff5722, #ffc107, #e91e63);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: rainbow-candy 3s ease-in-out infinite;
+  font-weight: bold;
+}
+
+/* Input Fields - Candy Input Style */
+[data-theme="candy-pop"] input,
+[data-theme="candy-pop"] select {
+  background: rgba(255, 255, 255, 0.9);
+  border: var(--input-border);
+  border-radius: 20px;
+  color: var(--text-primary);
+  box-shadow: var(--lollipop-shine);
+  transition: all 0.3s ease;
+}
+
+[data-theme="candy-pop"] input:focus,
+[data-theme="candy-pop"] select:focus {
+  border-color: var(--accent-color);
+  box-shadow: var(--sugar-sparkle);
+  background: rgba(255, 255, 255, 1);
+  transform: scale(1.02);
+}
+
+/* Game Elements - Sweet Game Style */
+[data-theme="candy-pop"] .game-score {
+  color: var(--accent-color);
+  text-shadow: 0 0 10px currentColor;
+  animation: sugar-rush 1.5s ease-in-out infinite;
+  position: relative;
+  font-weight: bold;
+}
+
+[data-theme="candy-pop"] .game-score::after {
+  content: '🍭';
+  margin-left: 8px;
+  animation: lollipop-spin 3s linear infinite;
+}
+
+[data-theme="candy-pop"] .mcq-option {
+  border: 3px solid rgba(233, 30, 99, 0.3);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(252, 228, 236, 0.7));
+  color: var(--text-primary);
+  border-radius: 20px;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  position: relative;
+  backdrop-filter: blur(5px);
+}
+
+[data-theme="candy-pop"] .mcq-option:hover {
+  border-color: var(--primary-color);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 1), rgba(248, 187, 217, 0.8));
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: var(--candy-glow);
+}
+
+[data-theme="candy-pop"] .mcq-option.correct {
+  background: linear-gradient(135deg, #c8e6c9, #a5d6a7);
+  border-color: #4caf50;
+  color: #2e7d32;
+  animation: candy-success 0.8s ease-out;
+}
+
+[data-theme="candy-pop"] .mcq-option.correct::after {
+  content: '🎉';
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  animation: celebration 0.6s ease-out;
+}
+
+[data-theme="candy-pop"] .mcq-option.incorrect {
+  background: linear-gradient(135deg, #ffcdd2, #ef9a9a);
+  border-color: #f44336;
+  color: #c62828;
+  animation: candy-shake 0.5s ease-out;
+}
+
+/* Sweet Animations */
+@keyframes candy-float {
+  0% { transform: translateX(-100vw) translateY(10vh) rotate(0deg); }
+  100% { transform: translateX(100vw) translateY(90vh) rotate(360deg); }
+}
+
+@keyframes sparkle-drift {
+  0% { transform: translateX(100vw) translateY(20vh) rotate(0deg); }
+  100% { transform: translateX(-100vw) translateY(80vh) rotate(-360deg); }
+}
+
+@keyframes candy-bounce {
+  0%, 20%, 53%, 80%, 100% { transform: translateY(-5px) scale(1.05); }
+  40%, 43% { transform: translateY(-15px) scale(1.08); }
+}
+
+@keyframes candy-shine {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+@keyframes rainbow-candy {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes twinkle {
+  0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
+  50% { transform: scale(1.5) rotate(180deg); opacity: 0.7; }
+}
+
+@keyframes sugar-rush {
+  0%, 100% { transform: scale(1); }
+  25% { transform: scale(1.1); }
+  75% { transform: scale(0.95); }
+}
+
+@keyframes lollipop-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes candy-success {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); box-shadow: 0 0 30px rgba(76, 175, 80, 0.7); }
+  100% { transform: scale(1); }
+}
+
+@keyframes celebration {
+  0% { transform: translateY(-50%) scale(0) rotate(0deg); }
+  50% { transform: translateY(-50%) scale(1.5) rotate(180deg); }
+  100% { transform: translateY(-50%) scale(1) rotate(360deg); }
+}
+
+@keyframes candy-shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px) rotate(-1deg); }
+  75% { transform: translateX(5px) rotate(1deg); }
+}
+
+/* Progress Elements - Candy Bar Style */
+[data-theme="candy-pop"] .progress-bar {
+  background: rgba(233, 30, 99, 0.2);
+  border: 3px solid var(--primary-color);
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+}
+
+[data-theme="candy-pop"] .progress-fill {
+  background: linear-gradient(90deg, #e91e63, #ff5722, #ffc107);
+  background-size: 200% 100%;
+  border-radius: 12px;
+  animation: candy-wrapper 2s linear infinite;
+  position: relative;
+}
+
+[data-theme="candy-pop"] .progress-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.1) 0px,
+    rgba(255, 255, 255, 0.1) 10px,
+    transparent 10px,
+    transparent 20px
+  );
+  animation: candy-stripes 1s linear infinite;
+}
+
+@keyframes candy-wrapper {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 200% 0%; }
+}
+
+@keyframes candy-stripes {
+  0% { transform: translateX(-20px); }
+  100% { transform: translateX(20px); }
+}
+
+/* Special Effects - Sugar Crystals */
+[data-theme="candy-pop"] .sugar-crystal {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: #ffc107;
+  border-radius: 50%;
+  animation: crystal-sparkle 2s ease-in-out infinite;
+}
+
+@keyframes crystal-sparkle {
+  0%, 100% { opacity: 0; transform: scale(0); }
+  50% { opacity: 1; transform: scale(1); }
+}
