@@ -1,0 +1,268 @@
+
+/**
+ * LingoQuest - Retro Arcade Student Theme
+ * 80s/90s arcade game inspired theme with pixel art aesthetics and vibrant colors
+ * Dependencies: CSS custom properties support
+ * Features: Pixel borders, retro color palette, scanline effects, 8-bit styling
+ * Components: Pixelated buttons, arcade-style cards, retro animations
+ * MIT License - https://github.com/AllieBaig/LingoQuest
+ * Created: 2025-06-05
+ */
+
+/* Retro Arcade Theme - 8-bit Gaming Style */
+[data-theme="retro-arcade"] {
+  /* Color Palette - Classic Arcade Colors */
+  --primary-color: #ff6b35;
+  --secondary-color: #f7931e;
+  --accent-color: #ffd23f;
+  --background-color: #2d1b69;
+  --surface-color: #413496;
+  --card-background: #5a4fcf;
+  
+  /* Text Colors */
+  --text-primary: #ffffff;
+  --text-secondary: #ffd23f;
+  --text-accent: #ff6b35;
+  --text-muted: #b8b5ff;
+  
+  /* Interactive Elements */
+  --button-primary-bg: linear-gradient(180deg, #ff6b35 0%, #f7931e 100%);
+  --button-primary-hover: linear-gradient(180deg, #ffd23f 0%, #ff6b35 100%);
+  --button-secondary-bg: #413496;
+  --button-secondary-border: 3px solid #ffd23f;
+  
+  /* Arcade Effects */
+  --pixel-shadow: 4px 4px 0px #000000;
+  --retro-glow: 0 0 10px currentColor, inset 0 0 10px rgba(255, 255, 255, 0.1);
+  --scanline-color: rgba(255, 255, 255, 0.05);
+  
+  /* Borders and Shadows */
+  --border-radius: 0px; /* Sharp pixel edges */
+  --card-shadow: var(--pixel-shadow);
+  --input-border: 3px solid #ffd23f;
+  --arcade-border: 4px outset #ff6b35;
+}
+
+/* Background with Arcade Pattern */
+[data-theme="retro-arcade"] body {
+  background: 
+    repeating-linear-gradient(
+      0deg,
+      var(--scanline-color) 0px,
+      transparent 2px,
+      transparent 4px
+    ),
+    linear-gradient(135deg, #2d1b69 0%, #413496 50%, #5a4fcf 100%);
+  background-attachment: fixed;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+/* Retro Scanline Effect */
+[data-theme="retro-arcade"] body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0px,
+    rgba(255, 255, 255, 0.03) 1px,
+    rgba(255, 255, 255, 0.03) 2px,
+    transparent 3px
+  );
+  pointer-events: none;
+  z-index: 1000;
+  animation: scanlines 0.1s linear infinite;
+}
+
+/* Button Styles - Arcade Cabinet Style */
+[data-theme="retro-arcade"] .btn-primary {
+  background: var(--button-primary-bg);
+  border: var(--arcade-border);
+  color: var(--text-primary);
+  text-shadow: var(--pixel-shadow);
+  box-shadow: var(--pixel-shadow);
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all 0.1s ease;
+}
+
+[data-theme="retro-arcade"] .btn-primary:hover {
+  background: var(--button-primary-hover);
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px #000000;
+}
+
+[data-theme="retro-arcade"] .btn-primary:active {
+  transform: translate(4px, 4px);
+  box-shadow: none;
+}
+
+[data-theme="retro-arcade"] .btn-secondary {
+  background: var(--button-secondary-bg);
+  border: var(--button-secondary-border);
+  color: var(--accent-color);
+  text-shadow: 2px 2px 0px #000000;
+  box-shadow: var(--pixel-shadow);
+}
+
+/* Card Elements - Game Cabinet Style */
+[data-theme="retro-arcade"] .card {
+  background: var(--card-background);
+  border: 4px outset var(--primary-color);
+  box-shadow: var(--card-shadow);
+  position: relative;
+}
+
+[data-theme="retro-arcade"] .card::before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  right: 2px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.4);
+  pointer-events: none;
+}
+
+[data-theme="retro-arcade"] .card:hover {
+  border-style: inset;
+  transform: translate(1px, 1px);
+}
+
+/* Typography - Pixel Font Style */
+[data-theme="retro-arcade"] h1,
+[data-theme="retro-arcade"] h2,
+[data-theme="retro-arcade"] .title {
+  color: var(--text-accent);
+  text-shadow: var(--pixel-shadow);
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  letter-spacing: 3px;
+  animation: retro-blink 2s ease-in-out infinite alternate;
+}
+
+[data-theme="retro-arcade"] .game-title {
+  font-size: 2rem;
+  text-align: center;
+  background: linear-gradient(45deg, #ff6b35, #ffd23f, #ff6b35);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: retro-gradient 3s ease-in-out infinite;
+}
+
+/* Input Fields - Console Style */
+[data-theme="retro-arcade"] input,
+[data-theme="retro-arcade"] select {
+  background: #2d1b69;
+  border: var(--input-border);
+  color: var(--text-primary);
+  font-family: 'Courier New', monospace;
+  box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="retro-arcade"] input:focus,
+[data-theme="retro-arcade"] select:focus {
+  border-color: var(--primary-color);
+  box-shadow: var(--retro-glow);
+}
+
+/* Game Elements - Arcade Machine Style */
+[data-theme="retro-arcade"] .game-score {
+  color: var(--accent-color);
+  font-family: 'Courier New', monospace;
+  font-size: 1.5rem;
+  text-shadow: var(--pixel-shadow);
+  animation: score-pulse 1s ease-in-out infinite;
+}
+
+[data-theme="retro-arcade"] .mcq-option {
+  border: 3px solid var(--secondary-color);
+  background: var(--surface-color);
+  color: var(--text-primary);
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  transition: all 0.1s ease;
+  position: relative;
+}
+
+[data-theme="retro-arcade"] .mcq-option:hover {
+  background: var(--primary-color);
+  transform: translate(-2px, -2px);
+  box-shadow: 2px 2px 0px #000000;
+}
+
+[data-theme="retro-arcade"] .mcq-option.correct {
+  background: #00ff00;
+  color: #000000;
+  border-color: #ffffff;
+  animation: correct-flash 0.5s ease-in-out 3;
+}
+
+[data-theme="retro-arcade"] .mcq-option.incorrect {
+  background: #ff0000;
+  color: #ffffff;
+  border-color: #ffffff;
+  animation: incorrect-shake 0.5s ease-in-out;
+}
+
+/* Retro Animations */
+@keyframes scanlines {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(4px); }
+}
+
+@keyframes retro-blink {
+  0% { opacity: 1; }
+  100% { opacity: 0.7; }
+}
+
+@keyframes retro-gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes score-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+@keyframes correct-flash {
+  0%, 100% { background: #00ff00; }
+  50% { background: #ffffff; }
+}
+
+@keyframes incorrect-shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+/* Progress Bar - Loading Screen Style */
+[data-theme="retro-arcade"] .progress-bar {
+  background: #2d1b69;
+  border: 2px solid #ffd23f;
+  height: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+[data-theme="retro-arcade"] .progress-fill {
+  background: linear-gradient(90deg, #ff6b35, #ffd23f);
+  height: 100%;
+  animation: progress-glow 1s ease-in-out infinite alternate;
+}
+
+@keyframes progress-glow {
+  0% { box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5); }
+  100% { box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.8); }
+}
