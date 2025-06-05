@@ -1,39 +1,199 @@
 
 
-/**
- * Main entry point for HollyBolly Game
- * Initializes the game UI and loads game data
- */
-import { GameUI } from './GameUI.js';
-import { gameData } from './gameData.js';
 
-/**
- * Initialize the game when DOM is loaded
- */
-document.addEventListener('DOMContentLoaded', async () => {
-    try {
-        console.log('Initializing HollyBolly Game...');
+// Main application entry point
+import ComponentLoader from './modules/componentLoader.js';
+import ThemeManager from './modules/themeManager.js';
+import LanguageManager from './modules/languageManager.js';
+import SettingsManager from './modules/settingsManager.js';
+import StorageManager from './modules/storageManager.js';
+import GameLogic from './modules/gameLogic.js';
+import MCQGenerator from './modules/mcqGenerator.js';
+import EventManager from './modules/eventManager.js';
+import UIManager from './modules/uiManager.js';
+import GameStateManager from './modules/gameStateManager.js';
+
+class LingoQuestApp {
+    constructor() {
+        // Initialize all managers
+        this.componentLoader = new ComponentLoader();
+        this.themeManager = new ThemeManager();
+        this.languageManager = new LanguageManager();
+        this.settingsManager = new SettingsManager();
+        this.storageManager = new StorageManager();
+        this.gameLogic = new GameLogic();
+        this.mcqGenerator = new MCQGenerator();
+        this.eventManager = new EventManager();
+        this.uiManager = new UIManager();
+        this.gameStateManager = new GameStateManager();
         
-        // Create game UI instance
-        const gameUI = new GameUI();
-        
-        // Initialize with game data
-        await gameUI.init(gameData);
-        
-        console.log('HollyBolly Game loaded successfully!');
-        
-    } catch (error) {
-        console.error('Failed to initialize HollyBolly Game:', error);
-        
-        // Show error to user
-        const loadingElement = document.getElementById('loading');
-        if (loadingElement) {
-            loadingElement.textContent = 'Failed to load game. Please refresh the page.';
-            loadingElement.style.color = '#ff6b6b';
+        this.currentScreen = 'home-screen';
+        this.isInitialized = false;
+    }
+
+    async init() {
+        try {
+            this.uiManager.showLoading('Initializing LingoQuest...');
+            
+            // Load all components
+            await this.componentLoader.loadAllComponents();
+            this.uiManager.updateLoadingProgress(25, 'Components loaded...');
+
+            // Initialize managers
+            await this.initializeManagers();
+            this.uiManager.updateLoadingProgress(50, 'Settings loaded...');
+
+            // Setup event listeners
+            this.eventManager.setupEventListeners(this);
+            this.uiManager.updateLoadingProgress(75, 'Setting up interface...');
+
+            // Apply saved settings
+            await this.applySettings();
+            this.uiManager.updateLoadingProgress(90, 'Applying preferences...');
+
+            // Register service worker
+            await this.registerServiceWorker();
+            this.uiManager.updateLoadingProgress(100, 'Ready to play!');
+
+            // Hide loading and show app
+            setTimeout(() => {
+                this.uiManager.hideLoading();
+                this.uiManager.showScreen('home-screen');
+                this.currentScreen = 'home-screen';
+                this.isInitialized = true;
+            }, 500);
+
+        } catch (error) {
+            console.error('Failed to initialize app:', error);
+            this.uiManager.showError('Failed to load LingoQuest. Please refresh the page.');
         }
+    }
+
+    async initializeManagers() {
+        // Initialize storage first
+        await this.storageManager.init();
+        
+        // Initialize other managers with dependencies
+        await this.themeManager.init();
+        await this.languageManager.init();
+        await this.settingsManager.init();
+        await this.gameLogic.init();
+        await this.mcqGenerator.init();
+        await this.gameStateManager.init();
+        await this.uiManager.init();
+    }
+
+    // Game control methods
+    async startGame(mode, gameType) {
+        try {
+            this.uiManager.showLoading('Starting game...');
+            
+            // Initialize game state
+            await this.gameStateManager.initializeGame(mode, gameType);
+
+            // Generate questions
+            const questions = await this.mcqGenerator.generateQuestions(
+                this.gameStateManager.getTotalQuestions(),
+                mode,
+                gameType
+            );
+            
+            this.gameStateManager.setQuestions(questions);
+
+            this.uiManager.hideLoading();
+            this.uiManager.showScreen('game-screen');
+            this.currentScreen = 'game-screen';
+            
+            this.gameLogic.setupGameScreen(this.gameStateManager.getGameState());
+            this.gameLogic.loadNextQuestion(this.gameStateManager.getGameState());
+
+        } catch (error) {
+            console.error('Failed to start game:', error);
+            this.uiManager.hideLoading();
+            this.uiManager.showToast('Failed to start game. Please try again.', 'error');
+        }
+    }
+
+    async applySettings() {
+        const savedSettings = await this.settingsManager.getAllSettings();
+        
+        if (savedSettings.theme) {
+            this.themeManager.setTheme(savedSettings.theme);
+        }
+        
+        if (savedSettings.language) {
+            this.languageManager.setLanguage(savedSettings.language);
+        }
+        
+        Object.keys(savedSettings).forEach(key => {
+            this.settingsManager.applySetting(key, savedSettings[key]);
+        });
+    }
+
+    async registerServiceWorker() {
+        if ('serviceWorker' in navigator) {
+            try {
+                const registration = await navigator.serviceWorker.register('/sw.js');
+                console.log('SW registered: ', registration);
+            } catch (registrationError) {
+                console.log('SW registration failed: ', registrationError);
+            }
+        }
+    }
+
+    // Getter methods for managers
+    getGameState() {
+        return this.gameStateManager.getGameState();
+    }
+
+    getUIManager() {
+        return this.uiManager;
+    }
+
+    getGameLogic() {
+        return this.gameLogic;
+    }
+
+    getGameStateManager() {
+        return this.gameStateManager;
+    }
+
+    getSettingsManager() {
+        return this.settingsManager;
+    }
+
+    getThemeManager() {
+        return this.themeManager;
+    }
+
+    getLanguageManager() {
+        return this.languageManager;
+    }
+}
+
+// Initialize and start the application
+document.addEventListener('DOMContentLoaded', async () => {
+    const app = new LingoQuestApp();
+    
+    // Make app globally available for debugging
+    window.LingoQuest = app;
+    
+    try {
+        await app.init();
+    } catch (error) {
+        console.error('Failed to start LingoQuest:', error);
+        document.body.innerHTML = `
+            <div style="text-align: center; padding: 50px; font-family: Arial, sans-serif;">
+                <h1>LingoQuest</h1>
+                <p>Failed to load the application. Please refresh the page.</p>
+                <button onclick="location.reload()" style="padding: 10px 20px; font-size: 16px;">
+                    Refresh Page
+                </button>
+            </div>
+        `;
     }
 });
 
-// Export for potential external use
-export { GameUI, gameData };
+export default LingoQuestApp;
+
 
