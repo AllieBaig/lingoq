@@ -2,16 +2,16 @@
 
 
 // Main application entry point
-import ComponentLoader from './modules/componentLoader.js';
-import ThemeManager from './modules/themeManager.js';
-import LanguageManager from './modules/languageManager.js';
-import SettingsManager from './modules/settingsManager.js';
-import StorageManager from './modules/storageManager.js';
-import GameLogic from './modules/gameLogic.js';
-import MCQGenerator from './modules/mcqGenerator.js';
-import EventManager from './modules/eventManager.js';
-import UIManager from './modules/uiManager.js';
-import GameStateManager from './modules/gameStateManager.js';
+import ComponentLoader from './modules/core/componentLoader.js';
+import ThemeManager from './modules/settings/themeManager.js';
+import LanguageManager from './modules/settings/languageManager.js';
+import SettingsManager from './modules/settings/settingsManager.js';
+import StorageManager from './modules/core/storageManager.js';
+import GameLogic from './modules/game/gameLogic.js';
+import MCQGenerator from './modules/game/mcqGenerator.js';
+import EventManager from './modules/core/eventManager.js';
+import UIManager from './modules/core/uiManager.js';
+import GameStateManager from './modules/game/gameStateManager.js';
 
 class LingoQuestApp {
     constructor() {
