@@ -1,0 +1,160 @@
+
+
+<!-- Game Screen -->
+<section id="game-screen" class="screen">
+    <div class="screen-content">
+        <div class="game-header">
+            <div class="game-info">
+                <div class="current-category">
+                    <span class="category-label" data-i18n="game.category">Category:</span>
+                    <span id="current-category" class="category-name">Name</span>
+                </div>
+                <div class="current-letter">
+                    <span class="letter-label" data-i18n="game.letter">Letter:</span>
+                    <span id="current-letter" class="letter-display">A</span>
+                </div>
+                <div class="game-progress">
+                    <span class="progress-text">
+                        <span id="current-question">1</span> / <span id="total-questions">20</span>
+                    </span>
+                    <div class="progress-bar">
+                        <div id="progress-fill" class="progress-fill" style="width: 5%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Streak Counter for HollyBolly Mode -->
+            <div id="streak-counter" class="streak-counter hidden">
+                <div class="streak-info">
+                    <span class="streak-label" data-i18n="game.streak">Streak:</span>
+                    <span id="current-streak" class="streak-number">0</span>
+                    <span class="streak-icon">🔥</span>
+                </div>
+                <div class="next-reward">
+                    <span id="next-reward-text" data-i18n="game.nextReward">Next reward at 1 correct!</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- HollyBolly Clue Section -->
+        <div id="hollybolly-clue" class="hollybolly-clue hidden">
+            <div class="movie-clue-card">
+                <h3 data-i18n="hollybolly.clueTitle">🎬 Movie Clues</h3>
+                <div class="clue-items">
+                    <div class="clue-item">
+                        <span class="clue-icon">📍</span>
+                        <span class="clue-label" data-i18n="categories.place">Place:</span>
+                        <span id="place-clue" class="clue-value">New York City</span>
+                    </div>
+                    <div class="clue-item">
+                        <span class="clue-icon">🐾</span>
+                        <span class="clue-label" data-i18n="categories.animal">Animal:</span>
+                        <span id="animal-clue" class="clue-value">Spider</span>
+                    </div>
+                    <div class="clue-item">
+                        <span class="clue-icon">⚡</span>
+                        <span class="clue-label" data-i18n="categories.thing">Thing:</span>
+                        <span id="thing-clue" class="clue-value">Web</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question-card">
+                <h3 id="question-text" class="question-text">
+                    Choose a NAME that starts with "A"
+                </h3>
+                
+                <div id="choices-container" class="choices-container">
+                    <!-- MCQ choices will be populated here -->
+                </div>
+                
+                <div class="question-actions">
+                    <button id="confirm-answer" class="btn btn-primary btn-large" disabled>
+                        <span data-i18n="buttons.confirm">Confirm Answer</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reward Modal -->
+        <div id="reward-modal" class="reward-modal hidden">
+            <div class="reward-content">
+                <div class="reward-header">
+                    <h3 id="reward-title" class="reward-title">🎉 Reward Unlocked!</h3>
+                    <button id="close-reward" class="btn btn-icon">×</button>
+                </div>
+                <div class="reward-body">
+                    <div id="box-office-reward" class="reward-section hidden">
+                        <h4 data-i18n="rewards.boxOffice.title">Box Office Earnings</h4>
+                        <div class="earnings-comparison">
+                            <div class="earning-item">
+                                <span class="flag">🇺🇸</span>
+                                <span class="movie-title" id="hollywood-title">Spider-Man</span>
+                                <span class="earning-amount" id="hollywood-earning">$821.7M</span>
+                            </div>
+                            <div class="vs-divider">VS</div>
+                            <div class="earning-item">
+                                <span class="flag">🇮🇳</span>
+                                <span class="movie-title" id="bollywood-title">Krrish</span>
+                                <span class="earning-amount" id="bollywood-earning">$15.2M</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="director-reward" class="reward-section hidden">
+                        <h4 data-i18n="rewards.director.title">Directors' Net Worth</h4>
+                        <div class="networth-comparison">
+                            <div class="person-item">
+                                <span class="flag">🇺🇸</span>
+                                <span class="person-name" id="hollywood-director">Sam Raimi</span>
+                                <span class="networth-amount" id="hollywood-director-worth">$60M</span>
+                            </div>
+                            <div class="vs-divider">VS</div>
+                            <div class="person-item">
+                                <span class="flag">🇮🇳</span>
+                                <span class="person-name" id="bollywood-director">Rakesh Roshan</span>
+                                <span class="networth-amount" id="bollywood-director-worth">$15M</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="hero-reward" class="reward-section hidden">
+                        <h4 data-i18n="rewards.hero.title">Stars' Net Worth</h4>
+                        <div class="networth-comparison">
+                            <div class="person-item">
+                                <span class="flag">🇺🇸</span>
+                                <span class="person-name" id="hollywood-hero">Tobey Maguire</span>
+                                <span class="networth-amount" id="hollywood-hero-worth">$75M</span>
+                            </div>
+                            <div class="vs-divider">VS</div>
+                            <div class="person-item">
+                                <span class="flag">🇮🇳</span>
+                                <span class="person-name" id="bollywood-hero">Hrithik Roshan</span>
+                                <span class="networth-amount" id="bollywood-hero-worth">$370M</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="reward-actions">
+                    <button id="continue-game" class="btn btn-primary">
+                        <span data-i18n="buttons.continue">Continue Game</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="game-controls">
+            <button id="pause-game" class="btn btn-outline">
+                <span data-i18n="buttons.pause">Pause</span>
+            </button>
+            <button id="quit-game" class="btn btn-outline btn-danger">
+                <span data-i18n="buttons.quit">Quit Game</span>
+            </button>
+        </div>
+    </div>
+</section>
+
+
+
