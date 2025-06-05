@@ -1,4 +1,51 @@
 
+
+/* Add this to the TOP of your css/main.css file */
+
+/* Prevent infinite horizontal scroll */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Fix flexbox overflow issues */
+.container,
+.main-container,
+.app-container {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* Ensure flex containers wrap properly */
+.flex-container {
+  flex-wrap: wrap;
+  min-height: 0;
+}
+
+/* Fix any grid overflow */
+.grid-container {
+  overflow-x: hidden;
+}
+
+/* Prevent images from causing overflow */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Fix any components that might overflow */
+.card,
+.button,
+.input-field {
+  max-width: 100%;
+}
+
+
 /* Main CSS - Core Layout and Grid System */
 
 /* CSS Custom Properties for Dynamic Theming */
