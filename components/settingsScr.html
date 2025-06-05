@@ -1,0 +1,234 @@
+
+
+
+
+
+
+
+<!-- Settings Screen -->
+<section id="settings-screen" class="screen">
+    <div class="screen-content">
+        <div class="settings-header">
+            <button id="close-settings" class="btn btn-icon" aria-label="Close Settings">
+                <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z"/>
+                </svg>
+            </button>
+            <h2 class="screen-title" data-i18n="settings.title">Settings</h2>
+        </div>
+
+        <div class="settings-content">
+            <div class="setting-group">
+                <h3 data-i18n="settings.appearance">Appearance</h3>
+                
+                <div class="setting-item">
+                    <label for="theme-select" data-i18n="settings.theme">Theme:</label>
+                    <select id="theme-select" class="select-input">
+                        <option value="light" data-i18n="themes.light">Light</option>
+                        <option value="dark" data-i18n="themes.dark">Dark</option>
+                        <option value="auto" data-i18n="themes.auto">Auto (System)</option>
+                        <option value="high-contrast" data-i18n="themes.highContrast">High Contrast</option>
+                        <option value="sepia" data-i18n="themes.sepia">Sepia</option>
+                        <option value="blue-light" data-i18n="themes.blueLight">Blue Light Filter</option>
+                    </select>
+                </div>
+
+                <div class="setting-item">
+                    <label for="font-size-select" data-i18n="settings.fontSize">Font Size:</label>
+                    <select id="font-size-select" class="select-input">
+                        <option value="small" data-i18n="fontSize.small">Small</option>
+                        <option value="medium" data-i18n="fontSize.medium">Medium</option>
+                        <option value="large" data-i18n="fontSize.large">Large</option>
+                        <option value="extra-large" data-i18n="fontSize.extraLarge">Extra Large</option>
+                        <option value="huge" data-i18n="fontSize.huge">Huge</option>
+                    </select>
+                </div>
+
+                <div class="setting-item">
+                    <label for="font-family-select" data-i18n="settings.fontFamily">Font Family:</label>
+                    <select id="font-family-select" class="select-input">
+                        <option value="system" data-i18n="fonts.system">System Default</option>
+                        <option value="serif" data-i18n="fonts.serif">Serif (Times)</option>
+                        <option value="sans-serif" data-i18n="fonts.sansSerif">Sans Serif (Arial)</option>
+                        <option value="monospace" data-i18n="fonts.monospace">Monospace (Courier)</option>
+                        <option value="dyslexic" data-i18n="fonts.dyslexic">Dyslexic Friendly</option>
+                    </select>
+                </div>
+
+                <div class="setting-item">
+                    <label for="button-size-select" data-i18n="settings.buttonSize">Button Size:</label>
+                    <select id="button-size-select" class="select-input">
+                        <option value="normal" data-i18n="buttonSize.normal">Normal</option>
+                        <option value="large" data-i18n="buttonSize.large">Large</option>
+                        <option value="extra-large" data-i18n="buttonSize.extraLarge">Extra Large</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="setting-group">
+                <h3 data-i18n="settings.language">Language & Region</h3>
+                
+                <div class="setting-item">
+                    <label for="language-select" data-i18n="settings.selectLanguage">Select Language:</label>
+                    <select id="language-select" class="select-input">
+                        <option value="en">🇺🇸 English</option>
+                        <option value="fr">🇫🇷 Français</option>
+                        <option value="de">🇩🇪 Deutsch</option>
+                        <option value="es">🇪🇸 Español</option>
+                        <option value="it">🇮🇹 Italiano</option>
+                        <option value="pt">🇵🇹 Português</option>
+                    </select>
+                </div>
+
+                <div class="setting-item">
+                    <label for="region-select" data-i18n="settings.region">Region:</label>
+                    <select id="region-select" class="select-input">
+                        <option value="us" data-i18n="regions.us">United States</option>
+                        <option value="uk" data-i18n="regions.uk">United Kingdom</option>
+                        <option value="ca" data-i18n="regions.ca">Canada</option>
+                        <option value="au" data-i18n="regions.au">Australia</option>
+                        <option value="in" data-i18n="regions.in">India</option>
+                        <option value="de" data-i18n="regions.de">Germany</option>
+                        <option value="fr" data-i18n="regions.fr">France</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="setting-group">
+                <h3 data-i18n="settings.game">Game Settings</h3>
+                
+                <div class="setting-item">
+                    <label for="sound-toggle" class="toggle-label">
+                        <input type="checkbox" id="sound-toggle" class="toggle-input" checked>
+                        <span class="toggle-slider"></span>
+                        <span data-i18n="settings.sound">Sound Effects</span>
+                    </label>
+                </div>
+
+                <div class="setting-item">
+                    <label for="music-toggle" class="toggle-label">
+                        <input type="checkbox" id="music-toggle" class="toggle-input">
+                        <span class="toggle-slider"></span>
+                        <span data-i18n="settings.music">Background Music</span>
+                    </label>
+                </div>
+
+                <div class="setting-item">
+                    <label for="vibration-toggle" class="toggle-label">
+                        <input type="checkbox" id="vibration-toggle" class="toggle-input" checked>
+                        <span class="toggle-slider"></span>
+                        <span data-i18n="settings.vibration">Vibration</span>
+                    </label>
+                </div>
+
+                <div class="setting-item">
+                    <label for="animations-toggle" class="toggle-label">
+                        <input type="checkbox" id="animations-toggle" class="toggle-input" checked>
+                        <span class="toggle-slider"></span>
+                        <span data-i18n="settings.animations">Animations</span>
+                    </label>
+                </div>
+
+                <div class="setting-item">
+                    <label for="auto-next-toggle" class="toggle-label">
+                        <input type="checkbox" id="auto-next-toggle" class="toggle-input">
+                        <span class="toggle-slider"></span>
+                        <span data-i18n="settings.autoNext">Auto-advance Questions</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="setting-group">
+                <h3 data-i18n="settings.accessibility">Accessibility</h3>
+                
+                <div class="setting-item">
+                    <label for="high-contrast-toggle" class="toggle-label">
+                        <input type="checkbox" id="high-contrast-toggle" class="toggle-input">
+                        <span class="toggle-slider"></span>
+                        <span data-i18n="settings.highContrast">High Contrast Mode</span>
+                    </label>
+                </div>
+
+                <div class="setting-item">
+                    <label for="reduced-motion-toggle" class="toggle-label">
+                        <input type="checkbox" id="reduced-motion-toggle" class="toggle-input">
+                        <span class="toggle-slider"></span>
+                        <span data-i18n="settings.reducedMotion">Reduce Motion</span>
+                    </label>
+                </div>
+
+                <div class="setting-item">
+                    <label for="screen-reader-toggle" class="toggle-label">
+                        <input type="checkbox" id="screen-reader-toggle" class="toggle-input">
+                        <span class="toggle-slider"></span>
+                        <span data-i18n="settings.screenReader">Screen Reader Support</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="setting-group">
+                <h3 data-i18n="settings.data">Data & Privacy</h3>
+                
+                <div class="setting-item">
+                    <label for="save-progress-toggle" class="toggle-label">
+                        <input type="checkbox" id="save-progress-toggle" class="toggle-input" checked>
+                        <span class="toggle-slider"></span>
+                        <span data-i18n="settings.saveProgress">Save Game Progress</span>
+                    </label>
+                </div>
+
+                <div class="setting-item">
+                    <label for="analytics-toggle" class="toggle-label">
+                        <input type="checkbox" id="analytics-toggle" class="toggle-input">
+                        <span class="toggle-slider"></span>
+                        <span data-i18n="settings.analytics">Share Anonymous Analytics</span>
+                    </label>
+                </div>
+
+                <div class="setting-item">
+                    <button id="export-data" class="btn btn-outline">
+                        <span data-i18n="buttons.exportData">Export My Data</span>
+                    </button>
+                </div>
+
+                <div class="setting-item">
+                    <button id="reset-data" class="btn btn-outline btn-danger">
+                        <span data-i18n="buttons.resetData">Reset All Data</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="setting-group">
+                <h3 data-i18n="settings.about">About</h3>
+                
+                <div class="setting-item info-item">
+                    <span data-i18n="settings.version">Version:</span>
+                    <span class="info-value">1.0.0</span>
+                </div>
+
+                <div class="setting-item">
+                    <button id="check-updates" class="btn btn-outline">
+                        <span data-i18n="buttons.checkUpdates">Check for Updates</span>
+                    </button>
+                </div>
+
+                <div class="setting-item">
+                    <button id="privacy-policy" class="btn btn-outline">
+                        <span data-i18n="buttons.privacyPolicy">Privacy Policy</span>
+                    </button>
+                </div>
+
+                <div class="setting-item">
+                    <button id="terms-service" class="btn btn-outline">
+                        <span data-i18n="buttons.termsService">Terms of Service</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
