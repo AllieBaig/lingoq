@@ -1,68 +1,117 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HollyBolly Game - Hollywood vs Bollywood</title>
+    <meta name="theme-color" content="#4a90e2">
+    <title>LingoQuest - Word Game</title>
+    
+    <!-- PWA Meta Tags -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192x192.png">
+    <link rel="apple-touch-icon" href="icons/icon-192x192.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="LingoQuest">
+    
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="game-container">
-        <div class="game-header">
-            <h1 class="game-title">🎬 HollyBolly 🎭</h1>
-            <p class="game-subtitle">Hollywood vs Bollywood Movie Quiz</p>
-        </div>
-
-        <div class="stats-bar">
-            <div class="stat-item">
-                <div class="stat-value" id="score">0</div>
-                <div class="stat-label">Score</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-value" id="streak">0</div>
-                <div class="stat-label">Streak</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-value" id="accuracy">0%</div>
-                <div class="stat-label">Accuracy</div>
-            </div>
-        </div>
-
-        <div class="difficulty-selector">
-            <button class="difficulty-btn active" data-difficulty="easy">Easy (2 choices)</button>
-            <button class="difficulty-btn" data-difficulty="medium">Medium (3 choices)</button>
-            <button class="difficulty-btn" data-difficulty="hard">Hard (4 choices)</button>
-        </div>
-
-        <div id="loading" class="loading">
-            Loading game data...
-        </div>
-
-        <div id="game-content" class="hidden">
-            <div class="question-container">
-                <div class="question-text" id="question-text">
-                    Click "Start Game" to begin your HollyBolly adventure!
-                </div>
-                <div class="answers-grid" id="answers-grid">
-                    <!-- Answers will be populated here -->
-                </div>
-            </div>
-
-            <div id="result-container" class="result-container hidden">
-                <div id="result-text"></div>
-                <div id="reward-info" class="reward-info hidden"></div>
-                <div id="explanation"></div>
-            </div>
-
-            <div class="control-buttons">
-                <button class="control-btn" id="start-btn">Start Game</button>
-                <button class="control-btn secondary hidden" id="next-btn">Next Question</button>
-                <button class="control-btn secondary" id="reset-btn">Reset Game</button>
-            </div>
-        </div>
+    <!-- Font Size Controls -->
+    <div class="font-controls">
+        <button id="font-decrease" class="font-btn" aria-label="Decrease font size">A-</button>
+        <button id="font-increase" class="font-btn" aria-label="Increase font size">A+</button>
     </div>
 
-    <script type="module" src="js/main.js"></script>
+    <!-- Header -->
+    <header class="header">
+        <h1 class="game-title">LingoQuest</h1>
+        <p class="game-subtitle">Name • Place • Animal • Thing</p>
+    </header>
+
+    <!-- Main Game Container -->
+    <main class="game-container">
+        <!-- Game Setup Screen -->
+        <div id="setup-screen" class="screen active">
+            <div class="setup-content">
+                <h2>Ready to Play?</h2>
+                <button id="start-game" class="btn btn-primary">Start New Game</button>
+                <button id="how-to-play" class="btn btn-secondary">How to Play</button>
+            </div>
+        </div>
+
+        <!-- Instructions Screen -->
+        <div id="instructions-screen" class="screen">
+            <div class="instructions-content">
+                <h2>How to Play</h2>
+                <div class="instruction-text">
+                    <p>Fill in words for each category starting with the given letter:</p>
+                    <ul>
+                        <li><strong>Name:</strong> A person's first name</li>
+                        <li><strong>Place:</strong> A city, country, or location</li>
+                        <li><strong>Animal:</strong> Any animal or creature</li>
+                        <li><strong>Thing:</strong> An object or item</li>
+                    </ul>
+                </div>
+                <button id="back-to-setup" class="btn btn-secondary">Back</button>
+            </div>
+        </div>
+
+        <!-- Game Play Screen -->
+        <div id="game-screen" class="screen">
+            <div class="game-header">
+                <div class="current-letter">
+                    <span class="letter-label">Current Letter:</span>
+                    <span id="current-letter" class="letter-display">A</span>
+                </div>
+                <button id="new-letter" class="btn btn-small">New Letter</button>
+            </div>
+
+            <div class="game-form">
+                <div class="input-group">
+                    <label for="name-input">Name</label>
+                    <input type="text" id="name-input" class="game-input" placeholder="Enter a name...">
+                </div>
+
+                <div class="input-group">
+                    <label for="place-input">Place</label>
+                    <input type="text" id="place-input" class="game-input" placeholder="Enter a place...">
+                </div>
+
+                <div class="input-group">
+                    <label for="animal-input">Animal</label>
+                    <input type="text" id="animal-input" class="game-input" placeholder="Enter an animal...">
+                </div>
+
+                <div class="input-group">
+                    <label for="thing-input">Thing</label>
+                    <input type="text" id="thing-input" class="game-input" placeholder="Enter a thing...">
+                </div>
+
+                <div class="game-actions">
+                    <button id="check-answers" class="btn btn-primary">Check My Answers</button>
+                    <button id="clear-all" class="btn btn-secondary">Clear All</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Screen -->
+        <div id="results-screen" class="screen">
+            <div class="results-content">
+                <h2>Great Job!</h2>
+                <div id="results-display" class="results-list">
+                    <!-- Results will be populated here -->
+                </div>
+                <div class="results-actions">
+                    <button id="play-again" class="btn btn-primary">Play Again</button>
+                    <button id="new-round" class="btn btn-secondary">New Letter</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="app.js"></script>
 </body>
 </html>
 
