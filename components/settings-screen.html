@@ -1,9 +1,6 @@
 
 
 
-
-
-
 <!-- Settings Screen -->
 <section id="settings-screen" class="screen">
     <div class="screen-content">
@@ -23,13 +20,38 @@
                 <div class="setting-item">
                     <label for="theme-select" data-i18n="settings.theme">Theme:</label>
                     <select id="theme-select" class="select-input">
-                        <option value="light" data-i18n="themes.light">Light</option>
-                        <option value="dark" data-i18n="themes.dark">Dark</option>
-                        <option value="auto" data-i18n="themes.auto">Auto (System)</option>
-                        <option value="high-contrast" data-i18n="themes.highContrast">High Contrast</option>
-                        <option value="sepia" data-i18n="themes.sepia">Sepia</option>
-                        <option value="blue-light" data-i18n="themes.blueLight">Blue Light Filter</option>
+                        <!-- Senior-Friendly Themes -->
+                        <optgroup label="Senior Friendly">
+                            <option value="light" data-i18n="themes.light">Light</option>
+                            <option value="dark" data-i18n="themes.dark">Dark</option>
+                            <option value="auto" data-i18n="themes.auto">Auto (System)</option>
+                            <option value="high-contrast" data-i18n="themes.highContrast">High Contrast</option>
+                            <option value="sepia" data-i18n="themes.sepia">Sepia</option>
+                            <option value="blue-light" data-i18n="themes.blueLight">Blue Light Filter</option>
+                        </optgroup>
+                        
+                        <!-- Student Themes -->
+                        <optgroup label="Student Themes">
+                            <option value="neon-glow" data-i18n="themes.neonGlow">✨ Neon Glow</option>
+                            <option value="retro-arcade" data-i18n="themes.retroArcade">🕹️ Retro Arcade</option>
+                            <option value="nature-forest" data-i18n="themes.natureForest">🌲 Nature Forest</option>
+                            <option value="space-galaxy" data-i18n="themes.spaceGalaxy">🚀 Space Galaxy</option>
+                            <option value="candy-pop" data-i18n="themes.candyPop">🍭 Candy Pop</option>
+                        </optgroup>
                     </select>
+                </div>
+
+                <!-- Theme Preview -->
+                <div class="setting-item">
+                    <div class="theme-preview" id="theme-preview">
+                        <div class="preview-card">
+                            <div class="preview-header">Theme Preview</div>
+                            <div class="preview-content">
+                                <div class="preview-button">Sample Button</div>
+                                <div class="preview-text">Sample text in selected theme</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="setting-item">
@@ -61,6 +83,28 @@
                         <option value="large" data-i18n="buttonSize.large">Large</option>
                         <option value="extra-large" data-i18n="buttonSize.extraLarge">Extra Large</option>
                     </select>
+                </div>
+            </div>
+
+            <!-- User Profile Selection -->
+            <div class="setting-group">
+                <h3 data-i18n="settings.profile">User Profile</h3>
+                
+                <div class="setting-item">
+                    <label for="user-profile-select" data-i18n="settings.selectProfile">I am a:</label>
+                    <select id="user-profile-select" class="select-input">
+                        <option value="senior" data-i18n="profile.senior">👴 Senior (60+)</option>
+                        <option value="student" data-i18n="profile.student">🎓 Student (6-18)</option>
+                        <option value="adult" data-i18n="profile.adult">👨 Adult (19-59)</option>
+                        <option value="educator" data-i18n="profile.educator">👩‍🏫 Educator</option>
+                        <option value="custom" data-i18n="profile.custom">⚙️ Custom</option>
+                    </select>
+                </div>
+
+                <div class="setting-item profile-note">
+                    <small class="help-text" data-i18n="settings.profileHelp">
+                        Selecting your profile will recommend appropriate themes and settings for the best experience.
+                    </small>
                 </div>
             </div>
 
@@ -135,6 +179,18 @@
                         <span data-i18n="settings.autoNext">Auto-advance Questions</span>
                     </label>
                 </div>
+
+                <!-- Student Theme Features -->
+                <div class="setting-item student-only" style="display: none;">
+                    <label for="theme-animations-toggle" class="toggle-label">
+                        <input type="checkbox" id="theme-animations-toggle" class="toggle-input" checked>
+                        <span class="toggle-slider"></span>
+                        <span data-i18n="settings.themeAnimations">Theme Animations</span>
+                    </label>
+                    <small class="help-text" data-i18n="settings.themeAnimationsHelp">
+                        Enable special animations for student themes (floating elements, effects)
+                    </small>
+                </div>
             </div>
 
             <div class="setting-group">
@@ -161,6 +217,15 @@
                         <input type="checkbox" id="screen-reader-toggle" class="toggle-input">
                         <span class="toggle-slider"></span>
                         <span data-i18n="settings.screenReader">Screen Reader Support</span>
+                    </label>
+                </div>
+
+                <!-- Senior-specific accessibility -->
+                <div class="setting-item senior-only" style="display: none;">
+                    <label for="large-touch-targets-toggle" class="toggle-label">
+                        <input type="checkbox" id="large-touch-targets-toggle" class="toggle-input">
+                        <span class="toggle-slider"></span>
+                        <span data-i18n="settings.largeTouchTargets">Extra Large Touch Targets</span>
                     </label>
                 </div>
             </div>
@@ -203,6 +268,11 @@
                 <div class="setting-item info-item">
                     <span data-i18n="settings.version">Version:</span>
                     <span class="info-value">1.0.0</span>
+                </div>
+
+                <div class="setting-item info-item">
+                    <span data-i18n="settings.themesAvailable">Themes Available:</span>
+                    <span class="info-value">11 Total (6 Senior + 5 Student)</span>
                 </div>
 
                 <div class="setting-item">
