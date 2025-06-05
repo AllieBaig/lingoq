@@ -1,0 +1,328 @@
+
+
+/**
+ * File: css/modules/accessibility.css
+ * LingoQuest - Accessibility Features Module
+ * WCAG compliant accessibility enhancements and inclusive design
+ * Dependencies: reset.css, components.css
+ * Features: Focus management, screen reader support, high contrast, reduced motion
+ * Components: Focus indicators, ARIA support, keyboard navigation, senior-friendly
+ * MIT License - https://github.com/AllieBaig/LingoQuest
+ * Created: 2025-06-05 15:40:25 UTC
+ */
+
+/* ===== FOCUS MANAGEMENT ===== */
+/* Enhanced focus indicators for all interactive elements */
+button:focus,
+input:focus,
+select:focus,
+textarea:focus,
+a:focus,
+.button:focus,
+.mcq-option:focus,
+[tabindex]:focus {
+  outline: 3px solid var(--primary-color, #1976d2) !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.2) !important;
+}
+
+/* High contrast focus for better visibility */
+@media (prefers-contrast: high) {
+  button:focus,
+  input:focus,
+  select:focus,
+  textarea:focus,
+  a:focus,
+  .button:focus,
+  .mcq-option:focus {
+    outline: 4px solid #000000 !important;
+    outline-offset: 2px !important;
+    background: #ffff00 !important;
+    color: #000000 !important;
+  }
+}
+
+/* Focus-visible for keyboard-only navigation */
+button:focus-visible,
+.button:focus-visible,
+.mcq-option:focus-visible {
+  outline: 3px solid var(--primary-color, #1976d2) !important;
+  outline-offset: 2px !important;
+}
+
+/* Remove focus outline for mouse users */
+button:focus:not(:focus-visible),
+.button:focus:not(:focus-visible) {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* ===== SCREEN READER SUPPORT ===== */
+/* Screen reader only content */
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* Screen reader only content that becomes visible on focus */
+.sr-only-focusable:focus {
+  position: static !important;
+  width: auto !important;
+  height: auto !important;
+  padding: 0.5rem !important;
+  margin: 0 !important;
+  overflow: visible !important;
+  clip: auto !important;
+  white-space: normal !important;
+  background: var(--background-color, #ffffff) !important;
+  color: var(--text-primary, #212121) !important;
+  border: 2px solid var(--primary-color, #1976d2) !important;
+  z-index: 999999 !important;
+}
+
+/* Skip links for keyboard navigation */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: var(--primary-color, #1976d2);
+  color: white;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  border-radius: 4px;
+  z-index: 999999;
+  transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+  top: 6px;
+}
+
+/* ===== REDUCED MOTION ===== */
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  /* Disable hover transforms */
+  .button:hover,
+  .card:hover,
+  .mcq-option:hover {
+    transform: none !important;
+  }
+}
+
+/* ===== HIGH CONTRAST MODE ===== */
+@media (prefers-contrast: high) {
+  /* Enhanced borders and outlines */
+  .card,
+  .button,
+  .input-field,
+  .select-field,
+  .mcq-option {
+    border-width: 2px !important;
+    border-color: currentColor !important;
+  }
+  
+  /* Remove subtle backgrounds */
+  .card,
+  .game-content {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  
+  /* Ensure text contrast */
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+}
+
+/* ===== SENIOR-FRIENDLY ENHANCEMENTS ===== */
+/* Larger touch targets for seniors */
+.senior-mode .button,
+.senior-mode .mcq-option {
+  min-height: 56px !important;
+  min-width: 56px !important;
+  padding: 1rem 1.5rem !important;
+  font-size: 1.2rem !important;
+}
+
+.senior-mode .input-field,
+.senior-mode .select-field {
+  min-height: 56px !important;
+  padding: 1rem !important;
+  font-size: 1.2rem !important;
+}
+
+/* Enhanced spacing for seniors */
+.senior-mode .mcq-option {
+  margin-bottom: 1.5rem !important;
+}
+
+.senior-mode .game-actions .button {
+  margin: 0 1rem 1rem 0 !important;
+}
+
+/* ===== KEYBOARD NAVIGATION ===== */
+/* Ensure all interactive elements are keyboard accessible */
+.mcq-option {
+  cursor: pointer;
+  tabindex: 0;
+}
+
+.mcq-option:focus {
+  background: var(--hover-background, #f8f9fa) !important;
+}
+
+/* Custom focus styles for game elements */
+.game-container:focus-within {
+  outline: 2px solid var(--primary-color, #1976d2);
+  outline-offset: 4px;
+  border-radius: var(--border-radius, 8px);
+}
+
+/* ===== TEXT AND READABILITY ===== */
+/* Improved text contrast */
+.text-contrast-high {
+  color: #000000 !important;
+  background: #ffffff !important;
+  text-shadow: none !important;
+}
+
+/* Large text option */
+.large-text {
+  font-size: 1.25em !important;
+  line-height: 1.6 !important;
+}
+
+.large-text .button,
+.large-text .mcq-option {
+  font-size: 1.4em !important;
+  padding: 1.25rem 2rem !important;
+}
+
+/* Extra large text for visual impairments */
+.extra-large-text {
+  font-size: 1.5em !important;
+  line-height: 1.8 !important;
+}
+
+/* ===== COLOR BLINDNESS SUPPORT ===== */
+/* Pattern-based indicators instead of color-only */
+.mcq-option.correct::before {
+  content: "✓ ";
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+.mcq-option.incorrect::before {
+  content: "✗ ";
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+/* ===== TOUCH AND MOBILE ACCESSIBILITY ===== */
+@media (hover: none) and (pointer: coarse) {
+  /* Larger touch targets for mobile */
+  .button,
+  .mcq-option,
+  a {
+    min-height: 48px !important;
+    min-width: 48px !important;
+  }
+  
+  /* Prevent accidental zoom on form inputs */
+  input,
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+  
+  /* Enhanced spacing for touch */
+  .mcq-option {
+    margin-bottom: 1rem !important;
+  }
+}
+
+/* ===== DYSLEXIA-FRIENDLY FEATURES ===== */
+.dyslexia-friendly {
+  font-family: 'OpenDyslexic', 'Arial', sans-serif !important;
+  letter-spacing: 0.05em !important;
+  word-spacing: 0.16em !important;
+  line-height: 1.8 !important;
+}
+
+.dyslexia-friendly p {
+  margin-bottom: 1.5em !important;
+}
+
+/* ===== ERROR AND SUCCESS STATES ===== */
+/* Accessible error styling */
+.error {
+  border-color: #dc3545 !important;
+  background: #f8d7da !important;
+  color: #721c24 !important;
+}
+
+.error::before {
+  content: "⚠ ";
+  font-weight: bold;
+}
+
+.success {
+  border-color: #28a745 !important;
+  background: #d4edda !important;
+  color: #155724 !important;
+}
+
+.success::before {
+  content: "✓ ";
+  font-weight: bold;
+}
+
+/* ===== PRINT ACCESSIBILITY ===== */
+@media print {
+  /* Ensure links are identifiable in print */
+  a::after {
+    content: " (" attr(href) ")";
+  }
+  
+  /* High contrast for print */
+  * {
+    color: #000000 !important;
+    background: #ffffff !important;
+  }
+  
+  /* Remove focus indicators for print */
+  *:focus {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+}
+
+/* ===== ACCESSIBILITY OVERFLOW FIXES ===== */
+.sr-only,
+.sr-only-focusable,
+.skip-link,
+.senior-mode *,
+.large-text *,
+.dyslexia-friendly * {
+  max-width: 100% !important;
+  overflow-wrap: break-word !important;
+  word-wrap: break-word !important;
+}
+
