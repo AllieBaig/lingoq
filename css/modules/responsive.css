@@ -1,0 +1,395 @@
+
+
+
+/**
+ * File: css/modules/responsive.css
+ * LingoQuest - Mobile-First Responsive Design Module
+ * Responsive breakpoints and device-specific layouts without flexbox/grid
+ * Dependencies: reset.css, layout.css, utilities.css
+ * Features: Mobile-first breakpoints, responsive utilities, touch optimization
+ * Components: Responsive grids, mobile navigation, device-specific styles
+ * MIT License - https://github.com/AllieBaig/LingoQuest
+ * Created: 2025-06-05 15:36:12 UTC
+ */
+
+/* ===== MOBILE FIRST BASE (320px+) ===== */
+/* All base styles are mobile-first */
+.container {
+  width: 100%;
+  max-width: 100%;
+  padding: 0 1rem;
+  margin: 0 auto;
+  overflow-x: hidden;
+}
+
+/* Mobile navigation */
+.mobile-nav {
+  display: block;
+  width: 100%;
+  background: var(--surface-color, #f5f5f5);
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border-color, #e0e0e0);
+  overflow-x: hidden;
+}
+
+.desktop-nav {
+  display: none;
+}
+
+/* Mobile grid - stacked by default */
+.mobile-stack [class*="col-"] {
+  width: 100% !important;
+  float: none !important;
+  display: block !important;
+  margin-bottom: 1rem;
+}
+
+/* ===== SMALL MOBILE (320px - 480px) ===== */
+@media screen and (max-width: 480px) {
+  html {
+    font-size: 14px;
+    overflow-x: hidden !important;
+  }
+  
+  body {
+    font-size: 14px;
+    overflow-x: hidden !important;
+  }
+  
+  .container {
+    padding: 0 0.75rem;
+    max-width: 100%;
+  }
+  
+  .main-container {
+    padding: 0.5rem;
+    overflow-x: hidden;
+  }
+  
+  /* Force all columns to stack */
+  [class*="col-"] {
+    width: 100% !important;
+    float: none !important;
+    padding: 0 !important;
+    margin-bottom: 1rem;
+  }
+  
+  /* Small mobile buttons */
+  .button {
+    width: 100%;
+    max-width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Small mobile cards */
+  .card {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 6px;
+    max-width: 100%;
+  }
+  
+  /* Small mobile game elements */
+  .game-container {
+    padding: 0.5rem;
+    margin: 0;
+    max-width: 100%;
+  }
+  
+  .mcq-option {
+    padding: 0.875rem;
+    font-size: 0.9rem;
+    min-height: 56px;
+    margin-bottom: 0.75rem;
+  }
+  
+  /* Small mobile typography */
+  .game-title {
+    font-size: 1.5rem;
+  }
+  
+  .question-text {
+    font-size: 1.25rem;
+  }
+  
+  /* Hide complex elements on very small screens */
+  .hide-xs {
+    display: none !important;
+  }
+  
+  .show-xs {
+    display: block !important;
+  }
+}
+
+/* ===== LARGE MOBILE (481px - 767px) ===== */
+@media screen and (min-width: 481px) and (max-width: 767px) {
+  html {
+    font-size: 15px;
+  }
+  
+  .container {
+    padding: 0 1rem;
+    max-width: 100%;
+  }
+  
+  /* Two column layout for larger mobile */
+  .mobile-2-col .col-6 {
+    width: 50% !important;
+    float: left !important;
+  }
+  
+  .mobile-2-col .col-12 {
+    width: 100% !important;
+    float: none !important;
+  }
+  
+  /* Mobile game improvements */
+  .mcq-option {
+    padding: 1rem;
+    font-size: 1rem;
+    min-height: 60px;
+  }
+  
+  .button {
+    width: auto;
+    min-width: 120px;
+    display: inline-block;
+    margin: 0 0.25rem 0.5rem 0;
+  }
+  
+  .hide-sm {
+    display: none !important;
+  }
+  
+  .show-sm {
+    display: block !important;
+  }
+}
+
+/* ===== TABLET (768px - 1023px) ===== */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  html {
+    font-size: 16px;
+  }
+  
+  .container {
+    max-width: 750px;
+    padding: 0 1.5rem;
+  }
+  
+  /* Show desktop navigation */
+  .mobile-nav {
+    display: none;
+  }
+  
+  .desktop-nav {
+    display: block;
+    overflow-x: hidden;
+  }
+  
+  /* Tablet grid system */
+  .tablet-2-col [class*="col-"] {
+    width: 50% !important;
+    float: left !important;
+  }
+  
+  .tablet-3-col [class*="col-"] {
+    width: 33.33% !important;
+    float: left !important;
+  }
+  
+  /* Tablet sidebar layout */
+  .tablet-sidebar .sidebar {
+    width: 200px;
+    float: left;
+  }
+  
+  .tablet-sidebar .main-content {
+    margin-left: 220px;
+  }
+  
+  /* Tablet game layout */
+  .game-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 1.5rem;
+  }
+  
+  .mcq-option {
+    padding: 1.25rem;
+    font-size: 1rem;
+    min-height: 64px;
+    margin-bottom: 1rem;
+  }
+  
+  /* Tablet specific utilities */
+  .hide-md {
+    display: none !important;
+  }
+  
+  .show-md {
+    display: block !important;
+  }
+  
+  .text-center-md {
+    text-align: center !important;
+  }
+}
+
+/* ===== DESKTOP (1024px+) ===== */
+@media screen and (min-width: 1024px) {
+  .container {
+    max-width: var(--container-max-width, 1200px);
+    padding: 0 2rem;
+  }
+  
+  /* Desktop grid - restore original widths */
+  [class*="col-"] {
+    float: left !important;
+    padding: 0 0.5rem !important;
+  }
+  
+  /* Desktop sidebar layout */
+  .desktop-sidebar .sidebar {
+    width: var(--sidebar-width, 250px);
+    float: left;
+  }
+  
+  .desktop-sidebar .main-content {
+    margin-left: calc(var(--sidebar-width, 250px) + 1rem);
+  }
+  
+  /* Desktop game layout */
+  .game-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  .mcq-option {
+    padding: 1.5rem;
+    font-size: 1.1rem;
+    min-height: 72px;
+    margin-bottom: 1rem;
+  }
+  
+  /* Desktop hover effects */
+  .button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px var(--shadow-color, rgba(0, 0, 0, 0.1));
+  }
+  
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px var(--shadow-color, rgba(0, 0, 0, 0.1));
+  }
+  
+  .mcq-option:hover {
+    transform: translateY(-1px);
+  }
+  
+  /* Desktop utilities */
+  .hide-lg {
+    display: none !important;
+  }
+  
+  .show-lg {
+    display: block !important;
+  }
+}
+
+/* ===== LARGE DESKTOP (1200px+) ===== */
+@media screen and (min-width: 1200px) {
+  .container {
+    max-width: 1400px;
+    padding: 0 2.5rem;
+  }
+  
+  .desktop-sidebar .sidebar {
+    width: 300px;
+  }
+  
+  .desktop-sidebar .main-content {
+    margin-left: 320px;
+  }
+  
+  .hide-xl {
+    display: none !important;
+  }
+  
+  .show-xl {
+    display: block !important;
+  }
+}
+
+/* ===== RESPONSIVE UTILITIES ===== */
+/* Show/hide classes for different screen sizes */
+.show-mobile {
+  display: block !important;
+}
+
+@media screen and (min-width: 768px) {
+  .show-mobile {
+    display: none !important;
+  }
+  
+  .hide-mobile {
+    display: block !important;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .button,
+  .mcq-option {
+    min-height: 48px;
+    min-width: 48px;
+  }
+  
+  .input-field,
+  .select-field {
+    font-size: 16px; /* Prevent zoom on iOS */
+    min-height: 48px;
+  }
+}
+
+/* Print responsive */
+@media print {
+  .mobile-nav,
+  .desktop-nav,
+  .sidebar,
+  .hide-print {
+    display: none !important;
+  }
+  
+  .container {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+  
+  [class*="col-"] {
+    width: 100% !important;
+    float: none !important;
+    page-break-inside: avoid;
+  }
+}
+
+/* ===== CRITICAL RESPONSIVE OVERFLOW FIXES ===== */
+@media screen and (max-width: 1920px) {
+  html, body {
+    overflow-x: hidden !important;
+    max-width: 100% !important;
+  }
+  
+  .container,
+  [class*="col-"],
+  .sidebar,
+  .main-content {
+    overflow-x: hidden !important;
+    max-width: 100% !important;
+    word-wrap: break-word !important;
+  }
+}
