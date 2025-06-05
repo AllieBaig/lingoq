@@ -1,0 +1,257 @@
+
+
+<!-- Instructions Screen -->
+<section id="instructions-screen" class="screen">
+    <div class="screen-content">
+        <div class="instructions-header">
+            <button id="close-instructions" class="btn btn-icon" aria-label="Close Instructions">
+                <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z"/>
+                </svg>
+            </button>
+            <h2 class="screen-title" data-i18n="instructions.title">How to Play</h2>
+        </div>
+
+        <div class="instructions-content">
+            <!-- Tab Navigation for Different Game Modes -->
+            <div class="instruction-tabs">
+                <button class="instruction-tab active" data-tab="classic">
+                    <span data-i18n="gameModes.classic">Classic Mode</span>
+                </button>
+                <button class="instruction-tab" data-tab="hollybolly">
+                    <span data-i18n="gameModes.hollybolly">HollyBolly Mode</span>
+                </button>
+            </div>
+
+            <!-- Classic Mode Instructions -->
+            <div id="classic-instructions" class="instruction-content active">
+                <div class="instruction-section">
+                    <h3 data-i18n="instructions.objective">🎯 Game Objective</h3>
+                    <p data-i18n="instructions.objectiveText">Choose the correct word for each category that starts with the given letter.</p>
+                </div>
+
+                <div class="instruction-section">
+                    <h3 data-i18n="instructions.categories">📚 Categories</h3>
+                    <div class="category-grid">
+                        <div class="category-card">
+                            <div class="category-icon">👤</div>
+                            <h4 data-i18n="categories.name">Name</h4>
+                            <p data-i18n="instructions.nameDesc">A person's first name (e.g., Alice, Bob, Charlie)</p>
+                            <div class="category-example">
+                                <strong>Example:</strong> For letter "A" → Alice, Andrew, Anna
+                            </div>
+                        </div>
+                        
+                        <div class="category-card">
+                            <div class="category-icon">📍</div>
+                            <h4 data-i18n="categories.place">Place</h4>
+                            <p data-i18n="instructions.placeDesc">A city, country, or location (e.g., Paris, Brazil, Mountain)</p>
+                            <div class="category-example">
+                                <strong>Example:</strong> For letter "A" → Australia, Amsterdam, Alaska
+                            </div>
+                        </div>
+                        
+                        <div class="category-card">
+                            <div class="category-icon">🐾</div>
+                            <h4 data-i18n="categories.animal">Animal</h4>
+                            <p data-i18n="instructions.animalDesc">Any animal or creature (e.g., Cat, Eagle, Whale)</p>
+                            <div class="category-example">
+                                <strong>Example:</strong> For letter "A" → Ant, Alligator, Antelope
+                            </div>
+                        </div>
+                        
+                        <div class="category-card">
+                            <div class="category-icon">📦</div>
+                            <h4 data-i18n="categories.thing">Thing</h4>
+                            <p data-i18n="instructions.thingDesc">An object or item (e.g., Book, Car, Phone)</p>
+                            <div class="category-example">
+                                <strong>Example:</strong> For letter "A" → Apple, Airplane, Axe
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="instruction-section">
+                    <h3 data-i18n="instructions.modes">🎮 Difficulty Modes</h3>
+                    <div class="modes-list">
+                        <div class="mode-instruction">
+                            <div class="mode-badge easy">Easy</div>
+                            <div class="mode-details">
+                                <h4 data-i18n="modes.easy.title">Easy Mode</h4>
+                                <p data-i18n="instructions.easyDesc">Choose from 2 options - Perfect for beginners!</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mode-instruction">
+                            <div class="mode-badge medium">Medium</div>
+                            <div class="mode-details">
+                                <h4 data-i18n="modes.medium.title">Medium Mode</h4>
+                                <p data-i18n="instructions.mediumDesc">Choose from 3 options - A balanced challenge</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mode-instruction">
+                            <div class="mode-badge hard">Hard</div>
+                            <div class="mode-details">
+                                <h4 data-i18n="modes.hard.title">Hard Mode</h4>
+                                <p data-i18n="instructions.hardDesc">Choose from 4 options - For word game experts!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="instruction-section">
+                    <h3 data-i18n="instructions.howToPlay">🎯 How to Play</h3>
+                    <div class="steps-list">
+                        <div class="step-item">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4 data-i18n="instructions.step1.title">Choose Your Mode</h4>
+                                <p data-i18n="instructions.step1.desc">Select Easy, Medium, or Hard difficulty</p>
+                            </div>
+                        </div>
+                        
+                        <div class="step-item">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4 data-i18n="instructions.step2.title">Read the Question</h4>
+                                <p data-i18n="instructions.step2.desc">See the category and starting letter</p>
+                            </div>
+                        </div>
+                        
+                        <div class="step-item">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4 data-i18n="instructions.step3.title">Select Your Answer</h4>
+                                <p data-i18n="instructions.step3.desc">Tap on the correct choice from the options</p>
+                            </div>
+                        </div>
+                        
+                        <div class="step-item">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h4 data-i18n="instructions.step4.title">Confirm & Continue</h4>
+                                <p data-i18n="instructions.step4.desc">Confirm your answer and move to the next question</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HollyBolly Mode Instructions -->
+            <div id="hollybolly-instructions" class="instruction-content">
+                <div class="instruction-section">
+                    <h3 data-i18n="hollybolly.objective">🎬 HollyBolly Challenge</h3>
+                    <p data-i18n="hollybolly.objectiveText">Guess Hollywood movies using Bollywood-inspired clues! Each movie has a unique Place, Animal, and Thing that appears in the film.</p>
+                </div>
+
+                <div class="instruction-section">
+                    <h3 data-i18n="hollybolly.howItWorks">🎭 How It Works</h3>
+                    <div class="hollybolly-example">
+                        <div class="example-card">
+                            <h4>Example: Spider-Man</h4>
+                            <div class="clue-examples">
+                                <div class="clue-example">
+                                    <span class="clue-icon">📍</span>
+                                    <span><strong>Place:</strong> New York City</span>
+                                </div>
+                                <div class="clue-example">
+                                    <span class="clue-icon">🐾</span>
+                                    <span><strong>Animal:</strong> Spider</span>
+                                </div>
+                                <div class="clue-example">
+                                    <span class="clue-icon">⚡</span>
+                                    <span><strong>Thing:</strong> Web</span>
+                                </div>
+                            </div>
+                            <div class="movie-choices">
+                                <strong>Choices:</strong> Spider-Man, Batman, Superman
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="instruction-section">
+                    <h3 data-i18n="hollybolly.rewards.title">🏆 Reward System</h3>
+                    <div class="reward-system">
+                        <div class="reward-tier">
+                            <div class="reward-icon">💰</div>
+                            <div class="reward-info">
+                                <h4 data-i18n="hollybolly.rewards.boxOffice">1 Correct Answer</h4>
+                                <p data-i18n="hollybolly.rewards.boxOfficeDesc">Unlock box office earnings comparison between Hollywood and Bollywood versions</p>
+                            </div>
+                        </div>
+                        
+                        <div class="reward-tier">
+                            <div class="reward-icon">🎭</div>
+                            <div class="reward-info">
+                                <h4 data-i18n="hollybolly.rewards.director">2 Correct in a Row</h4>
+                                <p data-i18n="hollybolly.rewards.directorDesc">Discover directors' net worth from both industries</p>
+                            </div>
+                        </div>
+                        
+                        <div class="reward-tier">
+                            <div class="reward-icon">⭐</div>
+                            <div class="reward-info">
+                                <h4 data-i18n="hollybolly.rewards.hero">3 Correct in a Row</h4>
+                                <p data-i18n="hollybolly.rewards.heroDesc">Explore lead actors' net worth comparison</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="instruction-section">
+                    <h3 data-i18n="hollybolly.tips">💡 Tips for Success</h3>
+                    <div class="tips-list">
+                        <div class="tip-item">
+                            <span class="tip-icon">🎯</span>
+                            <p data-i18n="hollybolly.tip1">Look for connections between all three clues (Place + Animal + Thing)</p>
+                        </div>
+                        <div class="tip-item">
+                            <span class="tip-icon">🎬</span>
+                            <p data-i18n="hollybolly.tip2">Think about iconic movie scenes and memorable elements</p>
+                        </div>
+                        <div class="tip-item">
+                            <span class="tip-icon">🔄</span>
+                            <p data-i18n="hollybolly.tip3">Keep your streak going to unlock more valuable rewards!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="instruction-section">
+                <h3 data-i18n="instructions.tips">💡 General Tips</h3>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <div class="tip-icon">⚡</div>
+                        <p data-i18n="tips.think">Take your time to think before selecting</p>
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-icon">🔤</div>
+                        <p data-i18n="tips.spelling">Check the first letter carefully</p>
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-icon">🎯</div>
+                        <p data-i18n="tips.category">Make sure the word fits the category</p>
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-icon">🏆</div>
+                        <p data-i18n="tips.practice">Practice makes perfect!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="instructions-actions">
+            <button id="start-tutorial" class="btn btn-primary btn-large">
+                <span data-i18n="buttons.startTutorial">Start Tutorial</span>
+            </button>
+            <button id="got-it" class="btn btn-secondary btn-large">
+                <span data-i18n="buttons.gotIt">Got It!</span>
+            </button>
+        </div>
+    </div>
+</section>
+
+
+
