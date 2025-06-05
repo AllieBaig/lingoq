@@ -1,0 +1,163 @@
+
+
+<!-- Results Screen -->
+<section id="results-screen" class="screen">
+    <div class="screen-content">
+        <div class="results-header">
+            <h2 class="screen-title" data-i18n="results.title">Game Complete!</h2>
+            <div class="final-score">
+                <div class="score-circle">
+                    <span id="final-score" class="score-number">85</span>
+                    <span class="score-percent">%</span>
+                </div>
+            </div>
+            
+            <!-- Game Mode Badge -->
+            <div id="game-mode-badge" class="game-mode-badge">
+                <span id="completed-mode" class="mode-name">Classic Easy</span>
+            </div>
+        </div>
+
+        <!-- HollyBolly Results (shown only for HollyBolly mode) -->
+        <div id="hollybolly-results" class="hollybolly-results hidden">
+            <div class="achievements-section">
+                <h3 data-i18n="results.achievements">🏆 Achievements Unlocked</h3>
+                <div class="achievement-list">
+                    <div id="box-office-achievement" class="achievement-item hidden">
+                        <span class="achievement-icon">💰</span>
+                        <span class="achievement-text" data-i18n="achievements.boxOffice">Box Office Explorer</span>
+                        <span class="achievement-count" id="box-office-count">5</span>
+                    </div>
+                    <div id="director-achievement" class="achievement-item hidden">
+                        <span class="achievement-icon">🎭</span>
+                        <span class="achievement-text" data-i18n="achievements.director">Director Detective</span>
+                        <span class="achievement-count" id="director-count">3</span>
+                    </div>
+                    <div id="hero-achievement" class="achievement-item hidden">
+                        <span class="achievement-icon">⭐</span>
+                        <span class="achievement-text" data-i18n="achievements.hero">Star Tracker</span>
+                        <span class="achievement-count" id="hero-count">2</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="streak-summary">
+                <h3 data-i18n="results.bestStreak">🔥 Best Streak</h3>
+                <div class="streak-display">
+                    <span id="best-streak-number" class="streak-big">7</span>
+                    <span class="streak-label" data-i18n="results.consecutive">consecutive correct</span>
+                </div>
+            </div>
+
+            <div class="movies-discovered">
+                <h3 data-i18n="results.moviesDiscovered">🎬 Movies Discovered</h3>
+                <div class="movie-list" id="discovered-movies">
+                    <!-- Will be populated with discovered movies -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Classic Results Summary -->
+        <div class="results-summary">
+            <div class="stat-item">
+                <span class="stat-label" data-i18n="results.correct">Correct Answers:</span>
+                <span id="correct-count" class="stat-value">17</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label" data-i18n="results.incorrect">Incorrect Answers:</span>
+                <span id="incorrect-count" class="stat-value">3</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label" data-i18n="results.accuracy">Accuracy:</span>
+                <span id="accuracy-percent" class="stat-value">85%</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label" data-i18n="results.timeTaken">Time Taken:</span>
+                <span id="time-taken" class="stat-value">5:42</span>
+            </div>
+        </div>
+
+        <!-- Performance Rating -->
+        <div class="performance-rating">
+            <h3 data-i18n="results.performance">Performance Rating</h3>
+            <div class="rating-display">
+                <div id="star-rating" class="star-rating">
+                    <span class="star filled">⭐</span>
+                    <span class="star filled">⭐</span>
+                    <span class="star filled">⭐</span>
+                    <span class="star filled">⭐</span>
+                    <span class="star">⭐</span>
+                </div>
+                <div id="rating-text" class="rating-text" data-i18n="ratings.excellent">Excellent!</div>
+            </div>
+        </div>
+
+        <!-- Detailed Results (Expandable) -->
+        <div class="detailed-results">
+            <button id="toggle-details" class="btn btn-outline">
+                <span data-i18n="buttons.viewDetails">View Detailed Results</span>
+                <span class="toggle-icon">▼</span>
+            </button>
+            
+            <div id="results-details" class="results-details-content hidden">
+                <div class="category-breakdown">
+                    <h4 data-i18n="results.categoryBreakdown">Category Breakdown</h4>
+                    <div class="category-stats">
+                        <div class="category-stat">
+                            <span class="category-name" data-i18n="categories.name">Names:</span>
+                            <div class="stat-bar">
+                                <div class="stat-fill" style="width: 80%"></div>
+                                <span class="stat-text">4/5</span>
+                            </div>
+                        </div>
+                        <div class="category-stat">
+                            <span class="category-name" data-i18n="categories.place">Places:</span>
+                            <div class="stat-bar">
+                                <div class="stat-fill" style="width: 100%"></div>
+                                <span class="stat-text">5/5</span>
+                            </div>
+                        </div>
+                        <div class="category-stat">
+                            <span class="category-name" data-i18n="categories.animal">Animals:</span>
+                            <div class="stat-bar">
+                                <div class="stat-fill" style="width: 60%"></div>
+                                <span class="stat-text">3/5</span>
+                            </div>
+                        </div>
+                        <div class="category-stat">
+                            <span class="category-name" data-i18n="categories.thing">Things:</span>
+                            <div class="stat-bar">
+                                <div class="stat-fill" style="width: 100%"></div>
+                                <span class="stat-text">5/5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question-review">
+                    <h4 data-i18n="results.questionReview">Question Review</h4>
+                    <div id="questions-list" class="questions-list">
+                        <!-- Will be populated with question results -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="results-actions">
+            <button id="play-again" class="btn btn-primary btn-large">
+                <span data-i18n="buttons.playAgain">Play Again</span>
+            </button>
+            <button id="try-different-mode" class="btn btn-secondary btn-large">
+                <span data-i18n="buttons.tryDifferentMode">Try Different Mode</span>
+            </button>
+            <button id="home-btn" class="btn btn-secondary btn-large">
+                <span data-i18n="buttons.home">Home</span>
+            </button>
+            <button id="share-results" class="btn btn-outline">
+                <span data-i18n="buttons.share">Share Results</span>
+            </button>
+        </div>
+    </div>
+</section>
+
+
