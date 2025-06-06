@@ -23,7 +23,10 @@ import { GameStateManager } from './modules/game/gameStateManager.js';
 import { ScoreCalculator } from './modules/game/scoreCalculator.js';
 */
 
-/ ✅ FIXED IMPORTS - Using default imports instead of named imports
+/* ✅ FIXED IMPORTS - Using default imports instead of named imports
+*/
+
+
 import ComponentLoader from './modules/core/componentLoader.js';
 import EventManager from './modules/core/eventManager.js';
 import UIManager from './modules/core/uiManager.js';
