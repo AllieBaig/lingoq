@@ -235,7 +235,8 @@ const englishTranslations = {
       retroArcade: 'Retro Arcade',
       natureForest: 'Nature Forest',
       spaceGalaxy: 'Space Galaxy',
-      candyPop: 'Candy Pop'
+      candyPop: 'Candy Pop',
+      jetsons: 'Jetsons'
     },
     
     // Font Settings

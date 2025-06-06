@@ -103,6 +103,10 @@ export const adminConfig = {
             studentThemes: {
                 enabled: true,
                 themes: ['neon-glow', 'retro-arcade', 'nature-forest', 'space-galaxy', 'candy-pop']
+            },
+            cartoonThemes: {
+                enabled: true,
+                themes: ['jetsons']
             }
         },
         
