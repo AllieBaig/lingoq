@@ -38,6 +38,16 @@ class GameStateManager {
             this.gameState.questions = questions;
         }
     }
+
+    saveCurrentState() {
+        try {
+            if (this.gameState && typeof localStorage !== 'undefined') {
+                localStorage.setItem('lingoquest_gameState', JSON.stringify(this.gameState));
+            }
+        } catch (e) {
+            console.warn('Failed to save game state', e);
+        }
+    }
 }
 
 export default GameStateManager;
