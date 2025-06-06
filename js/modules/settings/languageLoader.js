@@ -40,7 +40,7 @@ export class LanguageLoader {
     async loadEnglishTranslations() {
         try {
             // English is always available and loaded
-            this.translationCache.set(LANGUAGES.ENGLISH, enTranslations);
+            this.translationCache.set(LANGUAGES.ENGLISH, englishTranslations);
             console.log('✅ English translations loaded as fallback');
         } catch (error) {
             console.error('❌ Failed to load English translations:', error);
