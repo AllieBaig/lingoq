@@ -1,11 +1,19 @@
 
 
 
-// LingoQuest - ESLint Configuration
-// Optimized for ES6 modules, PWA development, and GitHub Codex compatibility
-// Supports modern JavaScript features and accessibility standards
+
+/**
+ * Purpose: ESLint configuration for LingoQuest PWA with ES6 modules
+ * Key features: ES6 modules, PWA globals, accessibility rules, performance checks
+ * Dependencies: ESLint core, browser environment, service worker globals
+ * Related helpers: Code quality enforcement, error prevention, style consistency
+ * Function names: N/A (configuration file)
+ * MIT License: https://github.com/AllieBaig/LingoQuest/blob/main/LICENSE
+ * Timestamp: 2024-06-06 19:40 | File: .eslintrc.js
+ */
 
 module.exports = {
+    // Environment configuration
     env: {
         browser: true,
         es2022: true,
@@ -14,18 +22,22 @@ module.exports = {
         serviceworker: true
     },
     
-    extends: [
-        'eslint:recommended'
-    ],
-    
+    // Parser options for modern JavaScript
     parserOptions: {
         ecmaVersion: 2022,
         sourceType: 'module',
         ecmaFeatures: {
-            impliedStrict: true
+            impliedStrict: true,
+            globalReturn: false
         }
     },
     
+    // Extend recommended configurations
+    extends: [
+        'eslint:recommended'
+    ],
+    
+    // Global variables for PWA and game
     globals: {
         // PWA globals
         'workbox': 'readonly',
@@ -33,144 +45,265 @@ module.exports = {
         'caches': 'readonly',
         'skipWaiting': 'readonly',
         'clients': 'readonly',
+        'importScripts': 'readonly',
         
-        // Game globals
+        // Browser APIs
+        'navigator': 'readonly',
+        'location': 'readonly',
+        'history': 'readonly',
+        'localStorage': 'readonly',
+        'sessionStorage': 'readonly',
+        'indexedDB': 'readonly',
+        'fetch': 'readonly',
+        
+        // Game globals (if any)
         'LingoQuest': 'writable',
         'gameEngine': 'writable',
         'themeManager': 'writable'
     },
     
+    // ESLint rules configuration
     rules: {
-        // Error Prevention
+        // Error Prevention Rules
         'no-unused-vars': ['warn', { 
             'vars': 'all', 
             'args': 'after-used',
-            'ignoreRestSiblings': true 
+            'ignoreRestSiblings': true,
+            'argsIgnorePattern': '^_'
         }],
         'no-undef': 'error',
-        'no-console': 'off', // Allow console for debugging
+        'no-console': 'off', // Allow console for debugging in development
         'no-debugger': 'warn',
         'no-alert': 'warn',
+        'no-unreachable': 'error',
+        'no-duplicate-case': 'error',
+        'no-empty': 'warn',
+        'no-extra-semi': 'error',
+        'no-func-assign': 'error',
+        'no-irregular-whitespace': 'error',
+        'use-isnan': 'error',
+        'valid-typeof': 'error',
         
-        // Modern JavaScript
+        // Modern JavaScript Best Practices
         'prefer-const': 'error',
         'no-var': 'error',
-        'prefer-arrow-functions': 'off',
+        'prefer-arrow-callback': 'warn',
         'prefer-template': 'warn',
         'template-curly-spacing': ['error', 'never'],
+        'prefer-destructuring': ['warn', {
+            'array': false,
+            'object': true
+        }],
+        'prefer-spread': 'warn',
+        'prefer-rest-params': 'warn',
         
-        // Code Quality
-        'eqeqeq': ['error', 'always'],
+        // Code Quality Rules
+        'eqeqeq': ['error', 'always', { 'null': 'ignore' }],
         'curly': ['error', 'all'],
-        'brace-style': ['error', '1tbs'],
+        'brace-style': ['error', '1tbs', { 'allowSingleLine': true }],
         'comma-dangle': ['error', 'never'],
-        'semicolon': 'off',
-        'quotes': ['warn', 'single', { 'avoidEscape': true }],
+        'quotes': ['warn', 'single', { 
+            'avoidEscape': true,
+            'allowTemplateLiterals': true 
+        }],
+        'semi': ['error', 'always'],
+        'no-trailing-spaces': 'warn',
+        'no-multi-spaces': 'warn',
+        'key-spacing': ['warn', { 'beforeColon': false, 'afterColon': true }],
         
         // Function Rules
-        'function-paren-newline': 'off',
-        'max-params': ['warn', 5],
-        'max-lines-per-function': ['warn', { 'max': 150 }],
+        'func-style': ['warn', 'declaration', { 'allowArrowFunctions': true }],
+        'max-params': ['warn', 6],
+        'max-lines-per-function': ['warn', { 
+            'max': 150,
+            'skipBlankLines': true,
+            'skipComments': true 
+        }],
+        'max-depth': ['warn', 4],
+        'max-nested-callbacks': ['warn', 3],
+        'complexity': ['warn', 10],
         
-        // ES6 Modules
-        'import/no-unresolved': 'off',
-        'import/extensions': 'off',
+        // ES6 Module Rules
         'no-duplicate-imports': 'error',
+        'import/no-unresolved': 'off', // We don't use import resolver
+        'import/extensions': 'off',
         
-        // Accessibility (for PWA)
-        'jsx-a11y/alt-text': 'off', // Not using JSX
-        'no-invalid-this': 'off',
+        // Object and Array Rules
+        'dot-notation': 'warn',
+        'object-shorthand': 'warn',
+        'object-curly-spacing': ['error', 'always'],
+        'array-bracket-spacing': ['error', 'never'],
+        'computed-property-spacing': ['error', 'never'],
         
-        // Performance
+        // Performance Rules
         'no-loop-func': 'warn',
         'no-new-wrappers': 'error',
         'no-throw-literal': 'error',
+        'no-implied-eval': 'error',
+        'no-eval': 'error',
+        'no-new-func': 'error',
         
-        // Style (relaxed for readability)
-        'indent': ['warn', 4, { 'SwitchCase': 1 }],
+        // Style Rules (relaxed for readability)
+        'indent': ['warn', 4, { 
+            'SwitchCase': 1,
+            'VariableDeclarator': 1,
+            'outerIIFEBody': 1
+        }],
         'linebreak-style': 'off', // Cross-platform compatibility
         'max-len': ['warn', { 
-            'code': 100, 
+            'code': 120, 
             'ignoreUrls': true,
             'ignoreStrings': true,
-            'ignoreTemplateLiterals': true
+            'ignoreTemplateLiterals': true,
+            'ignoreComments': true
         }],
         
-        // Spacing
+        // Spacing Rules
         'space-before-function-paren': ['error', {
             'anonymous': 'never',
             'named': 'never',
             'asyncArrow': 'always'
         }],
-        'object-curly-spacing': ['error', 'always'],
-        'array-bracket-spacing': ['error', 'never'],
+        'space-in-parens': ['error', 'never'],
+        'space-before-blocks': 'error',
+        'keyword-spacing': 'error',
+        'comma-spacing': ['error', { 'before': false, 'after': true }],
         
-        // Comments
+        // Comment Rules
         'spaced-comment': ['warn', 'always'],
         'multiline-comment-style': 'off',
+        'lines-around-comment': ['warn', {
+            'beforeBlockComment': true,
+            'allowBlockStart': true,
+            'allowObjectStart': true,
+            'allowArrayStart': true
+        }],
         
-        // Security
-        'no-eval': 'error',
-        'no-implied-eval': 'error',
-        'no-new-func': 'error',
-        'no-script-url': 'error'
+        // Variable Declaration Rules
+        'one-var': ['error', 'never'],
+        'init-declarations': 'off',
+        'no-shadow': 'warn',
+        'no-use-before-define': ['error', { 
+            'functions': false,
+            'classes': true,
+            'variables': true 
+        }],
+        
+        // Security Rules
+        'no-script-url': 'error',
+        'no-new-wrappers': 'error',
+        'no-caller': 'error',
+        'no-extend-native': 'error',
+        
+        // PWA Specific Rules
+        'no-restricted-globals': ['error', 'event', 'fdescribe'],
+        'no-restricted-syntax': ['error',
+            {
+                'selector': 'CallExpression[callee.name="setTimeout"][arguments.length!=2]',
+                'message': 'setTimeout must have exactly 2 arguments'
+            }
+        ]
     },
     
+    // File-specific overrides
     overrides: [
-        // Service Worker specific rules
+        // Service Worker files
         {
-            files: ['service-worker.js', '**/sw.js'],
+            files: ['**/sw.js', '**/service-worker.js', '**/serviceworker.js'],
             env: {
                 serviceworker: true,
                 browser: false
             },
             globals: {
-                'importScripts': 'readonly'
+                'importScripts': 'readonly',
+                'workbox': 'readonly'
+            },
+            rules: {
+                'no-restricted-globals': 'off'
             }
         },
         
         // Test files
         {
-            files: ['**/*.test.js', '**/tests/**/*.js'],
+            files: ['**/*.test.js', '**/tests/**/*.js', '**/__tests__/**/*.js'],
             env: {
-                jest: true
+                jest: true,
+                mocha: true
             },
             globals: {
                 'expect': 'readonly',
                 'describe': 'readonly',
                 'it': 'readonly',
+                'test': 'readonly',
                 'beforeEach': 'readonly',
-                'afterEach': 'readonly'
+                'afterEach': 'readonly',
+                'beforeAll': 'readonly',
+                'afterAll': 'readonly',
+                'jest': 'readonly'
+            },
+            rules: {
+                'max-lines-per-function': 'off',
+                'max-nested-callbacks': 'off'
             }
         },
         
-        // Config files
+        // Configuration files
         {
-            files: ['*.config.js', 'webpack.*.js'],
+            files: ['*.config.js', '**/*.config.js', 'webpack.*.js'],
             env: {
                 node: true,
                 browser: false
+            },
+            rules: {
+                'no-console': 'off'
             }
         },
         
-        // Data files (more relaxed)
+        // Data files (more relaxed rules)
         {
-            files: ['js/data/**/*.js'],
+            files: ['**/data/**/*.js', '**/questions/**/*.js'],
             rules: {
                 'max-lines-per-function': 'off',
-                'max-len': 'off'
+                'max-len': 'off',
+                'object-curly-spacing': 'off'
+            }
+        },
+        
+        // Translation files
+        {
+            files: ['**/translations/**/*.js'],
+            rules: {
+                'max-len': 'off',
+                'quotes': 'off',
+                'key-spacing': 'off'
+            }
+        },
+        
+        // Theme files
+        {
+            files: ['**/themes/**/*.js'],
+            rules: {
+                'max-len': 'off',
+                'object-curly-spacing': 'off'
             }
         }
     ],
     
+    // Settings for import/export validation
     settings: {
-        // For future use with import/export validation
         'import/resolver': {
             'node': {
                 'extensions': ['.js', '.json']
             }
         }
-    }
+    },
+    
+    // Report unused eslint-disable comments
+    reportUnusedDisableDirectives: true
 };
+
+
+
+
 
 
