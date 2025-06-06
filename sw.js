@@ -1,8 +1,9 @@
 
 // LingoQuest Service Worker
-const CACHE_NAME = 'lingoquest-v1.0.0';
-const STATIC_CACHE_NAME = 'lingoquest-static-v1.0.0';
-const DYNAMIC_CACHE_NAME = 'lingoquest-dynamic-v1.0.0';
+// Bump cache versions whenever assets change to force refresh
+const CACHE_NAME = 'lingoquest-v1.0.1';
+const STATIC_CACHE_NAME = 'lingoquest-static-v1.0.1';
+const DYNAMIC_CACHE_NAME = 'lingoquest-dynamic-v1.0.1';
 
 // Files to cache for offline functionality
 const STATIC_ASSETS = [
