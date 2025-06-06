@@ -17,29 +17,35 @@
 @import 'darkModeToggle.css';
 
 
-/* Foundation Styles */
+
+/*
+
+Foundation Styles 
 @import 'modules/reset.css';
 
-/* Layout System */
+Layout System 
 @import 'modules/layout.css';
 
-/* UI Components */
+UI Components 
 @import 'modules/components.css';
 
-/* Game Specific */
+Game Specific 
 @import 'modules/game.css';
 
-/* Utility Classes */
+Utility Classes 
 @import 'modules/utilities.css';
 
-/* Responsive Design */
+Responsive Design 
 @import 'modules/responsive.css';
 
-/* Accessibility Features */
+Accessibility Features 
 @import 'modules/accessibility.css';
 
-/* Animations & Transitions */
+Animations & Transitions
 @import 'modules/animations.css';
+
+*/
+
 
 /* 
  * File: css/main.css
