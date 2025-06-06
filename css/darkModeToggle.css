@@ -1,6 +1,31 @@
 
 
 
+/* Header-specific positioning */
+.app-header #dark-mode-toggle-container {
+    position: absolute;
+    top: 50%;
+    right: 60px; /* Position it left of the settings button */
+    transform: translateY(-50%);
+}
+
+/* Alternative: Add to header controls */
+.header-controls #dark-mode-toggle-container {
+    position: relative;
+    top: auto;
+    right: auto;
+    transform: none;
+}
+
+/* Remove fixed positioning when inside header */
+.app-header .dark-mode-toggle-container {
+    position: relative;
+    top: auto;
+    right: auto;
+    z-index: auto;
+}
+
+
 /* Dark Mode Toggle Styles */
 .dark-mode-toggle-container {
     position: fixed;
