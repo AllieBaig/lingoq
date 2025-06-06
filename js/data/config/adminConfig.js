@@ -91,6 +91,11 @@ export const adminConfig = {
                 enabled: true,
                 visible: true,
                 beta: false
+            },
+            mixlingo: {
+                enabled: true,
+                visible: true,
+                beta: false
             }
         },
         

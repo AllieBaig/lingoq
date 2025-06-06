@@ -79,6 +79,8 @@ const englishTranslations = {
     classicDescription: 'Traditional Name-Place-Animal-Thing game',
     hollybollyMode: 'HollyBolly Mode',
     hollybollyDescription: 'Hollywood movies with Bollywood-style clues',
+    mixlingoMode: 'MixLingo Mode',
+    mixlingoDescription: 'Complete sentences with foreign words',
     quickPlay: 'Quick Play',
     customGame: 'Custom Game',
     lastPlayed: 'Continue Last Game',
@@ -87,10 +89,18 @@ const englishTranslations = {
     achievements: 'Achievements'
   },
 
+  // Text for mode tabs
+  gameModes: {
+    classic: 'Classic Mode',
+    hollybolly: 'HollyBolly Mode',
+    mixlingo: 'MixLingo Mode'
+  },
+
   // ===== GAME MODES =====
   gameMode: {
     classic: 'Classic',
     hollybolly: 'HollyBolly',
+    mixlingo: 'MixLingo',
     practice: 'Practice',
     challenge: 'Challenge',
     multiplayer: 'Multiplayer',
@@ -215,6 +225,21 @@ const englishTranslations = {
     hollybollyComplete: 'HollyBolly Game Complete!'
   },
 
+  // ===== MIXLINGO MODE =====
+  mixlingo: {
+    title: 'MixLingo Mode',
+    instructions: 'Complete English sentences using the correct foreign word',
+    startMixlingo: 'Start MixLingo Game',
+    mixlingoComplete: 'MixLingo Game Complete!',
+    objective: '📝 MixLingo Challenge',
+    objectiveText: 'Choose the correct foreign word to complete each sentence.',
+    howItWorks: '🌍 How It Works',
+    howItWorksText: 'One word is replaced with options from your chosen language.',
+    tips: '💡 Tips for Success',
+    tip1: 'Read the whole sentence before selecting.',
+    tip2: 'Say the sentence aloud to check if it flows.'
+  },
+
   // ===== REWARDS SYSTEM =====
   rewards: {
     earned: 'Reward Earned!',
@@ -334,12 +359,16 @@ const englishTranslations = {
     overview: 'Game Overview',
     classicRules: 'Classic Mode Rules',
     hollybollyRules: 'HollyBolly Mode Rules',
+    mixlingoRules: 'MixLingo Mode Rules',
     controls: 'Controls',
     scoring: 'Scoring System',
     tips: 'Tips & Strategies',
     
     classicText: 'In Classic Mode, you\'ll be asked to identify Names, Places, Animals, and Things. Choose the correct answer from the multiple choice options.',
     hollybollyText: 'In HollyBolly Mode, guess Hollywood movies from creative clues involving places, animals, and things. Earn special rewards for consecutive correct answers!',
+    mixlingoText: 'In MixLingo Mode, complete English sentences using the correct foreign word. Build vocabulary by seeing words in context.',
+    'mixlingo.tip1': 'Read the whole sentence before choosing.',
+    'mixlingo.tip2': 'Say the sentence aloud to see if it sounds natural.',
     
     controlsText: 'Use mouse clicks or keyboard navigation. Press Tab to move between options, Enter to select, and Escape to return to menu.',
     
