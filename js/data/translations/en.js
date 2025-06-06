@@ -48,6 +48,29 @@ const englishTranslations = {
     logout: 'Logout'
   },
 
+  // ===== BUTTON LABELS =====
+  buttons: {
+    start: 'Start Game',
+    startHollyBolly: 'Start HollyBolly',
+    howToPlay: 'How to Play',
+    confirm: 'Confirm Answer',
+    continue: 'Continue Game',
+    pause: 'Pause',
+    quit: 'Quit Game',
+    viewDetails: 'View Detailed Results',
+    playAgain: 'Play Again',
+    tryDifferentMode: 'Try Different Mode',
+    home: 'Home',
+    share: 'Share Results',
+    exportData: 'Export My Data',
+    resetData: 'Reset All Data',
+    checkUpdates: 'Check for Updates',
+    privacyPolicy: 'Privacy Policy',
+    termsService: 'Terms of Service',
+    startTutorial: 'Start Tutorial',
+    gotIt: 'Got It!'
+  },
+
   // ===== HOME SCREEN =====
   home: {
     welcome: 'Welcome to LingoQuest',

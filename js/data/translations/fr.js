@@ -44,6 +44,29 @@ export const frTranslations = {
         submit: 'Soumettre',
         reset: 'Réinitialiser'
     },
+
+    // Libellés des boutons
+    buttons: {
+        start: 'Commencer le jeu',
+        startHollyBolly: 'Commencer HollyBolly',
+        howToPlay: 'Comment jouer',
+        confirm: 'Confirmer la réponse',
+        continue: 'Continuer le jeu',
+        pause: 'Pause',
+        quit: 'Quitter le jeu',
+        viewDetails: 'Voir les résultats détaillés',
+        playAgain: 'Rejouer',
+        tryDifferentMode: 'Essayer un autre mode',
+        home: 'Accueil',
+        share: 'Partager les résultats',
+        exportData: 'Exporter mes données',
+        resetData: 'Réinitialiser toutes les données',
+        checkUpdates: 'Vérifier les mises à jour',
+        privacyPolicy: 'Politique de confidentialité',
+        termsService: "Conditions d'utilisation",
+        startTutorial: 'Commencer le tutoriel',
+        gotIt: 'Compris!'
+    },
     
     // Game modes
     modes: {
