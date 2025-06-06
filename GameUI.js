@@ -1,5 +1,5 @@
 
-import { HollyBollyGame } from './HollyBollyGame.js';
+import { HollyBollyGame } from './hollybolly.js';
 import { MixLingoGame } from './mixlingo.js';
 
 /**
