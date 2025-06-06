@@ -46,6 +46,9 @@ class UIManager {
         const targetScreen = document.getElementById(screenId);
         if (targetScreen) {
             targetScreen.classList.add('active');
+            // Reset scroll position so newly shown screens start at the top
+            targetScreen.scrollTo(0, 0);
+            window.scrollTo(0, 0);
             this.currentScreen = screenId;
         }
     }
