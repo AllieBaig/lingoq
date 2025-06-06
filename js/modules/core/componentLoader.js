@@ -58,6 +58,7 @@ class ComponentLoader {
             { name: 'results-screen', containerId: 'results-screen-container' },
             { name: 'settings-screen', containerId: 'settings-screen-container' },
             { name: 'instructions-screen', containerId: 'instructions-screen-container' },
+            { name: 'tools-screen', containerId: 'tools-screen-container' },
             { name: 'loading-overlay', containerId: 'loading-overlay-container' },
             { name: 'toast-container', containerId: 'toast-container-element' }
         ];
