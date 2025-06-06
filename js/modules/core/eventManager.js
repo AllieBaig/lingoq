@@ -83,6 +83,13 @@ class EventManager {
         window.addEventListener('offline', () => {
             this.app.getUIManager().showToast('You are offline. The game will continue to work!', 'info');
         });
+
+        // Notify user when theme changes
+        window.addEventListener('themeChanged', (e) => {
+            const theme = e.detail.theme;
+            const name = this.app.getThemeManager().getThemeDisplayName(theme);
+            this.app.getUIManager().showToast(`Theme changed to ${name}`, 'success');
+        });
     }
 
     switchGameModeTab(gameMode) {
