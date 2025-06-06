@@ -20,7 +20,7 @@ export class TranslationEngine {
     constructor() {
         this.currentLanguage = LANGUAGES.ENGLISH;
         this.translations = new Map();
-        this.fallbackTranslations = enTranslations;
+        this.fallbackTranslations = englishTranslations;
         this.cache = new Map();
         this.missingKeys = new Set();
         this.isInitialized = false;
