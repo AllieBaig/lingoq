@@ -35,7 +35,8 @@ export const STORAGE_KEYS = {
 // Game modes and their identifiers
 export const GAME_MODES = {
     CLASSIC: 'classic',
-    HOLLYBOLLY: 'hollybolly'
+    HOLLYBOLLY: 'hollybolly',
+    MIXLINGO: 'mixlingo'
 };
 
 // Game difficulties

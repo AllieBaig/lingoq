@@ -1,12 +1,13 @@
 
 import { HollyBollyGame } from './HollyBollyGame.js';
+import { MixLingoGame } from './mixlingo.js';
 
 /**
  * GameUI - Handles all user interface interactions and game display
  */
 export class GameUI {
-    constructor() {
-        this.game = new HollyBollyGame();
+    constructor(gameType = 'hollybolly') {
+        this.game = gameType === 'mixlingo' ? new MixLingoGame() : new HollyBollyGame();
         this.currentQuestion = null;
         this.isAnswered = false;
         

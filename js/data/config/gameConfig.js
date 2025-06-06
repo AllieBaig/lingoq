@@ -57,6 +57,23 @@ export const gameConfig = {
                 maxStreak: 3
             },
             clueTypes: ['place', 'animal', 'thing']
+        },
+
+        mixlingo: {
+            id: 'mixlingo',
+            name: 'MixLingo Mode',
+            description: 'Complete sentences with the correct foreign word',
+            enabled: true,
+            timeLimit: 40,
+            questionsPerRound: 10,
+            maxRounds: 3,
+            scoring: {
+                correct: 10,
+                incorrect: 0,
+                rewardBonus: 0,
+                streakMultiplier: 1.2,
+                maxStreak: 5
+            }
         }
     },
     
