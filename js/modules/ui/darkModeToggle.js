@@ -73,7 +73,8 @@ export class DarkModeToggle {
         srText.textContent = 'Toggle between light and dark mode';
         this.toggleButton.appendChild(srText);
     }
-    
+
+    /*
     addToHeader(toggleContainer) {
         // Try to add to existing header
         const header = document.querySelector('header');
@@ -94,6 +95,40 @@ export class DarkModeToggle {
             document.body.insertBefore(newHeader, document.body.firstChild);
         }
     }
+    */
+
+
+
+addToHeader(toggleContainer) {
+    // Try to add to designated container first
+    const container = document.getElementById('dark-mode-toggle-container');
+    if (container) {
+        container.appendChild(toggleContainer);
+        return;
+    }
+    
+    // Fallback to existing logic
+    const header = document.querySelector('header');
+    const nav = document.querySelector('nav');
+    const gameHeader = document.querySelector('.game-header');
+    
+    if (header) {
+        header.appendChild(toggleContainer);
+    } else if (nav) {
+        nav.appendChild(toggleContainer);
+    } else if (gameHeader) {
+        gameHeader.appendChild(toggleContainer);
+    } else {
+        // Create a header if none exists
+        const newHeader = document.createElement('header');
+        newHeader.className = 'page-header';
+        newHeader.appendChild(toggleContainer);
+        document.body.insertBefore(newHeader, document.body.firstChild);
+    }
+}
+    
+
+    //////////////////////
     
     attachEventListeners() {
         if (this.toggleButton) {
