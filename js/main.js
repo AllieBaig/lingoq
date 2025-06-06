@@ -10,6 +10,7 @@
  * Timestamp: 2024-06-06 20:00 | File: js/main.js
  */
 
+/*
 import { ComponentLoader } from './modules/core/componentLoader.js';
 import { EventManager } from './modules/core/eventManager.js';
 import { UIManager } from './modules/core/uiManager.js';
@@ -20,6 +21,22 @@ import { SettingsManager } from './modules/settings/settingsManager.js';
 import { GameLogic } from './modules/game/gameLogic.js';
 import { GameStateManager } from './modules/game/gameStateManager.js';
 import { ScoreCalculator } from './modules/game/scoreCalculator.js';
+*/
+
+/ ✅ FIXED IMPORTS - Using default imports instead of named imports
+import ComponentLoader from './modules/core/componentLoader.js';
+import EventManager from './modules/core/eventManager.js';
+import UIManager from './modules/core/uiManager.js';
+import StorageManager from './modules/core/storageManager.js';
+import ThemeManager from './modules/settings/themeManager.js';
+import LanguageManager from './modules/settings/languageManager.js';
+import SettingsManager from './modules/settings/settingsManager.js';
+import GameLogic from './modules/game/gameLogic.js';
+import GameStateManager from './modules/game/gameStateManager.js';
+import ScoreCalculator from './modules/game/scoreCalculator.js';
+
+
+
 
 class LingoQuestApp {
     constructor() {
