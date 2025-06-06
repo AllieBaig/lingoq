@@ -12,6 +12,14 @@
         <div class="tools-content">
             <div class="setting-group">
                 <div class="setting-item">
+                    <label for="reset-delay-select">Reset After</label>
+                    <select id="reset-delay-select" class="select">
+                        <option value="60000">1 min</option>
+                        <option value="180000">3 min</option>
+                        <option value="300000">5 min</option>
+                    </select>
+                </div>
+                <div class="setting-item">
                     <button id="reset-service-worker" class="btn btn-outline btn-danger">
                         Reset Service Worker
                     </button>

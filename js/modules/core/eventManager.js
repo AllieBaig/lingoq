@@ -114,23 +114,48 @@ class EventManager {
     }
 
     async resetServiceWorker() {
-        if ('serviceWorker' in navigator) {
-            const registrations = await navigator.serviceWorker.getRegistrations();
-            for (const reg of registrations) {
-                await reg.unregister();
+        const delay = this.getResetDelay();
+        const performReset = async () => {
+            if ('serviceWorker' in navigator) {
+                const registrations = await navigator.serviceWorker.getRegistrations();
+                for (const reg of registrations) {
+                    await reg.unregister();
+                }
+                this.app.getUIManager().showToast('Service worker reset', 'success');
+                setTimeout(() => location.reload(true), 500);
             }
-            this.app.getUIManager().showToast('Service worker reset', 'success');
-            setTimeout(() => location.reload(true), 500);
+        };
+
+        if (delay > 0) {
+            this.app.getUIManager().showToast(`Service worker will reset in ${delay / 60000} min`, 'info');
+            setTimeout(performReset, delay);
+        } else {
+            await performReset();
         }
     }
 
     async resetCache() {
-        if ('caches' in window) {
-            const names = await caches.keys();
-            await Promise.all(names.map(name => name.startsWith('lingoquest-') ? caches.delete(name) : null));
-            this.app.getUIManager().showToast('Cache cleared', 'success');
-            setTimeout(() => location.reload(true), 500);
+        const delay = this.getResetDelay();
+        const performReset = async () => {
+            if ('caches' in window) {
+                const names = await caches.keys();
+                await Promise.all(names.map(name => name.startsWith('lingoquest-') ? caches.delete(name) : null));
+                this.app.getUIManager().showToast('Cache cleared', 'success');
+                setTimeout(() => location.reload(true), 500);
+            }
+        };
+
+        if (delay > 0) {
+            this.app.getUIManager().showToast(`Cache will reset in ${delay / 60000} min`, 'info');
+            setTimeout(performReset, delay);
+        } else {
+            await performReset();
         }
+    }
+
+    getResetDelay() {
+        const select = document.getElementById('reset-delay-select');
+        return select ? parseInt(select.value, 10) || 0 : 0;
     }
 
     switchGameModeTab(gameMode) {
