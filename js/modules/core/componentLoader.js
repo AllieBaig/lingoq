@@ -3,6 +3,14 @@ class ComponentLoader {
     constructor() {
         this.loadedComponents = new Map();
         this.componentCache = new Map();
+        this.isInitialized = false;
+    }
+
+    async init() {
+        console.log('📦 ComponentLoader initializing...');
+        await this.loadAllComponents();
+        this.isInitialized = true;
+        console.log('✅ ComponentLoader initialized');
     }
 
     async loadComponent(componentName, containerId) {
