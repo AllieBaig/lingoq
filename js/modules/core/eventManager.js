@@ -10,6 +10,7 @@ class EventManager {
         this.setupHomeScreenEvents();
         this.setupGameScreenEvents();
         this.setupSettingsScreenEvents();
+        this.setupToolsScreenEvents();
         this.setupGlobalEvents();
     }
 
@@ -66,11 +67,31 @@ class EventManager {
         });
     }
 
+    setupToolsScreenEvents() {
+        document.addEventListener('click', async (e) => {
+            if (e.target.closest('#open-tools')) {
+                this.app.getUIManager().showScreen('tools-screen');
+            }
+
+            if (e.target.closest('#close-tools')) {
+                this.app.getUIManager().showScreen('settings-screen');
+            }
+
+            if (e.target.closest('#reset-service-worker')) {
+                await this.resetServiceWorker();
+            }
+
+            if (e.target.closest('#reset-cache')) {
+                await this.resetCache();
+            }
+        });
+    }
+
     setupGlobalEvents() {
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 const currentScreen = this.app.getUIManager().currentScreen;
-                if (currentScreen === 'settings-screen' || currentScreen === 'instructions-screen') {
+                if (currentScreen === 'settings-screen' || currentScreen === 'instructions-screen' || currentScreen === 'tools-screen') {
                     this.app.getUIManager().showScreen('home-screen');
                 }
             }
@@ -90,6 +111,26 @@ class EventManager {
             const name = this.app.getThemeManager().getThemeDisplayName(theme);
             this.app.getUIManager().showToast(`Theme changed to ${name}`, 'success');
         });
+    }
+
+    async resetServiceWorker() {
+        if ('serviceWorker' in navigator) {
+            const registrations = await navigator.serviceWorker.getRegistrations();
+            for (const reg of registrations) {
+                await reg.unregister();
+            }
+            this.app.getUIManager().showToast('Service worker reset', 'success');
+            setTimeout(() => location.reload(true), 500);
+        }
+    }
+
+    async resetCache() {
+        if ('caches' in window) {
+            const names = await caches.keys();
+            await Promise.all(names.map(name => name.startsWith('lingoquest-') ? caches.delete(name) : null));
+            this.app.getUIManager().showToast('Cache cleared', 'success');
+            setTimeout(() => location.reload(true), 500);
+        }
     }
 
     switchGameModeTab(gameMode) {
