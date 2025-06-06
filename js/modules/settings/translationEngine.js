@@ -30,7 +30,7 @@ export class TranslationEngine {
         console.log('🔤 TranslationEngine initializing...');
         
         // Always set English as fallback
-        this.translations.set(LANGUAGES.ENGLISH, enTranslations);
+        this.translations.set(LANGUAGES.ENGLISH, englishTranslations);
         
         // Clear caches
         this.clearCache();
