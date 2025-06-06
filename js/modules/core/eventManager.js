@@ -55,6 +55,15 @@ class EventManager {
                 this.app.getUIManager().showScreen('home-screen');
             }
         });
+
+        // Handle changes in settings form elements
+        document.addEventListener('change', (e) => {
+            if (e.target.matches('#theme-select')) {
+                const theme = e.target.value;
+                this.app.getThemeManager().setTheme(theme);
+                this.app.getSettingsManager().setSetting('theme', theme);
+            }
+        });
     }
 
     setupGlobalEvents() {
