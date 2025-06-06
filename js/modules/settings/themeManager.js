@@ -50,7 +50,7 @@ class ThemeManager {
         this.loadedThemeFiles = new Set();
         this.init();
     }
-    
+
     init() {
         // Load saved theme or default
         const savedTheme = localStorage.getItem('lingo-theme') || 'light';
@@ -64,6 +64,8 @@ class ThemeManager {
                 }
             });
         }
+
+        this.checkScriptBlockers();
     }
     
     async setTheme(themeName) {
@@ -193,6 +195,45 @@ class ThemeManager {
     // Reset to default theme
     resetTheme() {
         this.setTheme('light');
+    }
+
+    async checkScriptBlockers() {
+        if (!/Mobi/i.test(navigator.userAgent)) {
+            return;
+        }
+
+        window.scriptBlockerLoaded = false;
+
+        try {
+            await new Promise((resolve, reject) => {
+                const script = document.createElement('script');
+                script.src = 'js/blocker-test.js';
+                script.onload = () => {
+                    window.scriptBlockerLoaded = true;
+                    resolve();
+                };
+                script.onerror = reject;
+                document.head.appendChild(script);
+                setTimeout(() => reject(new Error('timeout')), 3000);
+            });
+        } catch {
+            this.alertScriptBlocker();
+            return;
+        }
+
+        if (!window.scriptBlockerLoaded) {
+            this.alertScriptBlocker();
+        }
+    }
+
+    alertScriptBlocker() {
+        const message =
+            'Script blockers may be preventing theme functionality. Please allow scripts for this site.';
+        if (window.LingoQuest && window.LingoQuest.getUIManager) {
+            window.LingoQuest.getUIManager().showToast(message, 'warning', 7000);
+        } else {
+            alert(message);
+        }
     }
 }
 
