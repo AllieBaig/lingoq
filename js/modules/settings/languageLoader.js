@@ -20,7 +20,7 @@ export class LanguageLoader {
         this.eventManager = eventManager;
         this.translationCache = new Map();
         this.loadingPromises = new Map();
-        this.fallbackTranslations = enTranslations;
+        this.fallbackTranslations = englishTranslations;
         this.isInitialized = false;
     }
     
