@@ -37,6 +37,7 @@ import SettingsManager from './modules/settings/settingsManager.js';
 import GameLogic from './modules/game/gameLogic.js';
 import GameStateManager from './modules/game/gameStateManager.js';
 import ScoreCalculator from './modules/game/scoreCalculator.js';
+import MCQGenerator from './modules/game/mcqGenerator.js';
 
 
 
@@ -228,6 +229,13 @@ class LingoQuestApp {
             await gameLogic.init();
             this.modules.set('gameLogic', gameLogic);
             this.logStep('GameLogic initialized');
+
+            // 4. MCQ Generator - question generation
+            console.log('📝 Initializing MCQGenerator...');
+            const mcqGenerator = new MCQGenerator();
+            await mcqGenerator.init();
+            this.modules.set('mcqGenerator', mcqGenerator);
+            this.logStep('MCQGenerator initialized');
             
             console.log('✅ Game modules initialized successfully');
             
@@ -263,7 +271,7 @@ class LingoQuestApp {
             
             // Show home screen
             console.log('🏠 Showing home screen...');
-            await uiManager.showScreen('home');
+            await uiManager.showScreen('home-screen');
             this.logStep('Home screen displayed');
             
             console.log('✅ UI initialized successfully');
@@ -450,7 +458,7 @@ class LingoQuestApp {
     handleVisibilityChange() {
         const eventManager = this.modules.get('eventManager');
         if (!eventManager) return;
-        
+
         if (document.hidden) {
             console.log('⏸️ App hidden, pausing...');
             eventManager.emit('app:hidden');
@@ -459,13 +467,55 @@ class LingoQuestApp {
             eventManager.emit('app:visible');
         }
     }
+
+    async startGame(mode = 'easy', gameType = 'classic') {
+        const uiManager = this.modules.get('uiManager');
+        const gameStateManager = this.modules.get('gameStateManager');
+        const mcqGenerator = this.modules.get('mcqGenerator');
+        const gameLogic = this.modules.get('gameLogic');
+        const scoreCalculator = this.modules.get('scoreCalculator');
+        const eventManager = this.modules.get('eventManager');
+
+        if (!uiManager || !gameStateManager || !mcqGenerator || !gameLogic || !scoreCalculator) {
+            console.error('Missing modules for starting game');
+            return;
+        }
+
+        try {
+            uiManager.showLoading('Starting game...');
+            await gameStateManager.initializeGame(mode, gameType);
+
+            const questions = await mcqGenerator.generateQuestions(
+                gameStateManager.getTotalQuestions(),
+                mode,
+                gameType
+            );
+
+            gameStateManager.setQuestions(questions);
+            scoreCalculator.startGame(gameType, mode);
+
+            uiManager.hideLoading();
+            uiManager.showScreen('game-screen');
+
+            gameLogic.setupGameScreen(gameStateManager.getGameState());
+            gameLogic.loadNextQuestion(gameStateManager.getGameState());
+
+            if (eventManager) {
+                eventManager.emit('game:start', { mode, gameType });
+            }
+        } catch (error) {
+            console.error('Failed to start game:', error);
+            uiManager.hideLoading();
+            uiManager.showToast('Failed to start game. Please try again.', 'error');
+        }
+    }
     
     handleGameStart(data) {
         console.log('🎮 Game starting:', data);
-        
+
         const uiManager = this.modules.get('uiManager');
         if (uiManager) {
-            uiManager.showScreen('game');
+            uiManager.showScreen('game-screen');
         }
     }
     
