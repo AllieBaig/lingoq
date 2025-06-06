@@ -13,7 +13,7 @@
  * Timestamp: 2024-06-06 15:50 | File: js/modules/settings/translationEngine.js
  */
 
-import { enTranslations } from '../../data/translations/en.js';
+import { englishTranslations } from '../../data/translations/en.js';
 import { LANGUAGES } from '../../data/config/constants.js';
 
 export class TranslationEngine {
