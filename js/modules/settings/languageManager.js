@@ -2,10 +2,16 @@
 
 
 
-
-// LingoQuest - Language Manager (Main Module)
-// ES6 Module for language switching and internationalization
-// Orchestrates language loading and translation management
+/**
+ * Purpose: Main language management orchestrator for internationalization
+ * Key features: Language switching, translation coordination, admin controls
+ * Dependencies: LanguageLoader, TranslationEngine, LanguageValidator, DOMTranslator
+ * Related helpers: adminConfig, constants, storage management
+ * Function names: init, setLanguage, translate, applyCurrentLanguage, destroy
+ * MIT License: https://github.com/AllieBaig/LingoQuest/blob/main/LICENSE
+ * Timestamp: 2024-06-06 15:30 | File: js/modules/settings/languageManager.js
+ * Created: 2024-06-06 15:30:42 | languageManager.js in js/modules/settings/
+ */
 
 import { LanguageLoader } from './languageLoader.js';
 import { TranslationEngine } from './translationEngine.js';
@@ -195,7 +201,5 @@ export class LanguageManager {
 }
 
 export default LanguageManager;
-
-
 
 
