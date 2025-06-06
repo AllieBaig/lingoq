@@ -1,0 +1,27 @@
+/**
+ * File: css/themes/cartoon-jetsons.css
+ * LingoQuest - Jetsons Cartoon Theme
+ * Futuristic cartoon style with retro vibes
+ */
+
+[data-theme="jetsons"] {
+  --primary-color: #5bc0de;
+  --secondary-color: #f0ad4e;
+  --accent-color: #ffce00;
+  --background-color: #e0f7fa;
+  --surface-color: #ffffff;
+  --card-background: #f8f9fa;
+
+  --text-primary: #2c3e50;
+  --text-secondary: #34495e;
+  --text-accent: #ff5722;
+  --text-muted: #657786;
+
+  --button-primary-bg: linear-gradient(45deg, #5bc0de, #f0ad4e);
+  --button-primary-hover: linear-gradient(45deg, #f0ad4e, #5bc0de);
+  --button-secondary-bg: #ffffff;
+  --button-secondary-border: 2px solid #5bc0de;
+
+  --border-radius: 10px;
+  --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}

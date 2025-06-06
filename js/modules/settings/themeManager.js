@@ -23,14 +23,18 @@ class ThemeManager {
         
         // Student themes (separate CSS files)
         this.studentThemes = ['neon-glow', 'retro-arcade', 'nature-forest', 'space-galaxy', 'candy-pop'];
-        
+
+        // Cartoon themes (separate CSS files)
+        this.cartoonThemes = ['jetsons'];
+
         // All available themes
-        this.themes = [...this.seniorThemes, ...this.studentThemes];
+        this.themes = [...this.seniorThemes, ...this.studentThemes, ...this.cartoonThemes];
         
         // Theme categories for UI organization
         this.themeCategories = {
             senior: this.seniorThemes,
-            student: this.studentThemes
+            student: this.studentThemes,
+            cartoon: this.cartoonThemes
         };
         
         // CSS file mappings for student themes
@@ -39,7 +43,8 @@ class ThemeManager {
             'retro-arcade': 'css/themes/student-retro-arcade.css',
             'nature-forest': 'css/themes/student-nature-forest.css',
             'space-galaxy': 'css/themes/student-space-galaxy.css',
-            'candy-pop': 'css/themes/student-candy-pop.css'
+            'candy-pop': 'css/themes/student-candy-pop.css',
+            'jetsons': 'css/themes/cartoon-jetsons.css'
         };
         
         this.loadedThemeFiles = new Set();
@@ -67,8 +72,8 @@ class ThemeManager {
             themeName = 'light';
         }
         
-        // Load CSS file for student themes
-        if (this.studentThemes.includes(themeName)) {
+        // Load CSS file for student or cartoon themes
+        if (this.studentThemes.includes(themeName) || this.cartoonThemes.includes(themeName)) {
             await this.loadStudentThemeCSS(themeName);
         }
         
@@ -135,6 +140,7 @@ class ThemeManager {
     getThemeCategory(themeName) {
         if (this.seniorThemes.includes(themeName)) return 'senior';
         if (this.studentThemes.includes(themeName)) return 'student';
+        if (this.cartoonThemes.includes(themeName)) return 'cartoon';
         return 'unknown';
     }
     
@@ -171,7 +177,8 @@ class ThemeManager {
             'retro-arcade': 'Retro Arcade',
             'nature-forest': 'Nature Forest',
             'space-galaxy': 'Space Galaxy',
-            'candy-pop': 'Candy Pop'
+            'candy-pop': 'Candy Pop',
+            'jetsons': 'Jetsons'
         };
         return displayNames[themeName] || themeName;
     }

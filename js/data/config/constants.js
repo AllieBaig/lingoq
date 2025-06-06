@@ -102,7 +102,8 @@ export const THEMES = {
     RETRO_ARCADE: 'retro-arcade',
     NATURE_FOREST: 'nature-forest',
     SPACE_GALAXY: 'space-galaxy',
-    CANDY_POP: 'candy-pop'
+    CANDY_POP: 'candy-pop',
+    JETSONS: 'jetsons'
 };
 
 // Language codes (ISO 639-1)

@@ -108,7 +108,8 @@ export const frTranslations = {
         retroArcade: 'Arcade rétro',
         natureForest: 'Forêt naturelle',
         spaceGalaxy: 'Galaxie spatiale',
-        candyPop: 'Bonbons pop'
+        candyPop: 'Bonbons pop',
+        jetsons: 'Jetsons'
     },
     
     // User profiles

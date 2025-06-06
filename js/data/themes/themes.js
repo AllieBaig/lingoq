@@ -208,6 +208,34 @@ const themes = {
       ageGroup: '6-18',
       popularity: 'medium'
     }
+  },
+
+  // Cartoon themes for a fun retro vibe
+  cartoon: {
+    jetsons: {
+      id: 'jetsons',
+      name: 'Jetsons',
+      category: 'cartoon',
+      description: 'Futuristic cartoon style inspired by the classic show',
+      cssFile: 'css/themes/cartoon-jetsons.css',
+      accessibility: {
+        highContrast: false,
+        largeText: false,
+        reducedMotion: false,
+        animations: true
+      },
+      colors: {
+        primary: '#5bc0de',
+        secondary: '#f0ad4e',
+        background: '#e0f7fa',
+        text: '#2c3e50'
+      },
+      features: ['retro-future', 'cartoon-style', 'fun-animations'],
+      mood: 'playful',
+      ageGroup: '6-18',
+      popularity: 'medium',
+      studyFriendly: false
+    }
   }
 };
 
@@ -226,6 +254,13 @@ const categories = {
     targetAge: '6-18',
     focus: 'engagement',
     features: ['animations', 'modern-design', 'interactive-effects', 'vibrant-colors']
+  },
+  cartoon: {
+    name: 'Cartoon Themes',
+    description: 'Themes inspired by classic cartoons',
+    targetAge: '6-18',
+    focus: 'fun',
+    features: ['bright-colors', 'whimsical-style', 'nostalgic']
   }
 };
 
@@ -239,12 +274,17 @@ export function getThemeConfig(themeId) {
   if (themes.senior[themeId]) {
     return themes.senior[themeId];
   }
-  
+
   // Search in student themes
   if (themes.student[themeId]) {
     return themes.student[themeId];
   }
-  
+
+  // Search in cartoon themes
+  if (themes.cartoon[themeId]) {
+    return themes.cartoon[themeId];
+  }
+
   return null;
 }
 
@@ -276,6 +316,12 @@ export function getThemesByAgeGroup(ageGroup) {
       suitableThemes.push(theme);
     }
   });
+
+  Object.values(themes.cartoon).forEach(theme => {
+    if (theme.ageGroup === ageGroup) {
+      suitableThemes.push(theme);
+    }
+  });
   
   return suitableThemes;
 }
@@ -288,7 +334,7 @@ export function getThemesByAgeGroup(ageGroup) {
 export function getRecommendedThemes(category = null) {
   const recommended = [];
   
-  const searchCategories = category ? [category] : ['senior', 'student'];
+  const searchCategories = category ? [category] : ['senior', 'student', 'cartoon'];
   
   searchCategories.forEach(cat => {
     Object.values(themes[cat]).forEach(theme => {
@@ -342,13 +388,19 @@ export function supportsAccessibilityFeature(themeId, feature) {
  */
 export function getThemesByMood(mood) {
   const moodThemes = [];
-  
+
   Object.values(themes.student).forEach(theme => {
     if (theme.mood === mood) {
       moodThemes.push(theme);
     }
   });
-  
+
+  Object.values(themes.cartoon).forEach(theme => {
+    if (theme.mood === mood) {
+      moodThemes.push(theme);
+    }
+  });
+
   return moodThemes;
 }
 
@@ -366,6 +418,13 @@ export function getStudyFriendlyThemes() {
   
   // Student themes marked as study-friendly
   Object.values(themes.student).forEach(theme => {
+    if (theme.studyFriendly) {
+      studyThemes.push(theme);
+    }
+  });
+
+  // Cartoon themes marked as study-friendly
+  Object.values(themes.cartoon).forEach(theme => {
     if (theme.studyFriendly) {
       studyThemes.push(theme);
     }
