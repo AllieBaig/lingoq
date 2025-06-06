@@ -1,6 +1,6 @@
 
 
-import { HollyBollyGame } from './HollyBollyGame.js';
+import { HollyBollyGame } from './hollybolly.js';
 
 /**
  * GameUI - Handles all user interface interactions and game display
