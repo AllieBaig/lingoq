@@ -174,15 +174,17 @@ addToHeader(toggleContainer) {
     applyMode() {
         const body = document.body;
         const html = document.documentElement;
-        
+
         if (this.isDarkMode) {
             body.classList.add('dark-mode');
             html.classList.add('dark-mode');
             body.setAttribute('data-theme', 'dark');
+            html.setAttribute('data-theme', 'dark');
         } else {
             body.classList.remove('dark-mode');
             html.classList.remove('dark-mode');
             body.setAttribute('data-theme', 'light');
+            html.setAttribute('data-theme', 'light');
         }
         
         // Update CSS custom properties
