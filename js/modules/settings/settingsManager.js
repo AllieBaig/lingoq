@@ -61,6 +61,14 @@ class SettingsManager {
         this.settingsLoaded = false;
     }
 
+    emitEvent(event, data = {}) {
+        if (this.eventManager && typeof this.eventManager.emit === 'function') {
+            this.eventManager.emit(event, data);
+        } else {
+            console.warn('EventManager not available to emit event:', event);
+        }
+    }
+
     async init() {
         console.log('⚙️ SettingsManager initializing...');
         
