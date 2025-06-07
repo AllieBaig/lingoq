@@ -149,15 +149,20 @@ class ThemeManager {
     getAvailableThemes() {
         return this.themes;
     }
-    
+
     getThemesByCategory(category) {
         return this.themeCategories[category] || [];
     }
-    
+
     getCurrentTheme() {
         return this.currentTheme;
     }
-    
+
+    // Re-apply the currently selected theme
+    async applyCurrentTheme() {
+        await this.setTheme(this.currentTheme);
+    }
+
     isStudentTheme(themeName) {
         return this.studentThemes.includes(themeName);
     }
