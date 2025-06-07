@@ -17,7 +17,8 @@ const STATIC_ASSETS = [
   '/css/components.css',
   '/css/responsive.css',
   '/css/animations.css',
-  '/css/accessibility.css',
+  // Corrected path for accessibility styles
+  '/css/modules/accessibility.css',
   
   // JavaScript Core Files
   '/js/main.js',
