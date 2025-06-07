@@ -48,17 +48,30 @@ class LingoQuestApp {
         this.modules = new Map();
         this.startTime = Date.now();
         this.initializationSteps = [];
-        
+        this.startScreen = 'home-screen';
+
         // Bind methods to preserve context
         this.handleError = this.handleError.bind(this);
         this.handleUnload = this.handleUnload.bind(this);
         this.handleVisibilityChange = this.handleVisibilityChange.bind(this);
+    }
+
+    determineStartScreen() {
+        const params = new URLSearchParams(window.location.search);
+        if (params.has('tools')) {
+            this.startScreen = 'tools-screen';
+        } else {
+            this.startScreen = 'home-screen';
+        }
     }
     
     async init() {
         try {
             console.log('🚀 LingoQuest initializing...');
             this.logStep('Application startup');
+
+            // Determine which screen to show first based on URL params
+            this.determineStartScreen();
             
             // Show loading screen
             this.showLoadingScreen();
@@ -269,10 +282,10 @@ class LingoQuestApp {
             await languageManager.applyCurrentLanguage();
             this.logStep('Language applied');
             
-            // Show home screen
-            console.log('🏠 Showing home screen...');
-            await uiManager.showScreen('home-screen');
-            this.logStep('Home screen displayed');
+            // Show initial screen based on URL parameters
+            console.log(`🏠 Showing ${this.startScreen}...`);
+            await uiManager.showScreen(this.startScreen);
+            this.logStep(`${this.startScreen} displayed`);
             
             console.log('✅ UI initialized successfully');
             
