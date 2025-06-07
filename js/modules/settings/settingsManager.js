@@ -608,4 +608,7 @@ class SettingsManager {
     }
 
 
+}
+
+export default SettingsManager;
 
