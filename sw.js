@@ -5,63 +5,68 @@ const CACHE_NAME = 'lingoquest-v1.0.2';
 const STATIC_CACHE_NAME = 'lingoquest-static-v1.0.2';
 const DYNAMIC_CACHE_NAME = 'lingoquest-dynamic-v1.0.2';
 
+// Base path for GitHub Pages support
+const BASE_PATH = new URL(self.registration.scope).pathname;
+
+// Helper to prefix asset paths with base path
+const url = (path) => BASE_PATH + path;
+
 // Files to cache for offline functionality
 const STATIC_ASSETS = [
-  '/',
-  '/index.html',
-  '/manifest.json',
+  'index.html',
+  'manifest.json',
   
   // CSS Files
-  '/css/main.css',
-  '/css/themes.css',
-  '/css/components.css',
-  '/css/responsive.css',
-  '/css/animations.css',
+  'css/main.css',
+  'css/themes.css',
+  'css/components.css',
+  'css/responsive.css',
+  'css/animations.css',
   // Corrected path for accessibility styles
-  '/css/modules/accessibility.css',
+  'css/modules/accessibility.css',
   
   // JavaScript Core Files
-  '/js/main.js',
-  '/js/modules/core/componentLoader.js',
-  '/js/modules/core/uiManager.js',
-  '/js/modules/core/eventManager.js',
-  '/js/modules/core/storageManager.js',
-  '/js/modules/settings/themeManager.js',
-  '/js/modules/settings/languageManager.js',
-  '/js/modules/settings/settingsManager.js',
-  '/js/modules/game/gameLogic.js',
-  '/js/modules/game/gameStateManager.js',
-  '/js/modules/game/mcqGenerator.js',
+  'js/main.js',
+  'js/modules/core/componentLoader.js',
+  'js/modules/core/uiManager.js',
+  'js/modules/core/eventManager.js',
+  'js/modules/core/storageManager.js',
+  'js/modules/settings/themeManager.js',
+  'js/modules/settings/languageManager.js',
+  'js/modules/settings/settingsManager.js',
+  'js/modules/game/gameLogic.js',
+  'js/modules/game/gameStateManager.js',
+  'js/modules/game/mcqGenerator.js',
   
   // HTML Components
-  '/components/header.html',
-  '/components/home-screen.html',
-  '/components/game-screen.html',
-  '/components/results-screen.html',
-  '/components/settings-screen.html',
-  '/components/instructions-screen.html',
-  '/components/loading-overlay.html',
-  '/components/toast-container.html',
+  'components/header.html',
+  'components/home-screen.html',
+  'components/game-screen.html',
+  'components/results-screen.html',
+  'components/settings-screen.html',
+  'components/instructions-screen.html',
+  'components/loading-overlay.html',
+  'components/toast-container.html',
   
   // Essential Assets
-  '/assets/icons/icon-192x192.png',
-  '/assets/icons/icon-512x512.png',
-  '/assets/icons/favicon.ico',
+  'assets/icons/icon-192x192.png',
+  'assets/icons/icon-512x512.png',
+  'assets/icons/favicon.ico',
   
   // Game Data
-  '/js/data/translations/en.js',
-  '/js/data/questions/classic/names.js',
-  '/js/data/questions/classic/places.js',
-  '/js/data/questions/classic/animals.js',
-  '/js/data/questions/classic/things.js',
-  '/js/data/questions/hollybolly/movies.js'
+  'js/data/translations/en.js',
+  'js/data/questions/classic/names.js',
+  'js/data/questions/classic/places.js',
+  'js/data/questions/classic/animals.js',
+  'js/data/questions/classic/things.js',
+  'js/data/questions/hollybolly/movies.js'
 ];
 
 // URLs that should always be fetched from network
 const NETWORK_FIRST_URLS = [
-  '/js/data/questions/hollybolly/boxOfficeData.js',
-  '/js/data/questions/hollybolly/directorsData.js',
-  '/js/data/questions/hollybolly/actorsData.js'
+  'js/data/questions/hollybolly/boxOfficeData.js',
+  'js/data/questions/hollybolly/directorsData.js',
+  'js/data/questions/hollybolly/actorsData.js'
 ];
 
 // Install Event - Cache static assets
@@ -72,7 +77,7 @@ self.addEventListener('install', (event) => {
     caches.open(STATIC_CACHE_NAME)
       .then((cache) => {
         console.log('[SW] Caching static assets');
-        return cache.addAll(STATIC_ASSETS);
+        return cache.addAll(STATIC_ASSETS.map(url));
       })
       .then(() => {
         console.log('[SW] Static assets cached successfully');
@@ -205,7 +210,7 @@ async function handleHTMLRequest(request) {
     return networkResponse;
   } catch (error) {
     // Return cached index.html for offline SPA functionality
-    const cachedIndex = await caches.match('/index.html');
+    const cachedIndex = await caches.match(url('index.html'));
     if (cachedIndex) {
       return cachedIndex;
     }
@@ -233,7 +238,7 @@ function isNetworkFirstAsset(url) {
 }
 
 function isGameData(url) {
-  return url.includes('/js/data/') && !isNetworkFirstAsset(url);
+  return url.includes('js/data/') && !isNetworkFirstAsset(url);
 }
 
 function isHTMLRequest(request) {
@@ -276,7 +281,7 @@ async function syncGameProgress() {
     
     if (pendingData.length > 0) {
       for (const data of pendingData) {
-        await fetch('/api/save-progress', {
+        await fetch(url('api/save-progress'), {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(data)
@@ -307,8 +312,8 @@ self.addEventListener('push', (event) => {
   
   const options = {
     body: event.data?.text() || 'New update available!',
-    icon: '/assets/icons/icon-192x192.png',
-    badge: '/assets/icons/icon-96x96.png',
+    icon: url('assets/icons/icon-192x192.png'),
+    badge: url('assets/icons/icon-96x96.png'),
     tag: 'lingoquest-notification',
     requireInteraction: false,
     actions: [
@@ -346,7 +351,7 @@ self.addEventListener('notificationclick', (event) => {
         
         // Open new window if no existing window
         if (clients.openWindow) {
-          return clients.openWindow('/');
+          return clients.openWindow(BASE_PATH);
         }
       })
     );
@@ -387,7 +392,7 @@ async function cacheGameData(gameData) {
   try {
     const cache = await caches.open(DYNAMIC_CACHE_NAME);
     const response = new Response(JSON.stringify(gameData));
-    await cache.put('/game-data-cache', response);
+    await cache.put(url('game-data-cache'), response);
     console.log('[SW] Game data cached');
   } catch (error) {
     console.error('[SW] Failed to cache game data:', error);
