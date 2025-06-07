@@ -610,6 +610,17 @@ class LingoQuestApp {
 // Global app instance
 let app = null;
 
+// Handle direct links such as ?tools
+function handleDirectLinks() {
+    const params = new URLSearchParams(window.location.search);
+    if (params.has('tools')) {
+        const uiManager = app?.getModule('uiManager');
+        if (uiManager) {
+            uiManager.showScreen('tools-screen');
+        }
+    }
+}
+
 // Initialize app when DOM is ready
 document.addEventListener('DOMContentLoaded', async () => {
     try {
@@ -626,7 +637,10 @@ document.addEventListener('DOMContentLoaded', async () => {
             getReport: () => app.getInitializationReport(),
             restart: () => app.restart()
         };
-        
+
+        // Show screen based on query parameters
+        handleDirectLinks();
+
     } catch (error) {
         console.error('💥 Failed to initialize LingoQuest:', error);
         
