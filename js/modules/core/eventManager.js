@@ -2,6 +2,36 @@
 class EventManager {
     constructor() {
         this.app = null;
+        this.listeners = new Map();
+    }
+
+    on(event, handler) {
+        if (!this.listeners.has(event)) {
+            this.listeners.set(event, new Set());
+        }
+        this.listeners.get(event).add(handler);
+    }
+
+    off(event, handler) {
+        if (this.listeners.has(event)) {
+            this.listeners.get(event).delete(handler);
+        }
+    }
+
+    emit(event, data) {
+        if (this.listeners.has(event)) {
+            for (const handler of this.listeners.get(event)) {
+                try {
+                    handler(data);
+                } catch (err) {
+                    console.error(`Event handler error for ${event}:`, err);
+                }
+            }
+        }
+    }
+
+    removeAllListeners() {
+        this.listeners.clear();
     }
 
     setupEventListeners(app) {
