@@ -118,10 +118,21 @@ class EventManager {
         const performReset = async () => {
             if ('serviceWorker' in navigator) {
                 const registrations = await navigator.serviceWorker.getRegistrations();
+                let unregistered = false;
                 for (const reg of registrations) {
-                    await reg.unregister();
+                    try {
+                        unregistered = (await reg.unregister()) || unregistered;
+                    } catch (err) {
+                        console.warn('Failed to unregister service worker', err);
+                    }
                 }
-                this.app.getUIManager().showToast('Service worker reset', 'success');
+
+                if (unregistered) {
+                    this.app.getUIManager().showToast('Service worker unregistered', 'success');
+                } else {
+                    this.app.getUIManager().showToast('No service worker to unregister', 'info');
+                }
+
                 setTimeout(() => location.reload(true), 500);
             }
         };
