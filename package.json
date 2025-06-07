@@ -10,10 +10,19 @@
     "start": "npx serve -s . -l 3000",
     "dev": "npx live-server --port=3000 --no-browser --ignore=node_modules",
     "build": "npm run lint && npm run test",
-    "lint": "npx eslint --config .eslintrc.cjs js/**/*.js --fix",
+
+    "lint": "eslint js/**/*.js"
+    "_lint_comment_": "npx eslint --config .eslintrc.cjs js/**/*.js --fix",
+
+    
     "lint:css": "npx stylelint css/**/*.css --fix",
     "test": "npm run test:unit && npm run test:e2e",
-    "test:unit": "npx jest --config jest.config.js",
+
+    
+    "test:unit": "jest --config jest.config.cjs"
+    "_test:unit_comment_": "npx jest --config jest.config.js",
+
+    
     "test:e2e": "npx playwright test",
     "test:watch": "npx jest --watch",
     "test:coverage": "npx jest --coverage",
