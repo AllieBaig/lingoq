@@ -1,3 +1,4 @@
+
 /**
  * HollyBollyGame - Core game logic for Hollywood vs Bollywood quiz
  */
@@ -13,6 +14,14 @@ export class HollyBollyGame {
         this.gameLanguage = 'en';
         this.gameData = gameData;
         this.usedQuestions = new Set();
+    }
+
+    /**
+     * Set the language for answer options
+     * @param {string} language - 'en', 'fr', or 'de'
+     */
+    setLanguage(language = 'en') {
+        this.gameLanguage = language;
     }
 
     /**
@@ -83,17 +92,29 @@ export class HollyBollyGame {
         // Limit answers based on difficulty
         const maxChoices = this.getDifficultyChoices();
         answers = answers.slice(0, maxChoices);
-        
+
         // Ensure correct answer is included
         if (!answers.includes(correctAnswer)) {
             answers[Math.floor(Math.random() * answers.length)] = correctAnswer;
         }
-        
+
+        // Translate answers if needed
+        let translatedCorrect = correctAnswer;
+        if (this.gameLanguage !== 'en' && question.translations && question.translations[this.gameLanguage]) {
+            const map = question.translations[this.gameLanguage];
+            answers = answers.map(a => {
+                const idx = question.answers.indexOf(a);
+                return map[idx] || a;
+            });
+            const cIdx = question.answers.indexOf(correctAnswer);
+            translatedCorrect = map[cIdx] || correctAnswer;
+        }
+
         return {
             id: question.id,
             question: question.question,
             answers: answers,
-            correctAnswer: correctAnswer,
+            correctAnswer: translatedCorrect,
             place: question.place,
             animal: question.animal,
             thing: question.thing,
@@ -237,3 +258,4 @@ export class HollyBollyGame {
         this.usedQuestions.clear();
     }
 }
+

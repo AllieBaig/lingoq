@@ -1,13 +1,13 @@
 
+
 import { HollyBollyGame } from './hollybolly.js';
-import { MixLingoGame } from './mixlingo.js';
 
 /**
  * GameUI - Handles all user interface interactions and game display
  */
 export class GameUI {
-    constructor(gameType = 'hollybolly') {
-        this.game = gameType === 'mixlingo' ? new MixLingoGame() : new HollyBollyGame();
+    constructor() {
+        this.game = new HollyBollyGame();
         this.currentQuestion = null;
         this.isAnswered = false;
         
@@ -27,7 +27,8 @@ export class GameUI {
             score: document.getElementById('score'),
             streak: document.getElementById('streak'),
             accuracy: document.getElementById('accuracy'),
-            difficultyBtns: document.querySelectorAll('.difficulty-btn')
+            difficultyBtns: document.querySelectorAll('.difficulty-btn'),
+            languageSelect: document.getElementById('language-select')
         };
     }
 
@@ -67,6 +68,17 @@ export class GameUI {
         this.elements.startBtn.addEventListener('click', () => this.startGame());
         this.elements.nextBtn.addEventListener('click', () => this.nextQuestion());
         this.elements.resetBtn.addEventListener('click', () => this.resetGame());
+
+        // Language selector
+        if (this.elements.languageSelect) {
+            this.elements.languageSelect.addEventListener('change', (e) => {
+                this.game.setLanguage(e.target.value);
+                if (this.currentQuestion) {
+                    this.currentQuestion = this.game.formatQuestion();
+                    this.displayQuestion();
+                }
+            });
+        }
     }
 
     /**
@@ -231,3 +243,4 @@ export class GameUI {
         console.error(message);
     }
 }
+

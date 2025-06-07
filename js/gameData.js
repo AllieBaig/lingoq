@@ -26,7 +26,11 @@ export const gameData = [
         thing: "Fake Government ID",
         question: "Which Bollywood movie was inspired by 'The Departed' and features a heist in Mumbai Bank using Fake Government IDs?",
         answers: ["Special 26", "Baby", "Airlift", "Khel Khel Mein"],
-        correctAnswer: "Special 26"
+        correctAnswer: "Special 26",
+        translations: {
+            fr: ["Spécial 26", "Bébé", "Pont aérien", "Khel Khel Mein"],
+            de: ["Spezial 26", "Baby", "Luftbrücke", "Khel Khel Mein"]
+        }
     },
     {
         id: 2,
@@ -49,7 +53,11 @@ export const gameData = [
         thing: "Golden Crown",
         question: "Which Bollywood movie draws inspiration from 'The Lion King' and features a Royal Palace, Lion symbolism, and a Golden Crown?",
         answers: ["Khoobsurat", "Piku", "Queen", "Highway"],
-        correctAnswer: "Khoobsurat"
+        correctAnswer: "Khoobsurat",
+        translations: {
+            fr: ["Khoobsurat", "Piku", "Reine", "Autoroute"],
+            de: ["Khoobsurat", "Piku", "Königin", "Autobahn"]
+        }
     },
     {
         id: 3,
@@ -72,7 +80,11 @@ export const gameData = [
         thing: "Sharp Knife",
         question: "Which Bollywood thriller inspired by 'Kill Bill' features a Highway Dhaba, Wild Dogs, and a Sharp Knife?",
         answers: ["NH10", "Pink", "Dangal", "Sultan"],
-        correctAnswer: "NH10"
+        correctAnswer: "NH10",
+        translations: {
+            fr: ["NH10", "Rose", "Dangal", "Sultan"],
+            de: ["NH10", "Pink", "Dangal", "Sultan"]
+        }
     },
     {
         id: 4,
@@ -95,7 +107,11 @@ export const gameData = [
         thing: "Hair Wig",
         question: "Which Bollywood comedy-drama inspired by 'The Pursuit of Happyness' is set in a Small Town Beauty Salon and features a Hair Wig?",
         answers: ["Bala", "Andhadhun", "Badhaai Ho", "Article 15"],
-        correctAnswer: "Bala"
+        correctAnswer: "Bala",
+        translations: {
+            fr: ["Bala", "Andhadhun", "Badhaai Ho", "Article 15"],
+            de: ["Bala", "Andhadhun", "Badhaai Ho", "Artikel 15"]
+        }
     },
     {
         id: 5,
@@ -118,7 +134,11 @@ export const gameData = [
         thing: "Mysterious Painting",
         question: "Which Bollywood movie inspired by 'Inception' features an Art Gallery, White Dove, and a Mysterious Painting?",
         answers: ["Roy", "Tamasha", "Rockstar", "Barfi"],
-        correctAnswer: "Roy"
+        correctAnswer: "Roy",
+        translations: {
+            fr: ["Roy", "Tamasha", "Rockstar", "Barfi"],
+            de: ["Roy", "Tamasha", "Rockstar", "Barfi"]
+        }
     },
     {
         id: 6,
@@ -141,7 +161,11 @@ export const gameData = [
         thing: "Magic Tricks",
         question: "Which Bollywood action film inspired by 'The Dark Knight' features a Chicago Circus, Trained Tigers, and Magic Tricks?",
         answers: ["Dhoom 3", "War", "Tiger Zinda Hai", "Pathaan"],
-        correctAnswer: "Dhoom 3"
+        correctAnswer: "Dhoom 3",
+        translations: {
+            fr: ["Dhoom 3", "Guerre", "Tiger Zinda Hai", "Pathaan"],
+            de: ["Dhoom 3", "Krieg", "Tiger Zinda Hai", "Pathaan"]
+        }
     },
     {
         id: 7,
@@ -164,7 +188,11 @@ export const gameData = [
         thing: "Designer Handbag",
         question: "Which Bollywood romantic comedy inspired by 'Pretty Woman' is set in a Delhi Shopping Mall and features a Persian Cat and Designer Handbag?",
         answers: ["Aisha", "Veere Di Wedding", "Cocktail", "I Hate Luv Storys"],
-        correctAnswer: "Aisha"
+        correctAnswer: "Aisha",
+        translations: {
+            fr: ["Aisha", "Veere Di Wedding", "Cocktail", "Je déteste les histoires d'amour"],
+            de: ["Aisha", "Veere Di Wedding", "Cocktail", "Ich hasse Liebesgeschichten"]
+        }
     },
     {
         id: 8,
@@ -187,7 +215,11 @@ export const gameData = [
         thing: "Power Suit",
         question: "Which Bollywood sci-fi film inspired by 'The Matrix' features a Gaming Arena, Digital Eagle, and Power Suit?",
         answers: ["Ra.One", "Robot", "Krrish", "Love Story 2050"],
-        correctAnswer: "Ra.One"
+        correctAnswer: "Ra.One",
+        translations: {
+            fr: ["Ra.One", "Robot", "Krrish", "Histoire d'amour 2050"],
+            de: ["Ra.One", "Roboter", "Krrish", "Liebesgeschichte 2050"]
+        }
     }
 ];
 
