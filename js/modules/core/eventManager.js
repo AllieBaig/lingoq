@@ -66,8 +66,23 @@ class EventManager {
     }
 
     setupGameScreenEvents() {
-        // Basic game events - will be expanded later
         document.addEventListener('click', (e) => {
+            const choice = e.target.closest('.choice-option');
+            if (choice) {
+                const gameLogic = this.app.getModule('gameLogic');
+                if (gameLogic) {
+                    gameLogic.selectChoice(choice);
+                }
+            }
+
+            if (e.target.closest('#confirm-answer')) {
+                const gameLogic = this.app.getModule('gameLogic');
+                const gameStateManager = this.app.getModule('gameStateManager');
+                if (gameLogic && gameStateManager) {
+                    gameLogic.confirmAnswer(gameStateManager.getGameState());
+                }
+            }
+
             if (e.target.closest('#quit-game')) {
                 if (confirm('Are you sure you want to quit?')) {
                     this.app.getUIManager().showScreen('home-screen');

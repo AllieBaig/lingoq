@@ -70,6 +70,34 @@ class GameLogic {
         });
     }
 
+    confirmAnswer(gameState) {
+        const selected = document.querySelector('.choice-option.selected');
+        if (!selected) return;
+
+        const choiceIndex = parseInt(selected.dataset.choiceIndex, 10);
+        const question = gameState.questions[gameState.currentQuestion - 1];
+        const choice = question.choices[choiceIndex];
+        const isCorrect = choice.correct;
+
+        if (isCorrect) {
+            selected.classList.add('correct');
+            gameState.correctAnswers++;
+            gameState.streak++;
+            gameState.bestStreak = Math.max(gameState.bestStreak, gameState.streak);
+        } else {
+            selected.classList.add('incorrect');
+            gameState.incorrectAnswers++;
+            gameState.streak = 0;
+        }
+
+        this.disableChoices();
+        this.updateStreakDisplay(gameState);
+
+        setTimeout(() => {
+            this.loadNextQuestion(gameState);
+        }, 800);
+    }
+
     selectChoice(choiceElement) {
         document.querySelectorAll('.choice-option').forEach(el => {
             el.classList.remove('selected');
