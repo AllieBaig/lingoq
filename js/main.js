@@ -81,6 +81,12 @@ class LingoQuestApp {
             await this.initializeSettings();
             await this.initializeGame();
             await this.initializeUI();
+
+            // Set up DOM event listeners now that UI is ready
+            const eventManager = this.modules.get('eventManager');
+            if (eventManager && eventManager.setupEventListeners) {
+                eventManager.setupEventListeners(this);
+            }
             
             // Setup global event listeners
             this.setupGlobalListeners();
@@ -560,6 +566,31 @@ class LingoQuestApp {
     
     getModule(name) {
         return this.modules.get(name);
+    }
+
+    // Convenience getters for modules used by EventManager and others
+    getUIManager() {
+        return this.modules.get('uiManager');
+    }
+
+    getGameLogic() {
+        return this.modules.get('gameLogic');
+    }
+
+    getGameStateManager() {
+        return this.modules.get('gameStateManager');
+    }
+
+    getSettingsManager() {
+        return this.modules.get('settingsManager');
+    }
+
+    getThemeManager() {
+        return this.modules.get('themeManager');
+    }
+
+    getLanguageManager() {
+        return this.modules.get('languageManager');
     }
     
     getInitializationReport() {
