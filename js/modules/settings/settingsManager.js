@@ -607,3 +607,5 @@ class SettingsManager {
         return validatedSettings;
     }
 
+
+
