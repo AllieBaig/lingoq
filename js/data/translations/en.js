@@ -449,6 +449,7 @@ const englishTranslations = {
 // Export the translations object
 export default englishTranslations;
 
-// Also export as named export for compatibility
-export { englishTranslations };
+// Provide aliases for backward compatibility
+const enTranslations = englishTranslations;
+export { englishTranslations, enTranslations };
 
