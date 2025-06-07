@@ -106,9 +106,8 @@ class LingoQuestApp {
             this.logStep(`Initialization completed in ${initTime}ms`);
             
             // Trigger app ready event
-            const eventManager = this.modules.get('eventManager');
             if (eventManager) {
-                eventManager.emit('app:ready', { 
+                eventManager.emit('app:ready', {
                     initTime,
                     steps: this.initializationSteps
                 });
