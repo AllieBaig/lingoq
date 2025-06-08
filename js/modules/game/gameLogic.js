@@ -57,8 +57,9 @@ class GameLogic {
         container.innerHTML = '';
 
         choices.forEach((choice, index) => {
-            const choiceElement = document.createElement('div');
-            choiceElement.className = 'choice-option';
+            const choiceElement = document.createElement('button');
+            choiceElement.type = 'button';
+            choiceElement.className = 'choice-option btn';
             choiceElement.dataset.choiceIndex = index;
             choiceElement.innerHTML = `
                 <div class="choice-content">
