@@ -54,6 +54,7 @@ export const frTranslations = {
         continue: 'Continuer le jeu',
         pause: 'Pause',
         quit: 'Quitter le jeu',
+        mainMenu: 'Menu Principal',
         viewDetails: 'Voir les résultats détaillés',
         playAgain: 'Rejouer',
         tryDifferentMode: 'Essayer un autre mode',
