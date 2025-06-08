@@ -394,9 +394,13 @@ class SettingsManager {
             monospace: '"SF Mono", "Monaco", "Inconsolata", "Roboto Mono", monospace',
             dyslexic: '"OpenDyslexic", "Comic Sans MS", cursive, sans-serif'
         };
-        
+
         const fontFamily = familyMap[family] || familyMap.system;
         root.style.setProperty('--font-family-base', fontFamily);
+
+        window.dispatchEvent(new CustomEvent('fontFamilyChanged', {
+            detail: { fontFamily: family }
+        }));
     }
 
     applyButtonSize(size) {
