@@ -21,7 +21,19 @@
     <link rel="stylesheet" href="css/themes.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/responsive.css">
-    
+    <!-- Fallback styles for non-JavaScript environments -->
+    <style>
+        noscript .no-js-section {
+            margin: 1rem auto;
+            max-width: 600px;
+            font-family: system-ui, sans-serif;
+            line-height: 1.5;
+        }
+        noscript h2 {
+            text-align: center;
+        }
+    </style>
+
 </head>
 <body data-theme="light">
     <div id="app" class="app-container">
@@ -39,13 +51,26 @@
         </main>
 
         <div id="loading-overlay-container"></div>
-        <div id="toast-container-element"></div>
-        <div class="reset-links">
-            <a href="#" id="reset-service-worker">Reset Service Worker</a>
-            |
-            <a href="#" id="reset-cache">Reset Cache</a>
-        </div>
+    <div id="toast-container-element"></div>
+    <div class="reset-links">
+        <a href="#" id="reset-service-worker">Reset Service Worker</a>
+        |
+        <a href="#" id="reset-cache">Reset Cache</a>
     </div>
+    </div>
+
+    <!-- Fallback content for users without JavaScript -->
+    <noscript>
+        <div class="no-js-section">
+            <h2>Available Game Modes</h2>
+            <ul>
+                <li><strong>Easy:</strong> choose from 2 options</li>
+                <li><strong>Medium:</strong> choose from 3 options</li>
+                <li><strong>Hard:</strong> choose from 4 options</li>
+            </ul>
+            <p>Enable JavaScript for the full interactive experience.</p>
+        </div>
+    </noscript>
 
     <!-- JavaScript Modules -->
     <script type="module" src="js/main.js"></script>
