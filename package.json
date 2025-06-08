@@ -12,16 +12,20 @@
     "build": "npm run lint && npm run test",
 
 
-    "lint": "eslint js/ --no-warn-ignored",
-    "_lint_comment": "eslint js/**/*.js",
+    "_lint_comment": "eslint js/ --no-warn-ignored",
+    "lint": "eslint js/**/*.js",
     "_lint_comment": "npx eslint --config .eslintrc.cjs js/**/*.js --fix",
 
     
     "lint:css": "npx stylelint css/**/*.css --fix",
     "test": "node testRunner.js",
+    
+    
     "test:unit": "node --experimental-vm-modules node_modules/jest/bin/jest.js --config jest.config.mjs",
     "_test:unit_comment": "jest --config jest.config.cjs",
     "_test:unit_comment": "npx jest --config jest.config.js",
+    
+    
     "test:e2e": "npx playwright test",
     "test:watch": "npx jest --watch",
     "test:coverage": "npx jest --coverage",
