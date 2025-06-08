@@ -111,7 +111,7 @@ class EventManager {
 
         // Handle changes in settings form elements
         document.addEventListener('change', (e) => {
-            if (e.target.matches('#theme-select')) {
+            if (e.target.matches('#theme-select, #home-theme-select')) {
                 const theme = e.target.value;
                 this.app.getThemeManager().setTheme(theme);
                 this.app.getSettingsManager().setSetting('theme', theme);
@@ -161,6 +161,10 @@ class EventManager {
         window.addEventListener('themeChanged', (e) => {
             const theme = e.detail.theme;
             const name = this.app.getThemeManager().getThemeDisplayName(theme);
+            const settingsSelect = document.getElementById('theme-select');
+            const homeSelect = document.getElementById('home-theme-select');
+            if (settingsSelect) settingsSelect.value = theme;
+            if (homeSelect) homeSelect.value = theme;
             this.app.getUIManager().showToast(`Theme changed to ${name}`, 'success');
         });
     }
