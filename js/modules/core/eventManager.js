@@ -91,6 +91,10 @@ class EventManager {
                     this.app.getUIManager().showScreen('home-screen');
                 }
             }
+
+            if (e.target.closest('#main-menu')) {
+                this.app.getUIManager().showScreen('home-screen');
+            }
         });
     }
 

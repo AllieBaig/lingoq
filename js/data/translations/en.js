@@ -57,6 +57,7 @@ const englishTranslations = {
     continue: 'Continue Game',
     pause: 'Pause',
     quit: 'Quit Game',
+    mainMenu: 'Main Menu',
     viewDetails: 'View Detailed Results',
     playAgain: 'Play Again',
     tryDifferentMode: 'Try Different Mode',

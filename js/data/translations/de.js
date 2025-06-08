@@ -491,6 +491,7 @@ export const deTranslations = {
         pause: 'Pausieren',
         resume: 'Fortsetzen',
         quit: 'Beenden',
+        mainMenu: 'Hauptmenü',
         confirm: 'Bestätigen',
         cancel: 'Abbrechen',
         continue: 'Weiter',
