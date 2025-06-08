@@ -266,7 +266,11 @@
   font-size: var(--font-size-base);
   background: var(--input-background);
   /* Use dropdown text variable for better contrast */
-  color: var(--dropdown-text-color, var(--text-primary));
+    color: var(--dropdown-text-color, #000); /* Better fallback than --text-primary */
+    
+  /* color: var(--dropdown-text-color, var(--text-primary));
+  */
+  
   transition: all var(--transition-fast);
   box-sizing: border-box;
   cursor: pointer;
