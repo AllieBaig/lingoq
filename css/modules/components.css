@@ -311,6 +311,15 @@
   margin-top: 2rem;
 }
 
+/* ===== HOME SCREEN SELECTOR ROW ===== */
+.option-selectors {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin: 1rem 0;
+}
+
 /* ===== COMPONENT OVERFLOW FIXES ===== */
 .card,
 .button,
