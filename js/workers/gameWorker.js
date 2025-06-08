@@ -324,7 +324,7 @@ async function calculateScore(config) {
         const isCorrect = answer === question.correctAnswer;
         
         let questionScore = 0;
-        let bonuses = {};
+        const bonuses = {};
         
         if (isCorrect) {
             correctCount++;
