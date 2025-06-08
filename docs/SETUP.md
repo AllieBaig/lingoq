@@ -160,6 +160,9 @@ LingoQuest/
 │       ├── student-nature-forest.css
 │       ├── student-space-galaxy.css
 │       ├── student-candy-pop.css
+│       ├── college-campus-classic.css
+│       ├── college-minimal-focus.css
+│       ├── college-night-owl.css
 │       └── cartoon-jetsons.css
 │
 ├── js/                       # JavaScript modules

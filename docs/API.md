@@ -240,6 +240,13 @@ class ThemeManager {
 'candy-pop'     // Sweet, colorful design
 ```
 
+#### College Themes
+```javascript
+'campus-classic' // University-inspired look
+'minimal-focus'  // Distraction-free design
+'night-owl'      // Low-light study mode
+```
+
 #### Cartoon Themes
 ```javascript
 'jetsons'       // Retro-futuristic cartoon style

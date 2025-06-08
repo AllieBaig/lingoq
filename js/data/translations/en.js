@@ -285,6 +285,9 @@ const englishTranslations = {
       natureForest: 'Nature Forest',
       spaceGalaxy: 'Space Galaxy',
       candyPop: 'Candy Pop',
+      campusClassic: 'Campus Classic',
+      minimalFocus: 'Minimal Focus',
+      nightOwl: 'Night Owl',
       jetsons: 'Jetsons'
     },
     

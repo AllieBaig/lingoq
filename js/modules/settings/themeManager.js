@@ -24,19 +24,23 @@ class ThemeManager {
         // Student themes (separate CSS files)
         this.studentThemes = ['neon-glow', 'retro-arcade', 'nature-forest', 'space-galaxy', 'candy-pop'];
 
+        // College themes (separate CSS files)
+        this.collegeThemes = ['campus-classic', 'minimal-focus', 'night-owl'];
+
         // Cartoon themes (separate CSS files)
         this.cartoonThemes = ['jetsons'];
 
         // All available themes
-        this.themes = [...this.seniorThemes, ...this.studentThemes, ...this.cartoonThemes];
-        
+        this.themes = [...this.seniorThemes, ...this.studentThemes, ...this.collegeThemes, ...this.cartoonThemes];
+
         // Theme categories for UI organization
         this.themeCategories = {
             senior: this.seniorThemes,
             student: this.studentThemes,
+            college: this.collegeThemes,
             cartoon: this.cartoonThemes
         };
-        
+
         // CSS file mappings for student themes
         this.studentThemeFiles = {
             'neon-glow': 'css/themes/student-neon-glow.css',
@@ -44,6 +48,9 @@ class ThemeManager {
             'nature-forest': 'css/themes/student-nature-forest.css',
             'space-galaxy': 'css/themes/student-space-galaxy.css',
             'candy-pop': 'css/themes/student-candy-pop.css',
+            'campus-classic': 'css/themes/college-campus-classic.css',
+            'minimal-focus': 'css/themes/college-minimal-focus.css',
+            'night-owl': 'css/themes/college-night-owl.css',
             'jetsons': 'css/themes/cartoon-jetsons.css'
         };
         
@@ -74,8 +81,8 @@ class ThemeManager {
             themeName = 'light';
         }
         
-        // Load CSS file for student or cartoon themes
-        if (this.studentThemes.includes(themeName) || this.cartoonThemes.includes(themeName)) {
+        // Load CSS file for student, college or cartoon themes
+        if (this.studentThemes.includes(themeName) || this.collegeThemes.includes(themeName) || this.cartoonThemes.includes(themeName)) {
             await this.loadStudentThemeCSS(themeName);
         }
         
@@ -145,6 +152,7 @@ class ThemeManager {
     getThemeCategory(themeName) {
         if (this.seniorThemes.includes(themeName)) return 'senior';
         if (this.studentThemes.includes(themeName)) return 'student';
+        if (this.collegeThemes.includes(themeName)) return 'college';
         if (this.cartoonThemes.includes(themeName)) return 'cartoon';
         return 'unknown';
     }
@@ -169,7 +177,11 @@ class ThemeManager {
     isStudentTheme(themeName) {
         return this.studentThemes.includes(themeName);
     }
-    
+
+    isCollegeTheme(themeName) {
+        return this.collegeThemes.includes(themeName);
+    }
+
     isSeniorTheme(themeName) {
         return this.seniorThemes.includes(themeName);
     }
@@ -188,6 +200,9 @@ class ThemeManager {
             'nature-forest': 'Nature Forest',
             'space-galaxy': 'Space Galaxy',
             'candy-pop': 'Candy Pop',
+            'campus-classic': 'Campus Classic',
+            'minimal-focus': 'Minimal Focus',
+            'night-owl': 'Night Owl',
             'jetsons': 'Jetsons'
         };
         return displayNames[themeName] || themeName;

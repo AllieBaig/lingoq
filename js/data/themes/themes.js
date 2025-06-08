@@ -210,6 +210,84 @@ const themes = {
     }
   },
 
+  // College themes for young adults
+  college: {
+    'campus-classic': {
+      id: 'campus-classic',
+      name: 'Campus Classic',
+      category: 'college',
+      description: 'University-inspired theme with school colors',
+      cssFile: 'css/themes/college-campus-classic.css',
+      accessibility: {
+        highContrast: false,
+        largeText: false,
+        reducedMotion: false,
+        animations: false
+      },
+      colors: {
+        primary: '#2e7d32',
+        secondary: '#c62828',
+        background: '#ffffff',
+        text: '#212121'
+      },
+      features: ['school-colors', 'clean-layout'],
+      mood: 'studious',
+      ageGroup: '18-25',
+      popularity: 'medium',
+      studyFriendly: true
+    },
+
+    'minimal-focus': {
+      id: 'minimal-focus',
+      name: 'Minimal Focus',
+      category: 'college',
+      description: 'Distraction-free minimal theme for studying',
+      cssFile: 'css/themes/college-minimal-focus.css',
+      accessibility: {
+        highContrast: false,
+        largeText: false,
+        reducedMotion: false,
+        animations: false
+      },
+      colors: {
+        primary: '#1565c0',
+        secondary: '#424242',
+        background: '#fdfdfd',
+        text: '#212121'
+      },
+      features: ['minimal-design', 'focus-mode'],
+      mood: 'calm',
+      ageGroup: '18-25',
+      popularity: 'medium',
+      studyFriendly: true
+    },
+
+    'night-owl': {
+      id: 'night-owl',
+      name: 'Night Owl',
+      category: 'college',
+      description: 'Low-light theme for late-night sessions',
+      cssFile: 'css/themes/college-night-owl.css',
+      accessibility: {
+        highContrast: true,
+        largeText: false,
+        reducedMotion: false,
+        animations: false
+      },
+      colors: {
+        primary: '#90caf9',
+        secondary: '#f48fb1',
+        background: '#121212',
+        text: '#e0e0e0'
+      },
+      features: ['dark-mode', 'eye-comfort'],
+      mood: 'focused',
+      ageGroup: '18-25',
+      popularity: 'high',
+      studyFriendly: true
+    }
+  },
+
   // Cartoon themes for a fun retro vibe
   cartoon: {
     jetsons: {
@@ -255,6 +333,13 @@ const categories = {
     focus: 'engagement',
     features: ['animations', 'modern-design', 'interactive-effects', 'vibrant-colors']
   },
+  college: {
+    name: 'College Themes',
+    description: 'Modern themes for university students',
+    targetAge: '18-25',
+    focus: 'study',
+    features: ['minimal-design', 'focus-mode', 'dark-light-options']
+  },
   cartoon: {
     name: 'Cartoon Themes',
     description: 'Themes inspired by classic cartoons',
@@ -278,6 +363,11 @@ export function getThemeConfig(themeId) {
   // Search in student themes
   if (themes.student[themeId]) {
     return themes.student[themeId];
+  }
+
+  // Search in college themes
+  if (themes.college[themeId]) {
+    return themes.college[themeId];
   }
 
   // Search in cartoon themes
@@ -317,6 +407,12 @@ export function getThemesByAgeGroup(ageGroup) {
     }
   });
 
+  Object.values(themes.college).forEach(theme => {
+    if (theme.ageGroup === ageGroup) {
+      suitableThemes.push(theme);
+    }
+  });
+
   Object.values(themes.cartoon).forEach(theme => {
     if (theme.ageGroup === ageGroup) {
       suitableThemes.push(theme);
@@ -334,7 +430,7 @@ export function getThemesByAgeGroup(ageGroup) {
 export function getRecommendedThemes(category = null) {
   const recommended = [];
   
-  const searchCategories = category ? [category] : ['senior', 'student', 'cartoon'];
+  const searchCategories = category ? [category] : ['senior', 'student', 'college', 'cartoon'];
   
   searchCategories.forEach(cat => {
     Object.values(themes[cat]).forEach(theme => {
@@ -395,6 +491,12 @@ export function getThemesByMood(mood) {
     }
   });
 
+  Object.values(themes.college).forEach(theme => {
+    if (theme.mood === mood) {
+      moodThemes.push(theme);
+    }
+  });
+
   Object.values(themes.cartoon).forEach(theme => {
     if (theme.mood === mood) {
       moodThemes.push(theme);
@@ -418,6 +520,13 @@ export function getStudyFriendlyThemes() {
   
   // Student themes marked as study-friendly
   Object.values(themes.student).forEach(theme => {
+    if (theme.studyFriendly) {
+      studyThemes.push(theme);
+    }
+  });
+
+  // College themes marked as study-friendly
+  Object.values(themes.college).forEach(theme => {
     if (theme.studyFriendly) {
       studyThemes.push(theme);
     }

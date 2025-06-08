@@ -104,6 +104,9 @@ export const THEMES = {
     NATURE_FOREST: 'nature-forest',
     SPACE_GALAXY: 'space-galaxy',
     CANDY_POP: 'candy-pop',
+    CAMPUS_CLASSIC: 'campus-classic',
+    MINIMAL_FOCUS: 'minimal-focus',
+    NIGHT_OWL: 'night-owl',
     JETSONS: 'jetsons'
 };
 

@@ -133,6 +133,9 @@ export const frTranslations = {
         natureForest: 'Forêt naturelle',
         spaceGalaxy: 'Galaxie spatiale',
         candyPop: 'Bonbons pop',
+        campusClassic: 'Campus classique',
+        minimalFocus: 'Minimal concentré',
+        nightOwl: 'Oiseau de nuit',
         jetsons: 'Jetsons'
     },
     
