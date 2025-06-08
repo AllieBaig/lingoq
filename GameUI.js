@@ -98,6 +98,19 @@ export class GameUI {
                     this.displayQuestion();
                 }
             });
+
+            // Sync with global language changes
+            document.addEventListener('language:changed', (e) => {
+                const lang = e.detail.currentLanguage;
+                if (lang && this.elements.languageSelect.value !== lang) {
+                    this.elements.languageSelect.value = lang;
+                }
+                this.game.setLanguage(lang);
+                if (this.currentQuestion) {
+                    this.currentQuestion = this.game.formatQuestion();
+                    this.displayQuestion();
+                }
+            });
         }
     }
 

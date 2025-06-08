@@ -12,7 +12,7 @@
     "build": "npm run lint && npm run test",
 
 
-    "lint": "eslint js/ --no-warn-ignored"
+    "lint": "eslint js/ --no-warn-ignored",
     "_lint_comment": "eslint js/**/*.js",
     "_lint_comment": "npx eslint --config .eslintrc.cjs js/**/*.js --fix",
 

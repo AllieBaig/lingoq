@@ -107,6 +107,16 @@ export class LanguageManager {
                 currentLanguage: this.currentLanguage,
                 translations: this.translator.getCurrentTranslations()
             });
+
+            // Also dispatch DOM event for modules not using EventManager
+            document.dispatchEvent(
+                new CustomEvent('language:changed', {
+                    detail: {
+                        previousLanguage,
+                        currentLanguage: this.currentLanguage
+                    }
+                })
+            );
             
             console.log(`✅ Language changed to: ${languageCode}`);
             return true;
