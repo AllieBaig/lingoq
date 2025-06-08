@@ -2,6 +2,12 @@
 
 /* eslint-env worker */
 
+self.onmessage = function (e) {
+    // your game logic
+    postMessage({ result: 'processed' });
+};
+
+
 
 /**
  * Purpose: Background web worker for intensive game processing and calculations
