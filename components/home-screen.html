@@ -22,20 +22,20 @@
         </div>
     </div>
 
-        <!-- Difficulty Selector -->
-        <div class="difficulty-selector" style="margin: 1rem 0;">
-            <label for="difficulty-select" data-i18n="settings.difficulty" style="margin-right:0.5rem;">Difficulty:</label>
-            <select id="difficulty-select" class="select-input">
-                <option value="easy" data-i18n="modes.easy.title">Easy</option>
-                <option value="medium" data-i18n="modes.medium.title">Medium</option>
-                <option value="hard" data-i18n="modes.hard.title">Hard</option>
-            </select>
-        </div>
+        <!-- Option Selectors (Difficulty & Theme) -->
+        <div class="option-selectors">
+            <div class="difficulty-selector">
+                <label for="difficulty-select" data-i18n="settings.difficulty" style="margin-right:0.5rem;">Difficulty:</label>
+                <select id="difficulty-select" class="select-input">
+                    <option value="easy" data-i18n="modes.easy.title">Easy</option>
+                    <option value="medium" data-i18n="modes.medium.title">Medium</option>
+                    <option value="hard" data-i18n="modes.hard.title">Hard</option>
+                </select>
+            </div>
 
-        <!-- Theme Selector -->
-        <div class="theme-selector" style="margin: 1rem 0;">
-            <label for="home-theme-select" data-i18n="settings.theme" style="margin-right:0.5rem;">Theme:</label>
-            <select id="home-theme-select" class="select-input">
+            <div class="theme-selector">
+                <label for="home-theme-select" data-i18n="settings.theme" style="margin-right:0.5rem;">Theme:</label>
+                <select id="home-theme-select" class="select-input">
                 <!-- Senior-Friendly Themes -->
                 <optgroup label="Senior Friendly">
                     <option value="light" data-i18n="themes.light">Light</option>
@@ -59,7 +59,8 @@
                 <optgroup label="Cartoon Themes">
                     <option value="jetsons" data-i18n="themes.jetsons">🤖 Jetsons</option>
                 </optgroup>
-            </select>
+                </select>
+            </div>
         </div>
 
         <!-- Classic Game Modes -->
