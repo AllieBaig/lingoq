@@ -73,8 +73,13 @@ class EventManager {
             const choice = e.target.closest('.choice-option');
             if (choice) {
                 const gameLogic = this.app.getModule('gameLogic');
+                const gameStateManager = this.app.getModule('gameStateManager');
                 if (gameLogic) {
                     gameLogic.selectChoice(choice);
+                    if (gameStateManager) {
+                        // Auto-confirm answer for faster feedback
+                        gameLogic.confirmAnswer(gameStateManager.getGameState());
+                    }
                 }
             }
 
