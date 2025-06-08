@@ -110,6 +110,11 @@ class StorageManager {
     get(key, defaultValue)
     remove(key)
     clearAll()
+    // Backwards compatibility alias methods
+    setItem(key, value)
+    getItem(key, defaultValue)
+    removeItem(key)
+    clear()
 }
 ```
 
