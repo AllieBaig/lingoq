@@ -121,6 +121,11 @@ class EventManager {
                 this.app.getThemeManager().setTheme(theme);
                 this.app.getSettingsManager().setSetting('theme', theme);
             }
+
+            if (e.target.matches('#font-family-select, #home-font-select')) {
+                const family = e.target.value;
+                this.app.getSettingsManager().setSetting('fontFamily', family);
+            }
         });
     }
 
@@ -171,6 +176,16 @@ class EventManager {
             if (settingsSelect) settingsSelect.value = theme;
             if (homeSelect) homeSelect.value = theme;
             this.app.getUIManager().showToast(`Theme changed to ${name}`, 'success');
+        });
+
+        // Keep font selectors in sync
+        window.addEventListener('fontFamilyChanged', (e) => {
+            const family = e.detail.fontFamily;
+            const settingsSelect = document.getElementById('font-family-select');
+            const homeSelect = document.getElementById('home-font-select');
+            if (settingsSelect) settingsSelect.value = family;
+            if (homeSelect) homeSelect.value = family;
+            this.app.getUIManager().showToast(`Font changed to ${family}`, 'success');
         });
     }
 

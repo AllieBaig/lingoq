@@ -22,7 +22,7 @@
         </div>
     </div>
 
-        <!-- Option Selectors (Difficulty & Theme) -->
+        <!-- Option Selectors (Difficulty, Theme & Font) -->
         <div class="option-selectors">
             <div class="difficulty-selector">
                 <label for="difficulty-select" data-i18n="settings.difficulty" style="margin-right:0.5rem;">Difficulty:</label>
@@ -66,6 +66,17 @@
                 <optgroup label="Cartoon Themes">
                     <option value="jetsons" data-i18n="themes.jetsons">🤖 Jetsons</option>
                 </optgroup>
+                </select>
+            </div>
+
+            <div class="font-selector">
+                <label for="home-font-select" data-i18n="settings.fontFamily" style="margin-right:0.5rem;">Font:</label>
+                <select id="home-font-select" class="select-input">
+                    <option value="system" data-i18n="fonts.system">System Default</option>
+                    <option value="serif" data-i18n="fonts.serif">Serif (Times)</option>
+                    <option value="sans-serif" data-i18n="fonts.sansSerif">Sans Serif (Arial)</option>
+                    <option value="monospace" data-i18n="fonts.monospace">Monospace (Courier)</option>
+                    <option value="dyslexic" data-i18n="fonts.dyslexic">Dyslexic Friendly</option>
                 </select>
             </div>
         </div>
