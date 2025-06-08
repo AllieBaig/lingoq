@@ -261,10 +261,20 @@ class ThemeManager {
 
     updateDropdownTextColor() {
         const root = document.documentElement;
-        const primary = getComputedStyle(root).getPropertyValue('--primary-color').trim();
-        if (!primary) return;
+        const background = getComputedStyle(root)
+            .getPropertyValue('--input-background')
+            .trim();
+        if (!background) return;
 
-        const contrast = ThemeManager.getOppositeColor(primary);
+        let contrast = ThemeManager.getOppositeColor(background);
+
+        // Fallback to text-primary if contrast matches background
+        if (contrast.toLowerCase() === background.toLowerCase()) {
+            contrast = getComputedStyle(root)
+                .getPropertyValue('--text-primary')
+                .trim();
+        }
+
         root.style.setProperty('--dropdown-text-color', contrast);
         document.querySelectorAll('select').forEach(el => {
             el.style.color = contrast;
