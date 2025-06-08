@@ -402,6 +402,12 @@ export const domUtils = {
     isVisible(element) {
         return !!(element.offsetWidth || element.offsetHeight || element.getClientRects().length);
     }
+
+    // Set custom viewport height CSS variable for mobile browsers
+    setViewportHeightVar() {
+        const vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+    }
 };
 
 // Export all utilities as default object

@@ -38,6 +38,7 @@ import GameLogic from './modules/game/gameLogic.js';
 import GameStateManager from './modules/game/gameStateManager.js';
 import ScoreCalculator from './modules/game/scoreCalculator.js';
 import MCQGenerator from './modules/game/mcqGenerator.js';
+import helpers from './modules/utils/helpers.js';
 
 
 
@@ -667,6 +668,8 @@ function handleDirectLinks() {
 
 // Initialize app when DOM is ready
 document.addEventListener('DOMContentLoaded', async () => {
+    helpers.dom.setViewportHeightVar();
+    window.addEventListener('resize', helpers.dom.setViewportHeightVar);
     try {
         app = new LingoQuestApp();
         await app.init();

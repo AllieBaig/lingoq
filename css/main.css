@@ -231,12 +231,12 @@ button {
 /* Ensure mobile height is respected */
 @media (max-width: 768px) {
   body {
-    min-height: 100vh;
-    max-height: 100vh;
+    min-height: calc(var(--vh, 1vh) * 100);
+    max-height: calc(var(--vh, 1vh) * 100);
   }
 
   .screen {
-    max-height: calc(100vh - 4rem);
+    max-height: calc((var(--vh, 1vh) * 100) - 4rem);
   }
 }
 
