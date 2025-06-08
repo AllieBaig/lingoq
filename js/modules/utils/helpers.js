@@ -401,7 +401,7 @@ export const domUtils = {
     // Check if element is visible
     isVisible(element) {
         return !!(element.offsetWidth || element.offsetHeight || element.getClientRects().length);
-    }
+    },
 
     // Set custom viewport height CSS variable for mobile browsers
     setViewportHeightVar() {
