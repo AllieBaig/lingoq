@@ -89,9 +89,12 @@ class ThemeManager {
             document.body.setAttribute('data-theme', themeName);
             document.body.classList.add(`theme-${themeName}`);
         }
-        
+
         this.currentTheme = themeName;
         localStorage.setItem('lingo-theme', themeName);
+
+        // Update dropdown text color for contrast
+        this.updateDropdownTextColor();
         
         // Dispatch theme change event
         window.dispatchEvent(new CustomEvent('themeChanged', {
@@ -239,6 +242,29 @@ class ThemeManager {
         } else {
             alert(message);
         }
+    }
+
+    updateDropdownTextColor() {
+        const root = document.documentElement;
+        const primary = getComputedStyle(root).getPropertyValue('--primary-color').trim();
+        if (!primary) return;
+
+        const contrast = ThemeManager.getOppositeColor(primary);
+        root.style.setProperty('--dropdown-text-color', contrast);
+        document.querySelectorAll('select').forEach(el => {
+            el.style.color = contrast;
+        });
+    }
+
+    static getOppositeColor(hex) {
+        let c = hex.replace('#', '');
+        if (c.length === 3) {
+            c = c[0] + c[0] + c[1] + c[1] + c[2] + c[2];
+        }
+        const r = 255 - parseInt(c.substring(0, 2), 16);
+        const g = 255 - parseInt(c.substring(2, 4), 16);
+        const b = 255 - parseInt(c.substring(4, 6), 16);
+        return `#${[r, g, b].map(v => v.toString(16).padStart(2, '0')).join('')}`;
     }
 }
 

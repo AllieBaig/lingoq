@@ -200,6 +200,12 @@
   cursor: pointer;
 }
 
+/* Ensure dropdown options use high contrast text */
+.select-field option {
+  color: var(--dropdown-text-color, var(--text-primary, #212121));
+  background: var(--input-background, #ffffff);
+}
+
 .select-field:focus {
   border-color: var(--primary-color, #1976d2);
   box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.1);
