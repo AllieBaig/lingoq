@@ -16,17 +16,10 @@
 
     
     "lint:css": "npx stylelint css/**/*.css --fix",
-    "test": "npm run test:unit && npm run test:e2e",
-    "test": "node testRunner.js"
-
-    
-    
-    "test:unit": "node --experimental-vm-modules node_modules/jest/bin/jest.js --config jest.config.mjs"
+    "test": "node testRunner.js",
+    "test:unit": "node --experimental-vm-modules node_modules/jest/bin/jest.js --config jest.config.mjs",
     "_test:unit_comment": "jest --config jest.config.cjs",
     "_test:unit_comment": "npx jest --config jest.config.js",
-
-    
-    
     "test:e2e": "npx playwright test",
     "test:watch": "npx jest --watch",
     "test:coverage": "npx jest --coverage",
@@ -193,5 +186,3 @@
     "printWidth": 100
   }
 }
-
-

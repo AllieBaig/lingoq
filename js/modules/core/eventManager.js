@@ -53,11 +53,11 @@ class EventManager {
             }
 
             if (e.target.closest('[data-action="start-game"]')) {
-                const button = e.target.closest('[data-action="start-game"]');
-                const gameType = button.dataset.gameType;
-
                 const select = document.getElementById('difficulty-select');
-                const mode = select ? select.value : button.dataset.mode;
+                const mode = select ? select.value : 'easy';
+
+                const activeTab = document.querySelector('.mode-tab.active');
+                const gameType = activeTab ? activeTab.dataset.gameMode : e.target.closest('[data-action="start-game"]').dataset.gameType;
 
                 this.app.startGame(mode, gameType);
             }
