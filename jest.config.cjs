@@ -16,7 +16,6 @@ module.exports = {
         '<rootDir>/tests/setup.js'
     ],
 
-    extensionsToTreatAsEsm: ['.js'],
     transform: {},
 
     testMatch: [
