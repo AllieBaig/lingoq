@@ -74,6 +74,23 @@ class StorageManager {
             console.error('Storage clear error:', error);
         }
     }
+
+    // Backwards compatibility alias methods
+    setItem(key, value) {
+        this.set(key, value);
+    }
+
+    getItem(key, defaultValue = null) {
+        return this.get(key, defaultValue);
+    }
+
+    removeItem(key) {
+        this.remove(key);
+    }
+
+    clear() {
+        this.clearAll();
+    }
 }
 
 export default StorageManager;
