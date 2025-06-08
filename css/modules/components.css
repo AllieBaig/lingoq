@@ -297,6 +297,14 @@
   color: #0c5460;
 }
 
+/* ===== HOME SCREEN ACTIONS ===== */
+.home-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
 /* ===== COMPONENT OVERFLOW FIXES ===== */
 .card,
 .button,
