@@ -1,5 +1,12 @@
 
 
+/* eslint-env worker */
+
+self.onmessage = function (e) {
+    // your analysis logic
+    postMessage({ summary: 'done' });
+};
+
 
 
 
