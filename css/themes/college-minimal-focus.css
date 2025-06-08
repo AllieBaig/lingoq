@@ -1,0 +1,27 @@
+/**
+ * File: css/themes/college-minimal-focus.css
+ * LingoQuest - Minimal Focus College Theme
+ * Distraction-free theme with subtle colors for studying
+ */
+
+[data-theme="minimal-focus"] {
+  --primary-color: #1565c0;
+  --secondary-color: #424242;
+  --accent-color: #0097a7;
+  --background-color: #fdfdfd;
+  --surface-color: #fafafa;
+  --card-background: #ffffff;
+
+  --text-primary: #212121;
+  --text-secondary: #424242;
+  --text-accent: #1565c0;
+  --text-muted: #757575;
+
+  --button-primary-bg: #1565c0;
+  --button-primary-hover: #0d47a1;
+  --button-secondary-bg: transparent;
+  --button-secondary-border: 2px solid #1565c0;
+
+  --border-radius: 4px;
+  --card-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}

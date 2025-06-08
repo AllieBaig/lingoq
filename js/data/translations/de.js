@@ -311,6 +311,9 @@ export const deTranslations = {
         natureForest: '🌲 Natur-Wald',
         spaceGalaxy: '🚀 Weltraum-Galaxie',
         candyPop: '🍭 Süßigkeiten-Pop',
+        campusClassic: '🎓 Campus-Klassiker',
+        minimalFocus: '📘 Minimal Fokus',
+        nightOwl: '🌙 Nacht-Eule',
         jetsons: '🤖 Jetsons'
     },
 

@@ -109,6 +109,10 @@ export const adminConfig = {
                 enabled: true,
                 themes: ['neon-glow', 'retro-arcade', 'nature-forest', 'space-galaxy', 'candy-pop']
             },
+            collegeThemes: {
+                enabled: true,
+                themes: ['campus-classic', 'minimal-focus', 'night-owl']
+            },
             cartoonThemes: {
                 enabled: true,
                 themes: ['jetsons']
@@ -399,6 +403,12 @@ export const adminPanel = {
                     type: 'toggle',
                     label: 'Student Themes',
                     description: 'Enable colorful themes for students'
+                },
+                {
+                    key: 'features.themes.collegeThemes.enabled',
+                    type: 'toggle',
+                    label: 'College Themes',
+                    description: 'Enable themes aimed at college students'
                 },
                 {
                     key: 'features.advanced.sharing.enabled',

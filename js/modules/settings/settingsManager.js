@@ -189,8 +189,9 @@ class SettingsManager {
 
         // Validate setting values
         const validations = {
-            theme: ['light', 'dark', 'auto', 'high-contrast', 'sepia', 'blue-light', 
-                   'neon-glow', 'retro-arcade', 'nature-forest', 'space-galaxy', 'candy-pop', 'jetsons'],
+            theme: ['light', 'dark', 'auto', 'high-contrast', 'sepia', 'blue-light',
+                   'neon-glow', 'retro-arcade', 'nature-forest', 'space-galaxy', 'candy-pop',
+                   'campus-classic', 'minimal-focus', 'night-owl', 'jetsons'],
             fontSize: ['small', 'medium', 'large', 'extra-large', 'huge'],
             fontFamily: ['system', 'serif', 'sans-serif', 'monospace', 'dyslexic'],
             buttonSize: ['normal', 'large', 'extra-large'],

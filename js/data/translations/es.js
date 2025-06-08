@@ -301,6 +301,9 @@ export const esTranslations = {
         natureForest: '🌲 Bosque Natural',
         spaceGalaxy: '🚀 Galaxia Espacial',
         candyPop: '🍭 Dulce Pop',
+        campusClassic: '🎓 Campus Clásico',
+        minimalFocus: '📘 Enfoque Minimal',
+        nightOwl: '🌙 Noctámbulo',
         jetsons: '🤖 Los Supersónicos'
     },
 

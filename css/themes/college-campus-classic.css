@@ -1,0 +1,27 @@
+/**
+ * File: css/themes/college-campus-classic.css
+ * LingoQuest - Campus Classic College Theme
+ * University-inspired theme with school colors and clean layout
+ */
+
+[data-theme="campus-classic"] {
+  --primary-color: #2e7d32;
+  --secondary-color: #c62828;
+  --accent-color: #ffb300;
+  --background-color: #ffffff;
+  --surface-color: #f5f5f5;
+  --card-background: #ffffff;
+
+  --text-primary: #212121;
+  --text-secondary: #424242;
+  --text-accent: #2e7d32;
+  --text-muted: #757575;
+
+  --button-primary-bg: linear-gradient(45deg, #2e7d32, #388e3c);
+  --button-primary-hover: linear-gradient(45deg, #388e3c, #2e7d32);
+  --button-secondary-bg: #c62828;
+  --button-secondary-border: 2px solid #c62828;
+
+  --border-radius: 6px;
+  --card-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
