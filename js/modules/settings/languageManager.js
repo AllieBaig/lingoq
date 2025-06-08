@@ -98,7 +98,16 @@ export class LanguageManager {
             
             // Save preference if requested
             if (savePreference) {
-                this.storageManager.setItem(STORAGE_KEYS.LANGUAGE_PREFERENCE, languageCode);
+                if (this.storageManager && typeof this.storageManager.setItem === 'function') {
+                    this.storageManager.setItem(
+                        STORAGE_KEYS.LANGUAGE_PREFERENCE,
+                        languageCode
+                    );
+                } else {
+                    console.warn(
+                        '⚠️ StorageManager unavailable, language preference not saved'
+                    );
+                }
             }
             
             // Emit language change event
