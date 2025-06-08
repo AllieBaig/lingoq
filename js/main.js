@@ -39,6 +39,9 @@ import GameStateManager from './modules/game/gameStateManager.js';
 import ScoreCalculator from './modules/game/scoreCalculator.js';
 import MCQGenerator from './modules/game/mcqGenerator.js';
 import helpers from './modules/utils/helpers.js';
+import errorLogger from './modules/utils/errorLogger.js';
+// Initialize error logger for UI visibility
+void errorLogger;
 
 
 

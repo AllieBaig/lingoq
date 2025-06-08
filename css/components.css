@@ -727,9 +727,30 @@
     margin: var(--spacing-md);
   }
   
-  .card {
+
+.card {
     padding: var(--spacing-md);
   }
+}
+
+/* Error Log Component */
+.error-log {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  max-height: 150px;
+  overflow-y: auto;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  font-size: 0.75rem;
+  padding: var(--spacing-sm);
+  z-index: 10000;
+  font-family: var(--font-family-mono, monospace);
+}
+
+.error-log .error-entry {
+  margin-bottom: var(--spacing-xs);
 }
 
 /* High Contrast Component Overrides */
