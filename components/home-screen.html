@@ -10,16 +10,26 @@
         </div>
         
         <!-- Game Mode Selector -->
-        <div class="game-mode-selector">
-            <div class="mode-tab active" data-game-mode="classic">
-                <span data-i18n="gameModes.classic">Classic Mode</span>
-            </div>
-            <div class="mode-tab" data-game-mode="hollybolly">
-                <span data-i18n="gameModes.hollybolly">HollyBolly Mode</span>
-            </div>
-            <div class="mode-tab" data-game-mode="mixlingo">
-                <span data-i18n="gameModes.mixlingo">MixLingo Mode</span>
-            </div>
+    <div class="game-mode-selector">
+        <div class="mode-tab active" data-game-mode="classic">
+            <span data-i18n="gameModes.classic">Classic Mode</span>
+        </div>
+        <div class="mode-tab" data-game-mode="hollybolly">
+            <span data-i18n="gameModes.hollybolly">HollyBolly Mode</span>
+        </div>
+        <div class="mode-tab" data-game-mode="mixlingo">
+            <span data-i18n="gameModes.mixlingo">MixLingo Mode</span>
+        </div>
+    </div>
+
+        <!-- Difficulty Selector -->
+        <div class="difficulty-selector" style="margin: 1rem 0;">
+            <label for="difficulty-select" data-i18n="settings.difficulty" style="margin-right:0.5rem;">Difficulty:</label>
+            <select id="difficulty-select" class="select-input">
+                <option value="easy" data-i18n="modes.easy.title">Easy</option>
+                <option value="medium" data-i18n="modes.medium.title">Medium</option>
+                <option value="hard" data-i18n="modes.hard.title">Hard</option>
+            </select>
         </div>
 
         <!-- Classic Game Modes -->

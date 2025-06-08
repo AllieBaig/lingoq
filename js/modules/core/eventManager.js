@@ -54,8 +54,11 @@ class EventManager {
 
             if (e.target.closest('[data-action="start-game"]')) {
                 const button = e.target.closest('[data-action="start-game"]');
-                const mode = button.dataset.mode;
                 const gameType = button.dataset.gameType;
+
+                const select = document.getElementById('difficulty-select');
+                const mode = select ? select.value : button.dataset.mode;
+
                 this.app.startGame(mode, gameType);
             }
 
