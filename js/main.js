@@ -40,6 +40,7 @@ import ScoreCalculator from './modules/game/scoreCalculator.js';
 import MCQGenerator from './modules/game/mcqGenerator.js';
 import helpers from './modules/utils/helpers.js';
 import errorLogger from './modules/utils/errorLogger.js';
+import FontScaler from './modules/utils/fontScaler.js';
 // Initialize error logger for UI visibility
 void errorLogger;
 
@@ -94,9 +95,13 @@ class LingoQuestApp {
             
             // Setup global event listeners
             this.setupGlobalListeners();
-            
+
             // Load saved user preferences
             await this.loadUserPreferences();
+
+            // Initialize dynamic font scaling
+            this.fontScaler = new FontScaler();
+            this.fontScaler.init();
             
             // Register service worker
             await this.registerServiceWorker();
