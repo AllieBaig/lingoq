@@ -1,6 +1,8 @@
 
 
 import { HollyBollyGame } from './hollybolly.js';
+import { LANGUAGES } from './js/data/config/constants.js';
+import { englishTranslations } from './js/data/translations/en.js';
 
 /**
  * GameUI - Handles all user interface interactions and game display
@@ -30,6 +32,21 @@ export class GameUI {
             difficultyBtns: document.querySelectorAll('.difficulty-btn'),
             languageSelect: document.getElementById('answer-language-select')
         };
+
+        this.populateLanguageOptions();
+    }
+
+    populateLanguageOptions() {
+        const select = this.elements.languageSelect;
+        if (!select) return;
+        select.innerHTML = '';
+        const names = englishTranslations.languages || {};
+        Object.values(LANGUAGES).forEach(code => {
+            const option = document.createElement('option');
+            option.value = code;
+            option.textContent = names[code] || code;
+            select.appendChild(option);
+        });
     }
 
     /**
@@ -40,6 +57,9 @@ export class GameUI {
         try {
             // Load game data
             this.game.loadGameData(gameData);
+
+            // Ensure dropdown options are ready
+            this.populateLanguageOptions();
             
             // Hide loading, show game
             this.elements.loading.classList.add('hidden');
