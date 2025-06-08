@@ -17,6 +17,7 @@
     
     "lint:css": "npx stylelint css/**/*.css --fix",
     "test": "npm run test:unit && npm run test:e2e",
+    "test": "node testRunner.js"
 
     
     
@@ -24,6 +25,7 @@
     "_test:unit_comment": "jest --config jest.config.cjs",
     "_test:unit_comment": "npx jest --config jest.config.js",
 
+    
     
     "test:e2e": "npx playwright test",
     "test:watch": "npx jest --watch",
