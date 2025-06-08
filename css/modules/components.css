@@ -194,7 +194,8 @@
   border-radius: var(--border-radius, 8px);
   font-size: var(--font-size-base, 1rem);
   background: var(--input-background, #ffffff);
-  color: var(--text-primary, #212121);
+  /* Use dropdown text variable for better contrast */
+  color: var(--dropdown-text-color, var(--text-primary, #212121));
   transition: all var(--transition-base, 0.3s ease);
   box-sizing: border-box;
   cursor: pointer;

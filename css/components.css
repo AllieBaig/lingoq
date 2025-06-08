@@ -192,7 +192,8 @@
 .card-title {
   font-size: var(--font-size-xl);
   font-weight: 600;
-  color: var(--text-primary);
+  /* Use dropdown text variable for better contrast */
+  color: var(--dropdown-text-color, var(--text-primary));
   margin: 0;
 }
 
@@ -224,7 +225,8 @@
   display: block;
   font-size: var(--font-size-base);
   font-weight: 600;
-  color: var(--text-primary);
+  /* Use dropdown text variable for better contrast */
+  color: var(--dropdown-text-color, var(--text-primary));
   margin-bottom: var(--spacing-sm);
 }
 
@@ -263,7 +265,8 @@
   border-radius: var(--border-radius);
   font-size: var(--font-size-base);
   background: var(--input-background);
-  color: var(--text-primary);
+  /* Use dropdown text variable for better contrast */
+  color: var(--dropdown-text-color, var(--text-primary));
   transition: all var(--transition-fast);
   box-sizing: border-box;
   cursor: pointer;
