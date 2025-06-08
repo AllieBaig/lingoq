@@ -30,7 +30,8 @@ html {
   height: 100%;
   overflow-x: hidden !important;
   max-width: 100% !important;
-  font-size: 16px;
+  /* Base size multiplied by dynamic scale factor */
+  font-size: calc(var(--font-size-base, 16px) * var(--font-scale, 1));
   line-height: 1.6;
 }
 
