@@ -83,7 +83,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   font-size: 1.2rem;
   color: rgba(255, 255, 255, 0.7);
   animation: cosmic-float 25s linear infinite;

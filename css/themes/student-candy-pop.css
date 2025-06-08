@@ -62,7 +62,7 @@
   top: -50px;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   font-size: 2rem;
   color: rgba(233, 30, 99, 0.7);
   animation: candy-float 20s linear infinite;
@@ -78,7 +78,7 @@
   top: -50px;
   right: 0;
   width: 100%;
-  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   font-size: 1.5rem;
   color: rgba(255, 193, 7, 0.6);
   animation: sparkle-drift 25s linear infinite reverse;
