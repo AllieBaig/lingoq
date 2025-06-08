@@ -11,7 +11,9 @@
     "dev": "npx live-server --port=3000 --no-browser --ignore=node_modules",
     "build": "npm run lint && npm run test",
 
-    "lint": "eslint js/**/*.js",
+
+    "lint": "eslint js/ --no-warn-ignored"
+    "_lint_comment": "eslint js/**/*.js",
     "_lint_comment": "npx eslint --config .eslintrc.cjs js/**/*.js --fix",
 
     
