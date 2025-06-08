@@ -236,3 +236,22 @@ button {
   }
 }
 
+/* ===== Settings Layout Fixes ===== */
+.setting-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.setting-item label {
+  flex: 0 0 40%;
+  margin-right: 0.5rem;
+}
+
+.setting-item .select-input {
+  flex: 1;
+  min-width: 150px;
+}
+
