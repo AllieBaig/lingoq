@@ -28,7 +28,7 @@ export class GameUI {
             streak: document.getElementById('streak'),
             accuracy: document.getElementById('accuracy'),
             difficultyBtns: document.querySelectorAll('.difficulty-btn'),
-            languageSelect: document.getElementById('language-select')
+            languageSelect: document.getElementById('answer-language-select')
         };
     }
 
