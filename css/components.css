@@ -254,8 +254,9 @@
 }
 
 .select-input {
-  display: block;
-  width: 100%;
+  display: inline-block;
+  width: auto;
+  min-width: 120px;
   max-width: 100%;
   padding: var(--spacing-md);
   border: 2px solid var(--border-color);
