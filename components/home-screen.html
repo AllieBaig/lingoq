@@ -32,6 +32,36 @@
             </select>
         </div>
 
+        <!-- Theme Selector -->
+        <div class="theme-selector" style="margin: 1rem 0;">
+            <label for="home-theme-select" data-i18n="settings.theme" style="margin-right:0.5rem;">Theme:</label>
+            <select id="home-theme-select" class="select-input">
+                <!-- Senior-Friendly Themes -->
+                <optgroup label="Senior Friendly">
+                    <option value="light" data-i18n="themes.light">Light</option>
+                    <option value="dark" data-i18n="themes.dark">Dark</option>
+                    <option value="auto" data-i18n="themes.auto">Auto (System)</option>
+                    <option value="high-contrast" data-i18n="themes.highContrast">High Contrast</option>
+                    <option value="sepia" data-i18n="themes.sepia">Sepia</option>
+                    <option value="blue-light" data-i18n="themes.blueLight">Blue Light Filter</option>
+                </optgroup>
+
+                <!-- Student Themes -->
+                <optgroup label="Student Themes">
+                    <option value="neon-glow" data-i18n="themes.neonGlow">✨ Neon Glow</option>
+                    <option value="retro-arcade" data-i18n="themes.retroArcade">🕹️ Retro Arcade</option>
+                    <option value="nature-forest" data-i18n="themes.natureForest">🌲 Nature Forest</option>
+                    <option value="space-galaxy" data-i18n="themes.spaceGalaxy">🚀 Space Galaxy</option>
+                    <option value="candy-pop" data-i18n="themes.candyPop">🍭 Candy Pop</option>
+                </optgroup>
+
+                <!-- Cartoon Themes -->
+                <optgroup label="Cartoon Themes">
+                    <option value="jetsons" data-i18n="themes.jetsons">🤖 Jetsons</option>
+                </optgroup>
+            </select>
+        </div>
+
         <!-- Classic Game Modes -->
         <div id="classic-modes" class="game-modes active">
             <div class="mode-card" data-mode="easy" data-game-type="classic">
