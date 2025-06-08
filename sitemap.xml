@@ -1,0 +1,194 @@
+
+
+
+
+
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+    <!-- Home Page - Primary entry point -->
+    <url>
+        <loc>https://alliebaig.github.io/lingoq/</loc>
+        <lastmod>2024-06-08</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    <!-- Game Modes - Direct access to different game types -->
+    <url>
+        <loc>https://alliebaig.github.io/lingoq/?mode=classic&amp;difficulty=easy</loc>
+        <lastmod>2024-06-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <url>
+        <loc>https://alliebaig.github.io/lingoq/?mode=classic&amp;difficulty=medium</loc>
+        <lastmod>2024-06-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <url>
+        <loc>https://alliebaig.github.io/lingoq/?mode=classic&amp;difficulty=hard</loc>
+        <lastmod>2024-06-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <url>
+        <loc>https://alliebaig.github.io/lingoq/?mode=hollybolly&amp;difficulty=easy</loc>
+        <lastmod>2024-06-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://alliebaig.github.io/lingoq/?mode=hollybolly&amp;difficulty=medium</loc>
+        <lastmod>2024-06-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://alliebaig.github.io/lingoq/?mode=hollybolly&amp;difficulty=hard</loc>
+        <lastmod>2024-06-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- App Screens - Static screens for SEO -->
+    <url>
+        <loc>https://alliebaig.github.io/lingoq/?screen=instructions</loc>
+        <lastmod>2024-06-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://alliebaig.github.io/lingoq/?screen=settings</loc>
+        <lastmod>2024-06-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <!-- Language Variations -->
+    <url>
+        <loc>https://alliebaig.github.io/lingoq/?lang=fr</loc>
+        <lastmod>2024-06-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://alliebaig.github.io/lingoq/?lang=de</loc>
+        <lastmod>2024-06-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://alliebaig.github.io/lingoq/?lang=es</loc>
+        <lastmod>2024-06-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://alliebaig.github.io/lingoq/?lang=it</loc>
+        <lastmod>2024-06-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://alliebaig.github.io/lingoq/?lang=pt</loc>
+        <lastmod>2024-06-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Theme Variations for Different User Groups -->
+    <url>
+        <loc>https://alliebaig.github.io/lingoq/?theme=light</loc>
+        <lastmod>2024-06-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <url>
+        <loc>https://alliebaig.github.io/lingoq/?theme=dark</loc>
+        <lastmod>2024-06-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <url>
+        <loc>https://alliebaig.github.io/lingoq/?theme=high-contrast</loc>
+        <lastmod>2024-06-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <!-- Profile-Specific Entry Points -->
+    <url>
+        <loc>https://alliebaig.github.io/lingoq/?profile=senior</loc>
+        <lastmod>2024-06-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://alliebaig.github.io/lingoq/?profile=student</loc>
+        <lastmod>2024-06-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://alliebaig.github.io/lingoq/?profile=educator</loc>
+        <lastmod>2024-06-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Accessibility Entry Points -->
+    <url>
+        <loc>https://alliebaig.github.io/lingoq/?accessibility=high-contrast</loc>
+        <lastmod>2024-06-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://alliebaig.github.io/lingoq/?accessibility=large-text</loc>
+        <lastmod>2024-06-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://alliebaig.github.io/lingoq/?accessibility=reduced-motion</loc>
+        <lastmod>2024-06-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Static Resources for SEO -->
+    <url>
+        <loc>https://alliebaig.github.io/lingoq/manifest.json</loc>
+        <lastmod>2024-06-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+
+</urlset>
+
+
+
+
