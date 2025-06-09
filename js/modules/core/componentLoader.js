@@ -60,7 +60,6 @@ class ComponentLoader {
 
     async loadAllComponents() {
         const components = [
-            { name: 'header', containerId: 'header-container' },
             { name: 'home-screen', containerId: 'home-screen-container' },
             { name: 'game-screen', containerId: 'game-screen-container' },
             { name: 'results-screen', containerId: 'results-screen-container' },

@@ -42,6 +42,7 @@ import helpers from './modules/utils/helpers.js';
 import errorLogger from './modules/utils/errorLogger.js';
 import FontScaler from './modules/utils/fontScaler.js';
 import CustomDropdown from "./modules/ui/customDropdown.js";
+import { initHeaderFooter } from './modules/ui/headerFooter.js';
 // Initialize error logger for UI visibility
 void errorLogger;
 
@@ -84,6 +85,9 @@ class LingoQuestApp {
             
             // Initialize modules in correct order
             await this.initializeCore();
+            // Insert header and footer elements
+            initHeaderFooter();
+
             await this.initializeSettings();
             await this.initializeGame();
             await this.initializeUI();
