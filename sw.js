@@ -1,9 +1,9 @@
 
 // LingoQuest Service Worker
 // Bump cache versions whenever assets change to force refresh
-const CACHE_NAME = 'lingoquest-v1.0.7';
-const STATIC_CACHE_NAME = 'lingoquest-static-v1.0.7';
-const DYNAMIC_CACHE_NAME = 'lingoquest-dynamic-v1.0.7';
+const CACHE_NAME = 'lingoquest-v1.0.8';
+const STATIC_CACHE_NAME = 'lingoquest-static-v1.0.8';
+const DYNAMIC_CACHE_NAME = 'lingoquest-dynamic-v1.0.8';
 
 // Base path for GitHub Pages support
 const BASE_PATH = new URL(self.registration.scope).pathname;
