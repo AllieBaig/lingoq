@@ -4,7 +4,14 @@
  * Initializes the game UI and loads game data
  */
 import { GameUI } from './GameUI.js';
-import { gameData } from './gameData.js';
+
+async function loadGameData() {
+    const resp = await fetch('../json/gameData.json');
+    if (!resp.ok) {
+        throw new Error('Failed to load gameData.json');
+    }
+    return resp.json();
+}
 
 /**
  * Initialize the game when DOM is loaded
@@ -16,7 +23,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         // Create game UI instance
         const gameUI = new GameUI();
         
-        // Initialize with game data
+        // Load questions from JSON and initialize
+        const gameData = await loadGameData();
         await gameUI.init(gameData);
         
         console.log('HollyBolly Game loaded successfully!');
@@ -34,5 +42,5 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 // Export for potential external use
-export { GameUI, gameData };
+export { GameUI, loadGameData };
 
