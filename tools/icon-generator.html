@@ -1,0 +1,638 @@
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LingoQuest Icon Generator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .upload-section {
+            border: 3px dashed #007bff;
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .upload-section:hover {
+            border-color: #0056b3;
+            background: #f8f9ff;
+        }
+
+        .upload-section.dragover {
+            border-color: #28a745;
+            background: #f0fff4;
+        }
+
+        .upload-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+            color: #007bff;
+        }
+
+        .upload-text {
+            font-size: 1.2em;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .upload-subtext {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        #file-input {
+            display: none;
+        }
+
+        .preview-section {
+            display: none;
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background: #f8f9fa;
+        }
+
+        .preview-image {
+            max-width: 200px;
+            max-height: 200px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .config-section {
+            display: none;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #007bff;
+        }
+
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .checkbox-item:hover {
+            background: #f8f9fa;
+            border-color: #007bff;
+        }
+
+        .checkbox-item input {
+            margin-right: 10px;
+            width: auto;
+        }
+
+        .generate-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        .generate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(40, 167, 69, 0.3);
+        }
+
+        .generate-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .progress-section {
+            display: none;
+            margin-bottom: 20px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background: #e9ecef;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #007bff, #28a745);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .progress-text {
+            text-align: center;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .results-section {
+            display: none;
+            margin-top: 30px;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .result-item {
+            text-align: center;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background: white;
+        }
+
+        .result-item img {
+            width: 64px;
+            height: 64px;
+            object-fit: contain;
+            margin-bottom: 8px;
+        }
+
+        .result-item .size {
+            font-size: 0.8em;
+            color: #666;
+        }
+
+        .download-all-btn {
+            width: 100%;
+            padding: 12px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1em;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .error-message {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎨 Icon Generator</h1>
+            <p>Generate all PWA icons, favicons, and platform-specific assets</p>
+        </div>
+
+        <div class="content">
+            <div class="error-message" id="error-message"></div>
+            <div class="success-message" id="success-message"></div>
+
+            <!-- File Upload Section -->
+            <div class="upload-section" id="upload-section">
+                <div class="upload-icon">📁</div>
+                <div class="upload-text">Drop your logo here or click to browse</div>
+                <div class="upload-subtext">Supports PNG, JPG, SVG • Recommended: 512x512px or larger</div>
+                <input type="file" id="file-input" accept="image/*">
+            </div>
+
+            <!-- Preview Section -->
+            <div class="preview-section" id="preview-section">
+                <h3>Preview</h3>
+                <img id="preview-image" class="preview-image" alt="Preview">
+                <p id="image-info"></p>
+            </div>
+
+            <!-- Configuration Section -->
+            <div class="config-section" id="config-section">
+                <h3>Configuration</h3>
+                
+                <div class="form-group">
+                    <label for="app-name">App Name</label>
+                    <input type="text" id="app-name" value="LingoQuest" placeholder="Enter app name">
+                </div>
+
+                <div class="form-group">
+                    <label for="theme-color">Theme Color</label>
+                    <input type="color" id="theme-color" value="#007bff">
+                </div>
+
+                <div class="form-group">
+                    <label for="background-color">Background Color</label>
+                    <input type="color" id="background-color" value="#ffffff">
+                </div>
+
+                <div class="form-group">
+                    <label>Icon Types to Generate</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="pwa-icons" checked>
+                            <label for="pwa-icons">PWA Icons</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="favicons" checked>
+                            <label for="favicons">Favicons</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="apple-icons" checked>
+                            <label for="apple-icons">Apple Touch Icons</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="android-icons" checked>
+                            <label for="android-icons">Android Chrome</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="ms-tiles" checked>
+                            <label for="ms-tiles">Microsoft Tiles</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="maskable-icons" checked>
+                            <label for="maskable-icons">Maskable Icons</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="splash-screens">
+                            <label for="splash-screens">Splash Screens</label>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="generate-btn" id="generate-btn">
+                    🚀 Generate All Icons
+                </button>
+            </div>
+
+            <!-- Progress Section -->
+            <div class="progress-section" id="progress-section">
+                <h3>Generating Icons...</h3>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+                <div class="progress-text" id="progress-text">Preparing...</div>
+            </div>
+
+            <!-- Results Section -->
+            <div class="results-section" id="results-section">
+                <h3>Generated Icons</h3>
+                <div class="results-grid" id="results-grid"></div>
+                <button class="download-all-btn" id="download-all-btn">
+                    📦 Download All Icons (ZIP)
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        class IconGeneratorUI {
+            constructor() {
+                this.selectedFile = null;
+                this.generatedIcons = [];
+                this.initializeEventListeners();
+            }
+
+            initializeEventListeners() {
+                const uploadSection = document.getElementById('upload-section');
+                const fileInput = document.getElementById('file-input');
+                const generateBtn = document.getElementById('generate-btn');
+                const downloadAllBtn = document.getElementById('download-all-btn');
+
+                // File upload events
+                uploadSection.addEventListener('click', () => fileInput.click());
+                uploadSection.addEventListener('dragover', this.handleDragOver.bind(this));
+                uploadSection.addEventListener('dragleave', this.handleDragLeave.bind(this));
+                uploadSection.addEventListener('drop', this.handleDrop.bind(this));
+                fileInput.addEventListener('change', this.handleFileSelect.bind(this));
+
+                // Generate button
+                generateBtn.addEventListener('click', this.generateIcons.bind(this));
+
+                // Download all button
+                downloadAllBtn.addEventListener('click', this.downloadAll.bind(this));
+            }
+
+            handleDragOver(e) {
+                e.preventDefault();
+                document.getElementById('upload-section').classList.add('dragover');
+            }
+
+            handleDragLeave(e) {
+                e.preventDefault();
+                document.getElementById('upload-section').classList.remove('dragover');
+            }
+
+            handleDrop(e) {
+                e.preventDefault();
+                document.getElementById('upload-section').classList.remove('dragover');
+                
+                const files = e.dataTransfer.files;
+                if (files.length > 0) {
+                    this.processFile(files[0]);
+                }
+            }
+
+            handleFileSelect(e) {
+                const file = e.target.files[0];
+                if (file) {
+                    this.processFile(file);
+                }
+            }
+
+            processFile(file) {
+                if (!file.type.startsWith('image/')) {
+                    this.showError('Please select a valid image file');
+                    return;
+                }
+
+                this.selectedFile = file;
+                this.showPreview(file);
+                this.showConfigSection();
+            }
+
+            showPreview(file) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    const img = document.getElementById('preview-image');
+                    img.src = e.target.result;
+                    
+                    // Create image to get dimensions
+                    const tempImg = new Image();
+                    tempImg.onload = () => {
+                        const info = document.getElementById('image-info');
+                        info.textContent = `${tempImg.width} × ${tempImg.height} pixels • ${(file.size / 1024).toFixed(1)} KB`;
+                    };
+                    tempImg.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+
+                document.getElementById('preview-section').style.display = 'block';
+            }
+
+            showConfigSection() {
+                document.getElementById('config-section').style.display = 'block';
+            }
+
+            async generateIcons() {
+                if (!this.selectedFile) {
+                    this.showError('Please select an image file first');
+                    return;
+                }
+
+                this.showProgress();
+                
+                try {
+                    // Simulate icon generation process
+                    await this.simulateIconGeneration();
+                    this.showResults();
+                    this.showSuccess('Icons generated successfully!');
+                } catch (error) {
+                    this.showError('Failed to generate icons: ' + error.message);
+                } finally {
+                    this.hideProgress();
+                }
+            }
+
+            async simulateIconGeneration() {
+                const steps = [
+                    'Analyzing source image...',
+                    'Generating PWA icons...',
+                    'Creating favicons...',
+                    'Generating Apple Touch icons...',
+                    'Creating Android Chrome icons...',
+                    'Generating Microsoft tiles...',
+                    'Creating maskable icons...',
+                    'Finalizing...'
+                ];
+
+                const iconSizes = [16, 32, 48, 72, 96, 128, 144, 152, 180, 192, 384, 512];
+                this.generatedIcons = [];
+
+                for (let i = 0; i < steps.length; i++) {
+                    this.updateProgress((i / steps.length) * 100, steps[i]);
+                    await this.delay(500);
+                    
+                    // Simulate generating icons for this step
+                    if (i > 0) {
+                        const stepSizes = iconSizes.slice(i * 2 - 2, i * 2);
+                        for (const size of stepSizes) {
+                            this.generatedIcons.push({
+                                size: size,
+                                name: `icon-${size}x${size}.png`,
+                                blob: await this.createIconBlob(size)
+                            });
+                        }
+                    }
+                }
+
+                this.updateProgress(100, 'Complete!');
+            }
+
+            async createIconBlob(size) {
+                // Create a canvas and draw a resized version of the image
+                const canvas = document.createElement('canvas');
+                canvas.width = size;
+                canvas.height = size;
+                const ctx = canvas.getContext('2d');
+
+                // Draw background
+                ctx.fillStyle = document.getElementById('background-color').value;
+                ctx.fillRect(0, 0, size, size);
+
+                // Draw the image
+                const img = document.getElementById('preview-image');
+                ctx.drawImage(img, 0, 0, size, size);
+
+                return new Promise(resolve => {
+                    canvas.toBlob(resolve, 'image/png');
+                });
+            }
+
+            showProgress() {
+                document.getElementById('progress-section').style.display = 'block';
+                document.getElementById('generate-btn').disabled = true;
+            }
+
+            hideProgress() {
+                document.getElementById('progress-section').style.display = 'none';
+                document.getElementById('generate-btn').disabled = false;
+            }
+
+            updateProgress(percentage, text) {
+                document.getElementById('progress-fill').style.width = percentage + '%';
+                document.getElementById('progress-text').textContent = text;
+            }
+
+            showResults() {
+                const grid = document.getElementById('results-grid');
+                grid.innerHTML = '';
+
+                this.generatedIcons.forEach(icon => {
+                    const item = document.createElement('div');
+                    item.className = 'result-item';
+                    
+                    const img = document.createElement('img');
+                    img.src = URL.createObjectURL(icon.blob);
+                    img.alt = icon.name;
+                    
+                    const size = document.createElement('div');
+                    size.className = 'size';
+                    size.textContent = `${icon.size}×${icon.size}`;
+                    
+                    item.appendChild(img);
+                    item.appendChild(size);
+                    grid.appendChild(item);
+                });
+
+                document.getElementById('results-section').style.display = 'block';
+            }
+
+            async downloadAll() {
+                // In a real implementation, you would create a ZIP file
+                // For demo purposes, we'll just show a message
+                this.showSuccess('In a real implementation, this would download a ZIP file with all icons');
+            }
+
+            showError(message) {
+                const errorDiv = document.getElementById('error-message');
+                errorDiv.textContent = message;
+                errorDiv.style.display = 'block';
+                setTimeout(() => {
+                    errorDiv.style.display = 'none';
+                }, 5000);
+            }
+
+            showSuccess(message) {
+                const successDiv = document.getElementById('success-message');
+                successDiv.textContent = message;
+                successDiv.style.display = 'block';
+                setTimeout(() => {
+                    successDiv.style.display = 'none';
+                }, 5000);
+            }
+
+            delay(ms) {
+                return new Promise(resolve => setTimeout(resolve, ms));
+            }
+        }
+
+        // Initialize the UI when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            new IconGeneratorUI();
+        });
+    </script>
+</body>
+</html>
+
+
+
+
