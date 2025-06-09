@@ -683,13 +683,19 @@ function handleDirectLinks() {
 document.addEventListener('DOMContentLoaded', async () => {
     helpers.dom.setViewportHeightVar();
     window.addEventListener('resize', helpers.dom.setViewportHeightVar);
+
+    // Enhance dropdowns once components have loaded
+    document.addEventListener('allComponentsLoaded', () => {
+        CustomDropdown.enhanceAll();
+    });
+
     try {
         app = new LingoQuestApp();
         await app.init();
-        
+
         // Make app globally accessible for debugging
         window.LingoQuest = app;
-        
+
         // Add debug helpers
         window.LingoQuest.debug = {
             getModules: () => Array.from(app.modules.keys()),
