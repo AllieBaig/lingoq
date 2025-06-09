@@ -1,0 +1,43 @@
+<!-- In-Game Header -->
+<div class="game-header">
+    <div class="game-info">
+        <div class="current-category">
+            <span class="category-label" data-i18n="game.category">Category:</span>
+            <span id="current-category" class="category-name">Name</span>
+        </div>
+        <div class="current-letter">
+            <span class="letter-label" data-i18n="game.letter">Letter:</span>
+            <span id="current-letter" class="letter-display">A</span>
+        </div>
+        <div class="game-progress">
+            <span class="progress-text">
+                <span id="current-question">1</span> / <span id="total-questions">20</span>
+            </span>
+            <div class="progress-bar">
+                <div id="progress-fill" class="progress-fill" style="width: 5%"></div>
+            </div>
+        </div>
+
+        <!-- Answer language selection -->
+        <div class="answer-language">
+            <label for="answer-language-select">Answers in Language:</label>
+            <select id="answer-language-select" class="select-input" data-custom-dropdown>
+                <option value="en">English</option>
+                <option value="fr">Français</option>
+                <option value="de">Deutsch</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Streak Counter for HollyBolly Mode -->
+    <div id="streak-counter" class="streak-counter hidden">
+        <div class="streak-info">
+            <span class="streak-label" data-i18n="game.streak">Streak:</span>
+            <span id="current-streak" class="streak-number">0</span>
+            <span class="streak-icon">🔥</span>
+        </div>
+        <div class="next-reward">
+            <span id="next-reward-text" data-i18n="game.nextReward">Next reward at 1 correct!</span>
+        </div>
+    </div>
+</div>
