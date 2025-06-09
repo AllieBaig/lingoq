@@ -47,7 +47,7 @@ describe('Settings Flow Integration Tests', () => {
                             <!-- Theme Settings -->
                             <div class="setting-group">
                                 <label for="theme-select">Theme:</label>
-                                <select id="theme-select" class="select-input">
+                                <select id="theme-select" class="select-input" data-custom-dropdown>
                                     <option value="light">Light</option>
                                     <option value="dark">Dark</option>
                                     <option value="high-contrast">High Contrast</option>
@@ -59,7 +59,7 @@ describe('Settings Flow Integration Tests', () => {
                             <!-- Language Settings -->
                             <div class="setting-group">
                                 <label for="language-select">Language:</label>
-                                <select id="language-select" class="select-input">
+                                <select id="language-select" class="select-input" data-custom-dropdown>
                                     <option value="en">English</option>
                                     <option value="fr">Français</option>
                                     <option value="de">Deutsch</option>
@@ -70,7 +70,7 @@ describe('Settings Flow Integration Tests', () => {
                             <!-- Font Settings -->
                             <div class="setting-group">
                                 <label for="font-size-select">Font Size:</label>
-                                <select id="font-size-select" class="select-input">
+                                <select id="font-size-select" class="select-input" data-custom-dropdown>
                                     <option value="small">Small</option>
                                     <option value="medium">Medium</option>
                                     <option value="large">Large</option>
@@ -81,7 +81,7 @@ describe('Settings Flow Integration Tests', () => {
                             <!-- User Profile -->
                             <div class="setting-group">
                                 <label for="user-profile-select">User Profile:</label>
-                                <select id="user-profile-select" class="select-input">
+                                <select id="user-profile-select" class="select-input" data-custom-dropdown>
                                     <option value="senior">Senior (60+)</option>
                                     <option value="student">Student (6-18)</option>
                                     <option value="adult">Adult (19-59)</option>
