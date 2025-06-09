@@ -41,6 +41,7 @@ import MCQGenerator from './modules/game/mcqGenerator.js';
 import helpers from './modules/utils/helpers.js';
 import errorLogger from './modules/utils/errorLogger.js';
 import FontScaler from './modules/utils/fontScaler.js';
+import CustomDropdown from "./modules/ui/customDropdown.js";
 // Initialize error logger for UI visibility
 void errorLogger;
 
@@ -695,6 +696,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         // Show screen based on query parameters
         handleDirectLinks();
+        CustomDropdown.enhanceAll();
 
     } catch (error) {
         console.error('💥 Failed to initialize LingoQuest:', error);
